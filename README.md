@@ -20,6 +20,19 @@ irm https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/main/
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/main/install-macos.sh)"
 ```
 
+## 자동 업데이트
+
+위 한 줄 설치기를 실행하면 자동 업데이트까지 함께 등록됩니다.
+
+- Windows: 사용자 로그인 시와 6시간마다 예약 작업이 확인합니다.
+- macOS: 사용자 로그인 시와 6시간마다 LaunchAgent가 확인합니다.
+- GitHub의 플러그인 버전이 달라진 경우에만 재설치합니다.
+- 업데이트 중에 ChatGPT 앱이 열려 있었다면 앱을 다시 열어야 최신 지침이 확실하게 적용됩니다.
+
+기존 사용자는 위의 한 줄 설치 명령을 **딱 한 번만 다시 실행**하면 이후부터 자동 업데이트를 받습니다.
+
+플러그인 제작자의 업데이트 배포 방법은 [AUTHOR_UPDATE.md](AUTHOR_UPDATE.md)에 있습니다.
+
 ## 모델 안내
 
 모든 모델과 추론 수준에서 작업을 실행합니다. 현재 모델이 GPT-5.6 Sol High 이상이 아닌 것으로 명확히 확인될 때만 아래 안내를 한 번 표시하고, 작업은 중단하지 않습니다.
@@ -35,7 +48,7 @@ codex plugin marketplace add seojun03/cheongnyeon-telecom-plugins --ref main
 codex plugin add cheongnyeon-telecom-blog@cheongnyeon-telecom
 ```
 
-업데이트할 때는 다음 명령을 사용합니다.
+자동 업데이트를 꺼두었거나 즉시 업데이트가 필요할 때는 다음 명령을 수동으로 사용할 수 있습니다.
 
 ```bash
 codex plugin marketplace upgrade cheongnyeon-telecom
@@ -52,6 +65,7 @@ GitHub Actions가 macOS와 Windows에서 다음을 자동 확인합니다.
 - 블로그 작성기·검증기 전체 테스트
 - Windows의 `Ctrl+V` 안내와 바탕화면 출력
 - 공개 Git 저장소를 통한 Codex 마켓플레이스 등록 및 플러그인 설치
+- 공개 `v0.1.0` 구버전에서 최신 버전으로의 자동 업데이트
 
 ## 공개 범위
 

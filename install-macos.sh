@@ -8,6 +8,9 @@ PLUGIN_NAME="cheongnyeon-telecom-blog"
 LEGACY_MARKETPLACE_NAME="cheongnyeon-telecom-share"
 CHATGPT_DMG_URL="https://persistent.oaistatic.com/codex-app-prod/Codex.dmg"
 OPENAI_TEAM_ID="2DC432GLL2"
+AUTO_UPDATE_LABEL="com.cheongnyeon.telecom.plugin-updater"
+AUTO_UPDATE_INTERVAL_SECONDS=21600
+CODEX_HOME_DIR="${CODEX_HOME:-$HOME/.codex}"
 
 log() {
   printf '[청년통신 설치] %s\n' "$1"
@@ -92,10 +95,59 @@ install_chatgpt_app() {
   trap - EXIT
 }
 
+install_auto_update() {
+  local updater_root launch_agents_dir bootstrap_path plist_path log_path user_id
+  [ "${CHEONGNYEON_DISABLE_AUTO_UPDATE:-0}" != "1" ] || {
+    log "자동 업데이트 등록을 건너뜁니다."
+    return 0
+  }
+  [ "${CHEONGNYEON_SKIP_AUTO_UPDATE_SETUP:-0}" != "1" ] || return 0
+
+  updater_root="${CHEONGNYEON_AUTO_UPDATE_ROOT:-$HOME/Library/Application Support/CheongnyeonTelecom}"
+  launch_agents_dir="${CHEONGNYEON_LAUNCH_AGENTS_DIR:-$HOME/Library/LaunchAgents}"
+  bootstrap_path="$updater_root/run-update.sh"
+  plist_path="$launch_agents_dir/$AUTO_UPDATE_LABEL.plist"
+  log_path="$updater_root/plugin-update.log"
+  mkdir -p "$updater_root" "$launch_agents_dir"
+
+  {
+    printf '#!/bin/bash\n'
+    printf 'set -euo pipefail\n'
+    printf 'export CODEX_HOME=%q\n' "$CODEX_HOME_DIR"
+    printf 'export CHEONGNYEON_CODEX_BIN=%q\n' "$CODEX_BIN"
+    printf 'export CHEONGNYEON_REPOSITORY_SOURCE=%q\n' "$REPOSITORY_SOURCE"
+    printf 'export CHEONGNYEON_REPOSITORY_REF=%q\n' "$REPOSITORY_REF"
+    printf '/bin/bash -c "$(/usr/bin/curl -fsSL --retry 3 --connect-timeout 20 %q)"\n' \
+      "https://raw.githubusercontent.com/$REPOSITORY_SOURCE/$REPOSITORY_REF/scripts/update-macos.sh"
+  } > "$bootstrap_path"
+  chmod 700 "$bootstrap_path"
+
+  /usr/bin/plutil -create xml1 "$plist_path"
+  /usr/bin/plutil -insert Label -string "$AUTO_UPDATE_LABEL" "$plist_path"
+  /usr/bin/plutil -insert ProgramArguments -xml '<array/>' "$plist_path"
+  /usr/bin/plutil -insert ProgramArguments.0 -string /bin/bash "$plist_path"
+  /usr/bin/plutil -insert ProgramArguments.1 -string "$bootstrap_path" "$plist_path"
+  /usr/bin/plutil -insert RunAtLoad -bool true "$plist_path"
+  /usr/bin/plutil -insert StartInterval -integer "$AUTO_UPDATE_INTERVAL_SECONDS" "$plist_path"
+  /usr/bin/plutil -insert StandardOutPath -string "$log_path" "$plist_path"
+  /usr/bin/plutil -insert StandardErrorPath -string "$log_path" "$plist_path"
+  /usr/bin/plutil -insert ProcessType -string Background "$plist_path"
+  /usr/bin/plutil -lint "$plist_path" >/dev/null
+
+  if [ "${CHEONGNYEON_SKIP_SCHEDULER_ACTIVATION:-0}" != "1" ]; then
+    user_id="$(id -u)"
+    /bin/launchctl bootout "gui/$user_id" "$plist_path" >/dev/null 2>&1 || true
+    if ! /bin/launchctl bootstrap "gui/$user_id" "$plist_path" >/dev/null 2>&1; then
+      log "자동 업데이트 파일은 등록했습니다. 다음 로그인부터 자동 실행됩니다."
+      return 0
+    fi
+  fi
+  log "자동 업데이트를 등록했습니다: 로그인 시 및 6시간마다 확인"
+}
+
 install_chatgpt_app
-if [ -n "${CODEX_HOME:-}" ]; then
-  mkdir -p "$CODEX_HOME"
-fi
+mkdir -p "$CODEX_HOME_DIR"
+export CODEX_HOME="$CODEX_HOME_DIR"
 CODEX_BIN="$(find_codex || true)"
 [ -n "$CODEX_BIN" ] || fail "플러그인 기능이 있는 Codex 실행 파일을 찾지 못했습니다. ChatGPT 앱을 한 번 실행한 뒤 다시 시도하세요."
 
@@ -115,6 +167,8 @@ printf '%s' "$PLUGIN_LIST" | grep -Eq '"pluginId"[[:space:]]*:[[:space:]]*"cheon
   fail "설치 후 플러그인을 찾지 못했습니다."
 printf '%s' "$PLUGIN_LIST" | grep -Eq '"enabled"[[:space:]]*:[[:space:]]*true' || \
   fail "설치 후 플러그인 활성 상태를 확인하지 못했습니다."
+
+install_auto_update
 
 if [ "${CHEONGNYEON_NO_LAUNCH:-0}" != "1" ]; then
   if [ -d /Applications/ChatGPT.app ]; then

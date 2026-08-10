@@ -44,14 +44,27 @@ jobs:
       - name: Run macOS installer against this commit
         env:
           CODEX_HOME: ${{ runner.temp }}/codex-home
+          CHEONGNYEON_AUTO_UPDATE_ROOT: ${{ runner.temp }}/auto-updater
+          CHEONGNYEON_LAUNCH_AGENTS_DIR: ${{ runner.temp }}/launch-agents
+          CHEONGNYEON_SKIP_SCHEDULER_ACTIVATION: "1"
           CHEONGNYEON_SKIP_APP_INSTALL: "1"
           CHEONGNYEON_NO_LAUNCH: "1"
           CHEONGNYEON_REPOSITORY_REF: ${{ github.sha }}
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/${{ github.sha }}/install-macos.sh)"
-      - name: Verify installed plugin
+      - name: Verify scheduler and old-to-new auto update
         env:
           CODEX_HOME: ${{ runner.temp }}/codex-home
-        run: codex plugin list --json | python -c 'import json,sys; d=json.load(sys.stdin); p=next((x for x in d["installed"] if x["pluginId"]=="cheongnyeon-telecom-blog@cheongnyeon-telecom"),None); assert p and p["enabled"]'
+        run: |
+          test -x "${{ runner.temp }}/auto-updater/run-update.sh"
+          plutil -lint "${{ runner.temp }}/launch-agents/com.cheongnyeon.telecom.plugin-updater.plist"
+          codex plugin list --json | python -c 'import json,sys; d=json.load(sys.stdin); p=next((x for x in d["installed"] if x["pluginId"]=="cheongnyeon-telecom-blog@cheongnyeon-telecom"),None); assert p and p["enabled"]'
+          codex plugin remove cheongnyeon-telecom-blog@cheongnyeon-telecom --json >/dev/null
+          codex plugin marketplace remove cheongnyeon-telecom --json >/dev/null
+          codex plugin marketplace add seojun03/cheongnyeon-telecom-plugins --ref v0.1.0 --json >/dev/null
+          codex plugin add cheongnyeon-telecom-blog@cheongnyeon-telecom --json >/dev/null
+          codex plugin list --json | python -c 'import json,sys; d=json.load(sys.stdin); p=next(x for x in d["installed"] if x["pluginId"]=="cheongnyeon-telecom-blog@cheongnyeon-telecom"); assert p["version"]=="0.1.0+codex.20260810141037", p'
+          "${{ runner.temp }}/auto-updater/run-update.sh"
+          codex plugin list --json | python -c 'import json,sys,pathlib; d=json.load(sys.stdin); p=next(x for x in d["installed"] if x["pluginId"]=="cheongnyeon-telecom-blog@cheongnyeon-telecom"); expected=json.loads(pathlib.Path("plugins/cheongnyeon-telecom-blog/.codex-plugin/plugin.json").read_text())["version"]; assert p["enabled"] and p["version"]==expected, (p,expected)'
 
   install-windows:
     name: Public Git install (Windows)
@@ -68,6 +81,8 @@ jobs:
         shell: pwsh
         env:
           CODEX_HOME: ${{ runner.temp }}\codex-home
+          CHEONGNYEON_AUTO_UPDATE_ROOT: ${{ runner.temp }}\auto-updater
+          CHEONGNYEON_AUTO_UPDATE_TASK_NAME: CheongnyeonTelecomPluginUpdate-CI
           CHEONGNYEON_SKIP_APP_INSTALL: "1"
           CHEONGNYEON_SKIP_DEPENDENCY_INSTALL: "1"
           CHEONGNYEON_NO_LAUNCH: "1"
@@ -75,7 +90,28 @@ jobs:
         run: |
           $env:CHEONGNYEON_CODEX_PATH = (Get-Command codex.cmd).Source
           irm "https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/${{ github.sha }}/install-windows.ps1" | iex
-      - name: Verify installed plugin and Windows HTML output
+      - name: Verify scheduler and old-to-new auto update
+        shell: pwsh
+        env:
+          CODEX_HOME: ${{ runner.temp }}\codex-home
+        run: |
+          $task = Get-ScheduledTask -TaskName "CheongnyeonTelecomPluginUpdate-CI" -ErrorAction Stop
+          if (@($task.Triggers).Count -ne 2) { throw "Expected two automatic update triggers" }
+          $bootstrap = Join-Path $env:RUNNER_TEMP "auto-updater\run-update.ps1"
+          if (-not (Test-Path -LiteralPath $bootstrap)) { throw "Updater bootstrap was not created" }
+          codex plugin remove cheongnyeon-telecom-blog@cheongnyeon-telecom --json | Out-Null
+          codex plugin marketplace remove cheongnyeon-telecom --json | Out-Null
+          codex plugin marketplace add seojun03/cheongnyeon-telecom-plugins --ref v0.1.0 --json | Out-Null
+          codex plugin add cheongnyeon-telecom-blog@cheongnyeon-telecom --json | Out-Null
+          $oldData = codex plugin list --json | ConvertFrom-Json
+          $old = $oldData.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
+          if ($old.version -ne "0.1.0+codex.20260810141037") { throw "Old-version setup failed: $($old.version)" }
+          & $bootstrap
+          $plugins = codex plugin list --json | ConvertFrom-Json
+          $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
+          $expected = (Get-Content -LiteralPath "plugins\cheongnyeon-telecom-blog\.codex-plugin\plugin.json" -Raw | ConvertFrom-Json).version
+          if (-not $installed.enabled -or $installed.version -ne $expected) { throw "Auto update failed: $($installed.version), expected $expected" }
+      - name: Verify Windows HTML output
         shell: pwsh
         env:
           CODEX_HOME: ${{ runner.temp }}\codex-home
@@ -85,7 +121,8 @@ jobs:
           $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" }
           if (-not $installed.enabled) { throw "Plugin is not enabled" }
           $cache = Join-Path $env:CODEX_HOME "plugins\cache\cheongnyeon-telecom\cheongnyeon-telecom-blog"
-          $pluginVersion = Get-ChildItem -Path $cache -Directory | Sort-Object Name -Descending | Select-Object -First 1
+          $installedVersion = (codex plugin list --json | ConvertFrom-Json).installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -ExpandProperty version -First 1
+          $pluginVersion = Get-ChildItem -Path $cache -Directory | Where-Object { $_.Name -eq $installedVersion } | Select-Object -First 1
           if (-not $pluginVersion) { throw "Installed plugin cache was not found" }
           $article = Join-Path $env:RUNNER_TEMP "article.html"
           '<article><p>Windows 출력 테스트</p></article>' | Set-Content -LiteralPath $article -Encoding utf8
@@ -94,3 +131,7 @@ jobs:
           if (-not (Test-Path -LiteralPath $output)) { throw "HTML output was not created" }
           $html = Get-Content -LiteralPath $output -Raw
           if ($html -notmatch "Ctrl\+V") { throw "Windows Ctrl+V guidance was not generated" }
+      - name: Remove CI scheduled task
+        if: always()
+        shell: pwsh
+        run: Unregister-ScheduledTask -TaskName "CheongnyeonTelecomPluginUpdate-CI" -Confirm:$false -ErrorAction SilentlyContinue

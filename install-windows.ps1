@@ -5,6 +5,9 @@ param(
     [string]$CodexPath = $env:CHEONGNYEON_CODEX_PATH,
     [switch]$SkipAppInstall = ($env:CHEONGNYEON_SKIP_APP_INSTALL -eq "1"),
     [switch]$SkipDependencyInstall = ($env:CHEONGNYEON_SKIP_DEPENDENCY_INSTALL -eq "1"),
+    [switch]$DisableAutoUpdate = ($env:CHEONGNYEON_DISABLE_AUTO_UPDATE -eq "1"),
+    [switch]$SkipAutoUpdateSetup = ($env:CHEONGNYEON_SKIP_AUTO_UPDATE_SETUP -eq "1"),
+    [switch]$SkipSchedulerActivation = ($env:CHEONGNYEON_SKIP_SCHEDULER_ACTIVATION -eq "1"),
     [switch]$NoLaunch = ($env:CHEONGNYEON_NO_LAUNCH -eq "1")
 )
 
@@ -13,6 +16,8 @@ $ProgressPreference = "SilentlyContinue"
 $MarketplaceName = "cheongnyeon-telecom"
 $PluginName = "cheongnyeon-telecom-blog"
 $LegacyMarketplaceName = "cheongnyeon-telecom-share"
+$AutoUpdateTaskName = $(if ($env:CHEONGNYEON_AUTO_UPDATE_TASK_NAME) { $env:CHEONGNYEON_AUTO_UPDATE_TASK_NAME } else { "CheongnyeonTelecomPluginUpdate" })
+$AutoUpdateRoot = $(if ($env:CHEONGNYEON_AUTO_UPDATE_ROOT) { $env:CHEONGNYEON_AUTO_UPDATE_ROOT } else { Join-Path $env:LOCALAPPDATA "CheongnyeonTelecom" })
 
 function Write-Step([string]$Message) {
     Write-Host "[청년통신 설치] $Message" -ForegroundColor Cyan
@@ -94,6 +99,55 @@ function Invoke-Codex([string[]]$Arguments, [switch]$IgnoreFailure, [switch]$Cap
     }
 }
 
+function ConvertTo-SingleQuotedLiteral([string]$Value) {
+    return "'$(($Value -replace "'", "''"))'"
+}
+
+function Install-AutoUpdate {
+    if ($DisableAutoUpdate) {
+        Write-Step "자동 업데이트 등록을 건너뜁니다."
+        return
+    }
+    if ($SkipAutoUpdateSetup) {
+        return
+    }
+
+    New-Item -ItemType Directory -Path $AutoUpdateRoot -Force | Out-Null
+    $bootstrapPath = Join-Path $AutoUpdateRoot "run-update.ps1"
+    $logPath = Join-Path $AutoUpdateRoot "plugin-update.log"
+    $updaterUrl = "https://raw.githubusercontent.com/$RepositorySource/$Ref/scripts/update-windows.ps1"
+    $codeHome = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $HOME ".codex" }
+    $bootstrapLines = @(
+        '$ErrorActionPreference = "Stop"',
+        '$ProgressPreference = "SilentlyContinue"',
+        "`$env:CODEX_HOME = $(ConvertTo-SingleQuotedLiteral $codeHome)",
+        "`$env:CHEONGNYEON_CODEX_PATH = $(ConvertTo-SingleQuotedLiteral $script:CodexExecutable)",
+        "`$env:CHEONGNYEON_REPOSITORY_SOURCE = $(ConvertTo-SingleQuotedLiteral $RepositorySource)",
+        "`$env:CHEONGNYEON_REPOSITORY_REF = $(ConvertTo-SingleQuotedLiteral $Ref)",
+        "`$source = Invoke-RestMethod -Uri $(ConvertTo-SingleQuotedLiteral $updaterUrl)",
+        '& ([scriptblock]::Create([string]$source))'
+    )
+    $encoding = New-Object System.Text.UTF8Encoding($false)
+    [IO.File]::WriteAllText($bootstrapPath, ($bootstrapLines -join [Environment]::NewLine) + [Environment]::NewLine, $encoding)
+
+    if ($SkipSchedulerActivation) {
+        Write-Step "자동 업데이트 실행 파일을 만들었습니다."
+        return
+    }
+
+    $powerShell = Join-Path $env:SystemRoot "System32\WindowsPowerShell\v1.0\powershell.exe"
+    $scheduledCommand = "& $(ConvertTo-SingleQuotedLiteral $bootstrapPath) *> $(ConvertTo-SingleQuotedLiteral $logPath)"
+    $actionArgs = "-NoLogo -NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -Command `"$scheduledCommand`""
+    $action = New-ScheduledTaskAction -Execute $powerShell -Argument $actionArgs
+    $currentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+    $logonTrigger = New-ScheduledTaskTrigger -AtLogOn -User $currentUser
+    $periodicTrigger = New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(5) -RepetitionInterval (New-TimeSpan -Hours 6)
+    $principal = New-ScheduledTaskPrincipal -UserId $currentUser -LogonType Interactive -RunLevel Limited
+    $settings = New-ScheduledTaskSettingsSet -StartWhenAvailable -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -MultipleInstances IgnoreNew -ExecutionTimeLimit (New-TimeSpan -Minutes 15)
+    Register-ScheduledTask -TaskName $AutoUpdateTaskName -Action $action -Trigger @($logonTrigger, $periodicTrigger) -Principal $principal -Settings $settings -Force | Out-Null
+    Write-Step "자동 업데이트를 등록했습니다: 로그인 시 및 6시간마다 확인"
+}
+
 if ($PSVersionTable.PSEdition -eq "Core" -and -not $IsWindows) {
     throw "이 설치기는 Windows PowerShell용입니다. macOS에서는 install-macos.sh를 사용하세요."
 }
@@ -160,6 +214,8 @@ $installed = $pluginData.installed | Where-Object { $_.pluginId -eq "$PluginName
 if (-not $installed -or -not $installed.enabled) {
     throw "설치 후 플러그인 활성 상태를 확인하지 못했습니다."
 }
+
+Install-AutoUpdate
 
 if (-not $NoLaunch) {
     $package = Get-ChatGPTPackage

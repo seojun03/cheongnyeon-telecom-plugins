@@ -65,9 +65,17 @@ def validate_marketplace() -> None:
 
 
 def validate_tree() -> None:
-    require((PLUGIN_ROOT / "skills" / PLUGIN_NAME / "SKILL.md").is_file(), "SKILL.md 누락")
-    require((ROOT / "install-macos.sh").is_file(), "macOS 설치기 누락")
-    require((ROOT / "install-windows.ps1").is_file(), "Windows 설치기 누락")
+    required_files = (
+        PLUGIN_ROOT / "skills" / PLUGIN_NAME / "SKILL.md",
+        ROOT / "install-macos.sh",
+        ROOT / "install-windows.ps1",
+        ROOT / "scripts" / "update-macos.sh",
+        ROOT / "scripts" / "update-windows.ps1",
+        ROOT / "scripts" / "publish-update.sh",
+        ROOT / "AUTHOR_UPDATE.md",
+    )
+    for path in required_files:
+        require(path.is_file(), f"필수 파일이 없습니다: {path.relative_to(ROOT)}")
     forbidden = []
     long_paths = []
     for path in ROOT.rglob("*"):
@@ -90,6 +98,9 @@ def validate_installers() -> None:
         require(PLUGIN_NAME in text, f"{path.name} 플러그인 상수 누락")
         require("marketplace" in text and "add" in text, f"{path.name} 마켓플레이스 등록 누락")
         require("plugin" in text and "add" in text, f"{path.name} 플러그인 설치 누락")
+        require("6시간마다" in text, f"{path.name} 자동 업데이트 안내 누락")
+    require("StartInterval" in (ROOT / "install-macos.sh").read_text(encoding="utf-8"), "macOS LaunchAgent 누락")
+    require("Register-ScheduledTask" in (ROOT / "install-windows.ps1").read_text(encoding="utf-8"), "Windows 예약 작업 누락")
 
 
 def main() -> int:
