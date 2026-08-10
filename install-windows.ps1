@@ -1,11 +1,11 @@
 [CmdletBinding()]
 param(
-    [string]$RepositorySource = "seojun03/cheongnyeon-telecom-plugins",
-    [string]$Ref = "main",
-    [string]$CodexPath = "",
-    [switch]$SkipAppInstall,
-    [switch]$SkipDependencyInstall,
-    [switch]$NoLaunch
+    [string]$RepositorySource = $(if ($env:CHEONGNYEON_REPOSITORY_SOURCE) { $env:CHEONGNYEON_REPOSITORY_SOURCE } else { "seojun03/cheongnyeon-telecom-plugins" }),
+    [string]$Ref = $(if ($env:CHEONGNYEON_REPOSITORY_REF) { $env:CHEONGNYEON_REPOSITORY_REF } else { "main" }),
+    [string]$CodexPath = $env:CHEONGNYEON_CODEX_PATH,
+    [switch]$SkipAppInstall = ($env:CHEONGNYEON_SKIP_APP_INSTALL -eq "1"),
+    [switch]$SkipDependencyInstall = ($env:CHEONGNYEON_SKIP_DEPENDENCY_INSTALL -eq "1"),
+    [switch]$NoLaunch = ($env:CHEONGNYEON_NO_LAUNCH -eq "1")
 )
 
 $ErrorActionPreference = "Stop"

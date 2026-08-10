@@ -47,7 +47,7 @@ jobs:
           CHEONGNYEON_SKIP_APP_INSTALL: "1"
           CHEONGNYEON_NO_LAUNCH: "1"
           CHEONGNYEON_REPOSITORY_REF: ${{ github.sha }}
-        run: bash install-macos.sh
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/${{ github.sha }}/install-macos.sh)"
       - name: Verify installed plugin
         env:
           CODEX_HOME: ${{ runner.temp }}/codex-home
@@ -68,9 +68,13 @@ jobs:
         shell: pwsh
         env:
           CODEX_HOME: ${{ runner.temp }}\codex-home
+          CHEONGNYEON_SKIP_APP_INSTALL: "1"
+          CHEONGNYEON_SKIP_DEPENDENCY_INSTALL: "1"
+          CHEONGNYEON_NO_LAUNCH: "1"
+          CHEONGNYEON_REPOSITORY_REF: ${{ github.sha }}
         run: |
-          $codex = (Get-Command codex.cmd).Source
-          ./install-windows.ps1 -SkipAppInstall -SkipDependencyInstall -NoLaunch -CodexPath $codex -Ref "${{ github.sha }}"
+          $env:CHEONGNYEON_CODEX_PATH = (Get-Command codex.cmd).Source
+          irm "https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/${{ github.sha }}/install-windows.ps1" | iex
       - name: Verify installed plugin and Windows HTML output
         shell: pwsh
         env:
