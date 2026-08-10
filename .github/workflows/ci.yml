@@ -1,0 +1,89 @@
+name: Cross-platform validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  plugin-tests:
+    name: Plugin tests (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate distribution
+        run: python scripts/validate_distribution.py
+      - name: Run all skill tests
+        working-directory: plugins/cheongnyeon-telecom-blog/skills/cheongnyeon-telecom-blog
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+
+  install-macos:
+    name: Public Git install (macOS)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+      - name: Install Codex CLI
+        run: npm install --global @openai/codex
+      - name: Run macOS installer against this commit
+        env:
+          CODEX_HOME: ${{ runner.temp }}/codex-home
+          CHEONGNYEON_SKIP_APP_INSTALL: "1"
+          CHEONGNYEON_NO_LAUNCH: "1"
+          CHEONGNYEON_REPOSITORY_REF: ${{ github.sha }}
+        run: bash install-macos.sh
+      - name: Verify installed plugin
+        env:
+          CODEX_HOME: ${{ runner.temp }}/codex-home
+        run: codex plugin list --json | python -c 'import json,sys; d=json.load(sys.stdin); p=next((x for x in d["installed"] if x["pluginId"]=="cheongnyeon-telecom-blog@cheongnyeon-telecom"),None); assert p and p["enabled"]'
+
+  install-windows:
+    name: Public Git install (Windows)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+      - name: Install Codex CLI
+        shell: pwsh
+        run: npm install --global @openai/codex
+      - name: Run Windows installer against this commit
+        shell: pwsh
+        env:
+          CODEX_HOME: ${{ runner.temp }}\codex-home
+        run: |
+          $codex = (Get-Command codex.cmd).Source
+          ./install-windows.ps1 -SkipAppInstall -SkipDependencyInstall -NoLaunch -CodexPath $codex -Ref "${{ github.sha }}"
+      - name: Verify installed plugin and Windows HTML output
+        shell: pwsh
+        env:
+          CODEX_HOME: ${{ runner.temp }}\codex-home
+          CHEONGNYEON_OUTPUT_DIR: ${{ runner.temp }}\naver-output
+        run: |
+          $plugins = codex plugin list --json | ConvertFrom-Json
+          $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" }
+          if (-not $installed.enabled) { throw "Plugin is not enabled" }
+          $cache = Join-Path $env:CODEX_HOME "plugins\cache\cheongnyeon-telecom\cheongnyeon-telecom-blog"
+          $pluginVersion = Get-ChildItem -Path $cache -Directory | Sort-Object Name -Descending | Select-Object -First 1
+          if (-not $pluginVersion) { throw "Installed plugin cache was not found" }
+          $article = Join-Path $env:RUNNER_TEMP "article.html"
+          '<article><p>Windows 출력 테스트</p></article>' | Set-Content -LiteralPath $article -Encoding utf8
+          $builder = Join-Path $pluginVersion.FullName "skills\cheongnyeon-telecom-blog\scripts\build_naver_copy_page.py"
+          $output = python $builder --title "Windows 출력 테스트" --article-html $article
+          if (-not (Test-Path -LiteralPath $output)) { throw "HTML output was not created" }
+          $html = Get-Content -LiteralPath $output -Raw
+          if ($html -notmatch "Ctrl\+V") { throw "Windows Ctrl+V guidance was not generated" }

@@ -1,0 +1,4926 @@
+{
+  "version": 1,
+  "source": {
+    "blogId": "sungji_dongtan",
+    "categoryNo": "1",
+    "categoryUrl": "https://blog.naver.com/PostList.naver?blogId=sungji_dongtan&categoryNo=1&from=postList&parentCategoryNo=0",
+    "observedPublicPostCount": 188,
+    "collectedAt": "2026-08-08",
+    "usage": "title-topic-ideas-only",
+    "factPolicy": "Never copy source names, numbers, prices, testimonials, guarantees, locations, or business claims into Cheongnyeon Telecom content."
+  },
+  "summary": {
+    "typeCounts": {
+      "faq-aftercare": 11,
+      "fraud-prevention": 29,
+      "insider-story": 6,
+      "launch-stock": 17,
+      "plan-contract-explainer": 7,
+      "price-mechanism": 102,
+      "purchase-checklist": 8,
+      "store-trust-intro": 5,
+      "visit-case-story": 3
+    },
+    "titlePatternCounts": {
+      "keyword-authority-benefit-howto": 3,
+      "keyword-causal-reason": 12,
+      "keyword-choice-comparison": 1,
+      "keyword-direct-howto": 11,
+      "keyword-numbered-curiosity": 38,
+      "keyword-preopen-missed-criterion": 2,
+      "keyword-question-authority-reason": 2,
+      "keyword-question-curiosity": 10,
+      "keyword-specific-promise": 87,
+      "keyword-warning-loss": 22
+    }
+  },
+  "writingMasterRegistry": {
+    "warning-seller-lines-01": {
+      "label": "경고·피해예방형",
+      "sourceUrl": "https://blog.naver.com/cjdsus4444/223515173954",
+      "decorationProfileAvailable": true
+    },
+    "price-reader-objections-01": {
+      "label": "가격·독자 반론형",
+      "sourceUrl": "https://blog.naver.com/cjdsus4444/224139466948",
+      "decorationProfileAvailable": true
+    },
+    "authority-broadcast-reason-01": {
+      "label": "권위·방송·가격 이유형",
+      "sourceUrl": "https://blog.naver.com/cjdsus4444/224275775634",
+      "decorationProfileAvailable": true
+    },
+    "operation-counterargument-01": {
+      "label": "반론·운영 근거형",
+      "sourceUrl": "https://blog.naver.com/cjdsus4444/223722832688",
+      "decorationProfileAvailable": true
+    }
+  },
+  "articles": [
+    {
+      "id": "sungji-224370916235",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224370916235",
+      "sourceTitle": "동탄영천동 휴대폰?, 누적 12만명 만들게 된 진짜 이유 3가지",
+      "publishedAt": "2026. 8. 7. 11:31",
+      "primaryType": "store-trust-intro",
+      "primaryTypeLabel": "업체·신뢰 소개형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-question-authority-reason",
+      "titlePatternDescription": "메인키워드 질문 + 검증된 권위 근거 + 진짜 이유·비밀",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "authority",
+        "curiosity"
+      ],
+      "readerQuestion": "광고 문구가 아니라 어떤 근거로 매장을 판단할 수 있는가",
+      "answerAgenda": [
+        "광고를 의심하는 독자의 반론",
+        "검증 가능한 운영·신뢰 근거",
+        "매장을 고르는 일반 기준"
+      ],
+      "compatibleWritingMasterIds": [
+        "operation-counterargument-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224363689654",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224363689654",
+      "sourceTitle": "동탄반월동 핸드폰? 누적 12만 매장의 비밀 3가지",
+      "publishedAt": "2026. 7. 31. 11:33",
+      "primaryType": "store-trust-intro",
+      "primaryTypeLabel": "업체·신뢰 소개형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-question-authority-reason",
+      "titlePatternDescription": "메인키워드 질문 + 검증된 권위 근거 + 진짜 이유·비밀",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "authority",
+        "curiosity"
+      ],
+      "readerQuestion": "광고 문구가 아니라 어떤 근거로 매장을 판단할 수 있는가",
+      "answerAgenda": [
+        "광고를 의심하는 독자의 반론",
+        "검증 가능한 운영·신뢰 근거",
+        "매장을 고르는 일반 기준"
+      ],
+      "compatibleWritingMasterIds": [
+        "operation-counterargument-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224360317905",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224360317905",
+      "sourceTitle": "동탄오산동 휴대폰 개통 전, 10명 중 8명이 놓치는 기준",
+      "publishedAt": "2026. 7. 28. 11:54",
+      "primaryType": "purchase-checklist",
+      "primaryTypeLabel": "구매 기준·체크리스트형",
+      "secondaryAngle": "switching",
+      "secondaryAngleLabel": "번호이동과 기기변경",
+      "titlePatternId": "keyword-preopen-missed-criterion",
+      "titlePatternDescription": "메인키워드 + 개통·계약 전 + 놓치기 쉬운 구체 기준",
+      "titleHookSignals": [
+        "number",
+        "loss",
+        "time-pressure"
+      ],
+      "readerQuestion": "휴대폰 계약 전에 무엇을 순서대로 확인해야 하는가",
+      "answerAgenda": [
+        "계약 전에 볼 구체 항목",
+        "항목을 놓쳤을 때의 결과",
+        "현장에서 물어볼 질문"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224332780550",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224332780550",
+      "sourceTitle": "동탄휴대폰성지에서 핸드폰 파는 사람이 사는 사람에게 하는 경고 (반월동휴대폰）",
+      "publishedAt": "2026. 7. 1. 11:02",
+      "primaryType": "insider-story",
+      "primaryTypeLabel": "대표 철학·내부자 고백형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "대표의 운영 방식이 고객 조건에 어떤 차이를 만드는가",
+      "answerAgenda": [
+        "대표의 이해관계와 관찰",
+        "운영 선택의 이유",
+        "구매자가 적용할 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "operation-counterargument-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224331519030",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224331519030",
+      "sourceTitle": "화성휴대폰 살때, 약정 끝나고 나서야 후회하는 사람들의 공통점 (화성성지)",
+      "publishedAt": "2026. 6. 30. 10:29",
+      "primaryType": "plan-contract-explainer",
+      "primaryTypeLabel": "요금제·결합·약정 정보형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "요금제·결합·약정 조건이 실제로 유리한지 어떻게 확인하는가",
+      "answerAgenda": [
+        "제도의 실제 의미",
+        "이익과 예외 조건",
+        "계약서에서 확인할 항목"
+      ],
+      "compatibleWritingMasterIds": [
+        "authority-broadcast-reason-01",
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224327746126",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224327746126",
+      "sourceTitle": "궐동휴대폰매장? 10명 중 9명이 재방문하는 이유",
+      "publishedAt": "2026. 6. 26. 10:32",
+      "primaryType": "visit-case-story",
+      "primaryTypeLabel": "고객 방문 이유·사례형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "curiosity"
+      ],
+      "readerQuestion": "고객이 가까운 곳을 두고도 특정 매장을 찾는 이유는 무엇인가",
+      "answerAgenda": [
+        "고객이 움직이는 이유",
+        "그 이유를 뒷받침하는 운영 근거",
+        "다른 매장에서도 확인할 기준"
+      ],
+      "compatibleWritingMasterIds": [
+        "operation-counterargument-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224326684765",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224326684765",
+      "sourceTitle": "남양읍핸드폰 파는곳? 1억 배상 100% 환불 보장하는 곳 찾으세요",
+      "publishedAt": "2026. 6. 25. 10:38",
+      "primaryType": "store-trust-intro",
+      "primaryTypeLabel": "업체·신뢰 소개형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "number"
+      ],
+      "readerQuestion": "광고 문구가 아니라 어떤 근거로 매장을 판단할 수 있는가",
+      "answerAgenda": [
+        "광고를 의심하는 독자의 반론",
+        "검증 가능한 운영·신뢰 근거",
+        "매장을 고르는 일반 기준"
+      ],
+      "compatibleWritingMasterIds": [
+        "operation-counterargument-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224325486083",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224325486083",
+      "sourceTitle": "동탄목동핸드폰 매장에서 이 '3가지' 확인 안 하면 수십만원 손해 봅니다",
+      "publishedAt": "2026. 6. 24. 10:26",
+      "primaryType": "purchase-checklist",
+      "primaryTypeLabel": "구매 기준·체크리스트형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "loss"
+      ],
+      "readerQuestion": "휴대폰 계약 전에 무엇을 순서대로 확인해야 하는가",
+      "answerAgenda": [
+        "계약 전에 볼 구체 항목",
+        "항목을 놓쳤을 때의 결과",
+        "현장에서 물어볼 질문"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224324312646",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224324312646",
+      "sourceTitle": "동탄핸드폰달인성지 갈때, 100% 환불 보장하는 매장 찾아야 하는 이유",
+      "publishedAt": "2026. 6. 23. 10:43",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "curiosity"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224323164802",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224323164802",
+      "sourceTitle": "동탄성지폰 매장에서 시세표보다 '이것' 먼저 봐야 호갱 안 됩니다 (화성핸드폰성지)",
+      "publishedAt": "2026. 6. 22. 10:34",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "loss",
+        "curiosity"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224319779447",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224319779447",
+      "sourceTitle": "오산도매폰 매장, 같은 폰인데 가격 다른 진짜 이유",
+      "publishedAt": "2026. 6. 18. 13:35",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-causal-reason",
+      "titlePatternDescription": "메인키워드 + 원인에 대한 분명한 약속",
+      "titleHookSignals": [
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224318522930",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224318522930",
+      "sourceTitle": "오산휴대폰매장, 적게 남기고 파는 매장 구분하는 법",
+      "publishedAt": "2026. 6. 17. 10:44",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-direct-howto",
+      "titlePatternDescription": "메인키워드 + 독자가 바로 얻는 방법",
+      "titleHookSignals": [
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224317400295",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224317400295",
+      "sourceTitle": "화성휴대폰 개통 전, 꼭 확인해야 할 3가지 기준",
+      "publishedAt": "2026. 6. 16. 10:56",
+      "primaryType": "purchase-checklist",
+      "primaryTypeLabel": "구매 기준·체크리스트형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-preopen-missed-criterion",
+      "titlePatternDescription": "메인키워드 + 개통·계약 전 + 놓치기 쉬운 구체 기준",
+      "titleHookSignals": [
+        "number",
+        "time-pressure"
+      ],
+      "readerQuestion": "휴대폰 계약 전에 무엇을 순서대로 확인해야 하는가",
+      "answerAgenda": [
+        "계약 전에 볼 구체 항목",
+        "항목을 놓쳤을 때의 결과",
+        "현장에서 물어볼 질문"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224316186258",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224316186258",
+      "sourceTitle": "새솔동휴대폰 매장에서 가격만 보고 결정하면 호갱 되는 이유 3가지",
+      "publishedAt": "2026. 6. 15. 10:14",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "loss",
+        "curiosity"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224307066459",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224307066459",
+      "sourceTitle": "동탄성지폰 매장? 연 12,000대 판매하는 휴대폰달인이 알려주는 선택 기준 3가지",
+      "publishedAt": "2026. 6. 5. 17:52",
+      "primaryType": "purchase-checklist",
+      "primaryTypeLabel": "구매 기준·체크리스트형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-authority-benefit-howto",
+      "titlePatternDescription": "메인키워드 + 검증된 권위 + 독자가 얻는 구매 이익",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "benefit"
+      ],
+      "readerQuestion": "휴대폰 계약 전에 무엇을 순서대로 확인해야 하는가",
+      "answerAgenda": [
+        "계약 전에 볼 구체 항목",
+        "항목을 놓쳤을 때의 결과",
+        "현장에서 물어볼 질문"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224283421854",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224283421854",
+      "sourceTitle": "반송동휴대폰, 개통했다 돈 날리는 사람 특징 3가지",
+      "publishedAt": "2026. 5. 12. 22:01",
+      "primaryType": "purchase-checklist",
+      "primaryTypeLabel": "구매 기준·체크리스트형",
+      "secondaryAngle": "installment",
+      "secondaryAngleLabel": "할부 기간과 할부원금",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "휴대폰 계약 전에 무엇을 순서대로 확인해야 하는가",
+      "answerAgenda": [
+        "계약 전에 볼 구체 항목",
+        "항목을 놓쳤을 때의 결과",
+        "현장에서 물어볼 질문"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224277903576",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224277903576",
+      "sourceTitle": "평택휴대폰매장? 3가지 질문으로 호구 탈출하는 법",
+      "publishedAt": "2026. 5. 7. 16:51",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "loss",
+        "benefit"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-224190882299",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/224190882299",
+      "sourceTitle": "[공지] 달인폰센터, 서울에서 동탄까지 핸드폰 사러 오시는 분들께",
+      "publishedAt": "2026. 2. 21. 21:30",
+      "primaryType": "visit-case-story",
+      "primaryTypeLabel": "고객 방문 이유·사례형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "고객이 가까운 곳을 두고도 특정 매장을 찾는 이유는 무엇인가",
+      "answerAgenda": [
+        "고객이 움직이는 이유",
+        "그 이유를 뒷받침하는 운영 근거",
+        "다른 매장에서도 확인할 기준"
+      ],
+      "compatibleWritingMasterIds": [
+        "operation-counterargument-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223526281178",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223526281178",
+      "sourceTitle": "평택 핸드폰성지 직원이 이런 말 하면 절대 폰 사지 마세요!",
+      "publishedAt": "2024. 7. 26. 14:21",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "loss"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223520283521",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223520283521",
+      "sourceTitle": "영천동 휴대폰 성지 도매폰센타는 왜 미친듯이 싼 걸까?",
+      "publishedAt": "2024. 7. 21. 16:01",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-question-curiosity",
+      "titlePatternDescription": "메인키워드 질문 + 구체적인 궁금증",
+      "titleHookSignals": [
+        "question",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223429236940",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223429236940",
+      "sourceTitle": "광교휴대폰성지, 10명중 8명은 모르는 매장 수익구조",
+      "publishedAt": "2024. 4. 27. 22:41",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223428190087",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223428190087",
+      "sourceTitle": "동탄성지 도매폰센터, 새 폰 살 때 호구당하지 않으려면 알아야 할 2가지",
+      "publishedAt": "2024. 4. 26. 17:31",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "loss"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223427137962",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223427137962",
+      "sourceTitle": "수원핸드폰성지, '이것' 모르면 저렴하게 살 수 없습니다.",
+      "publishedAt": "2024. 4. 25. 18:55",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "curiosity",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223426035466",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223426035466",
+      "sourceTitle": "분당핸드폰성지, 더 이상 사기당하지 마세요.",
+      "publishedAt": "2024. 4. 24. 19:26",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "loss"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223424820789",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223424820789",
+      "sourceTitle": "용인핸드폰성지 업계 모든 비밀을 풀겠습니다.",
+      "publishedAt": "2024. 4. 23. 18:24",
+      "primaryType": "insider-story",
+      "primaryTypeLabel": "대표 철학·내부자 고백형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "curiosity"
+      ],
+      "readerQuestion": "대표의 운영 방식이 고객 조건에 어떤 차이를 만드는가",
+      "answerAgenda": [
+        "대표의 이해관계와 관찰",
+        "운영 선택의 이유",
+        "구매자가 적용할 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "operation-counterargument-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223423558172",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223423558172",
+      "sourceTitle": "오산휴대폰성지 시세표 말고 2가지만 기억하세요.",
+      "publishedAt": "2024. 4. 22. 17:04",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223422461515",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223422461515",
+      "sourceTitle": "오산핸드폰성지, 이런 곳은 무조건 거르세요.",
+      "publishedAt": "2024. 4. 21. 17:29",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223420008054",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223420008054",
+      "sourceTitle": "송탄 휴대폰, 호갱 당할 확률 극도로 낮추는 방법",
+      "publishedAt": "2024. 4. 18. 23:54",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "loss"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223418517998",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223418517998",
+      "sourceTitle": "오산폰, 이런 휴대폰 매장은 절대 피하세요",
+      "publishedAt": "2024. 4. 17. 17:21",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "loss"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223417535767",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223417535767",
+      "sourceTitle": "용인핸드폰성지, 폰 살 때 90%가 모르는 휴대폰 매장 수익구조",
+      "publishedAt": "2024. 4. 16. 18:18",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223413439640",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223413439640",
+      "sourceTitle": "부천핸드폰성지 호갱 당하지 않는 방법?",
+      "publishedAt": "2024. 4. 12. 14:47",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "question",
+        "loss"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223411670183",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223411670183",
+      "sourceTitle": "동탄 핸드폰 성지 휴대폰 시세표에 혹하지 마세요.",
+      "publishedAt": "2024. 4. 10. 21:40",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223403760625",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223403760625",
+      "sourceTitle": "분당핸드폰성지 혜택 최대금액 받는 방법!",
+      "publishedAt": "2024. 4. 2. 22:18",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-direct-howto",
+      "titlePatternDescription": "메인키워드 + 독자가 바로 얻는 방법",
+      "titleHookSignals": [],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223396086560",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223396086560",
+      "sourceTitle": "휴대폰성지 동탄 도매폰 동탄점 '최저가' 속지 마세요.",
+      "publishedAt": "2024. 3. 26. 18:17",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223391205898",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223391205898",
+      "sourceTitle": "수원핸드폰성지, 더 이상 호갱 당하지 마세요.",
+      "publishedAt": "2024. 3. 21. 22:33",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "loss"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223389825637",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223389825637",
+      "sourceTitle": "동탄 휴대폰성지 도매폰센타 반월점 저렴하게 구입하는 법!",
+      "publishedAt": "2024. 3. 20. 19:05",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-direct-howto",
+      "titlePatternDescription": "메인키워드 + 독자가 바로 얻는 방법",
+      "titleHookSignals": [
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223385350776",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223385350776",
+      "sourceTitle": "굳이 남양주에서 휴대폰 사러 동탄도매폰센터 까지 오는 이유?",
+      "publishedAt": "2024. 3. 16. 16:25",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-causal-reason",
+      "titlePatternDescription": "메인키워드 + 원인에 대한 분명한 약속",
+      "titleHookSignals": [
+        "question",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223380281771",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223380281771",
+      "sourceTitle": "동탄핸드폰성지, 보조금 많이 받는 방법",
+      "publishedAt": "2024. 3. 11. 21:44",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-direct-howto",
+      "titlePatternDescription": "메인키워드 + 독자가 바로 얻는 방법",
+      "titleHookSignals": [],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223359830348",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223359830348",
+      "sourceTitle": "아이 휴대폰 비밀번호(패턴) 분실 시 2가지 해결 방법",
+      "publishedAt": "2024. 2. 20. 19:52",
+      "primaryType": "faq-aftercare",
+      "primaryTypeLabel": "FAQ·사후관리형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "curiosity"
+      ],
+      "readerQuestion": "해당 상황에서 개통과 사후관리를 위해 무엇을 준비해야 하는가",
+      "answerAgenda": [
+        "해당 상황의 준비 조건",
+        "진행 중 막히는 지점",
+        "개통·사후관리 행동"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223351379216",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223351379216",
+      "sourceTitle": "[공지] 동탄 휴대폰 성지? 10명 중 8명은 헛걸음하는 이유 (중요)",
+      "publishedAt": "2024. 2. 12. 20:17",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "curiosity"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223350426199",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223350426199",
+      "sourceTitle": "수원 삼성 서비스센터, 휴대폰 고장 시 가장 먼저 해야 될 '이 '것",
+      "publishedAt": "2024. 2. 11. 16:38",
+      "primaryType": "faq-aftercare",
+      "primaryTypeLabel": "FAQ·사후관리형",
+      "secondaryAngle": "aftercare",
+      "secondaryAngleLabel": "개통 후 사후관리",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "해당 상황에서 개통과 사후관리를 위해 무엇을 준비해야 하는가",
+      "answerAgenda": [
+        "해당 상황의 준비 조건",
+        "진행 중 막히는 지점",
+        "개통·사후관리 행동"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223347424014",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223347424014",
+      "sourceTitle": "수원 삼성 서비스센터, 휴대폰 고장나면 '이것 먼저 하세요.",
+      "publishedAt": "2024. 2. 7. 20:43",
+      "primaryType": "faq-aftercare",
+      "primaryTypeLabel": "FAQ·사후관리형",
+      "secondaryAngle": "aftercare",
+      "secondaryAngleLabel": "개통 후 사후관리",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "curiosity"
+      ],
+      "readerQuestion": "해당 상황에서 개통과 사후관리를 위해 무엇을 준비해야 하는가",
+      "answerAgenda": [
+        "해당 상황의 준비 조건",
+        "진행 중 막히는 지점",
+        "개통·사후관리 행동"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223346305724",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223346305724",
+      "sourceTitle": "동탄 삼성 서비스센터, 휴대폰 고장 나면 '이것' 먼저 하세요.",
+      "publishedAt": "2024. 2. 6. 21:15",
+      "primaryType": "faq-aftercare",
+      "primaryTypeLabel": "FAQ·사후관리형",
+      "secondaryAngle": "aftercare",
+      "secondaryAngleLabel": "개통 후 사후관리",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "curiosity"
+      ],
+      "readerQuestion": "해당 상황에서 개통과 사후관리를 위해 무엇을 준비해야 하는가",
+      "answerAgenda": [
+        "해당 상황의 준비 조건",
+        "진행 중 막히는 지점",
+        "개통·사후관리 행동"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223334828839",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223334828839",
+      "sourceTitle": "2024 핸드폰 그따위로 사지 마세요",
+      "publishedAt": "2024. 1. 26. 19:54",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223311201258",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223311201258",
+      "sourceTitle": "용인 핸드폰 성지? 찾아가도 호갱 당하는 이유(방문전 필독)",
+      "publishedAt": "2024. 1. 3. 14:46",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "question",
+        "loss",
+        "curiosity"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223306830432",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223306830432",
+      "sourceTitle": "핸드폰 오래사용 하는 법 5가지",
+      "publishedAt": "2023. 12. 29. 18:43",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223305855907",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223305855907",
+      "sourceTitle": "수원 휴대폰 성지 15% 싸게 사는 법(Z 플립 5)",
+      "publishedAt": "2023. 12. 28. 18:56",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "number",
+        "benefit"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223292691702",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223292691702",
+      "sourceTitle": "수원 핸드폰 성지 폰팔이 사기 수법",
+      "publishedAt": "2023. 12. 14. 17:08",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "loss"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223286021692",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223286021692",
+      "sourceTitle": "[공지] 서울에서 동탄까지 핸드폰 사러오는 이유",
+      "publishedAt": "2023. 12. 7. 20:50",
+      "primaryType": "visit-case-story",
+      "primaryTypeLabel": "고객 방문 이유·사례형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-causal-reason",
+      "titlePatternDescription": "메인키워드 + 원인에 대한 분명한 약속",
+      "titleHookSignals": [
+        "curiosity"
+      ],
+      "readerQuestion": "고객이 가까운 곳을 두고도 특정 매장을 찾는 이유는 무엇인가",
+      "answerAgenda": [
+        "고객이 움직이는 이유",
+        "그 이유를 뒷받침하는 운영 근거",
+        "다른 매장에서도 확인할 기준"
+      ],
+      "compatibleWritingMasterIds": [
+        "operation-counterargument-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223277335377",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223277335377",
+      "sourceTitle": "병점성지 저렴한 곳? 사기 치는 곳 거르는 법 (할부, 요금제 정보)",
+      "publishedAt": "2023. 11. 28. 19:48",
+      "primaryType": "plan-contract-explainer",
+      "primaryTypeLabel": "요금제·결합·약정 정보형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "question",
+        "loss",
+        "benefit"
+      ],
+      "readerQuestion": "요금제·결합·약정 조건이 실제로 유리한지 어떻게 확인하는가",
+      "answerAgenda": [
+        "제도의 실제 의미",
+        "이익과 예외 조건",
+        "계약서에서 확인할 항목"
+      ],
+      "compatibleWritingMasterIds": [
+        "authority-broadcast-reason-01",
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223276460950",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223276460950",
+      "sourceTitle": "동탄역핸드폰 싼 곳? 제발 추천받아 가지 마세요",
+      "publishedAt": "2023. 11. 27. 22:27",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223274645536",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223274645536",
+      "sourceTitle": "동탄 휴대폰 성지 핸드폰 싼곳 찾을때 알 것",
+      "publishedAt": "2023. 11. 25. 20:14",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223257446368",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223257446368",
+      "sourceTitle": "오산 핸드폰 매장, 도매폰센타가 다른곳보다 쌀수 밖에 없는 '구조적 이유'",
+      "publishedAt": "2023. 11. 6. 21:00",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-causal-reason",
+      "titlePatternDescription": "메인키워드 + 원인에 대한 분명한 약속",
+      "titleHookSignals": [
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223254762776",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223254762776",
+      "sourceTitle": "광교휴대폰성지, 아이폰15 최저가? 믿지 마세요 (7년차 대표가 다 알려드림)",
+      "publishedAt": "2023. 11. 3. 16:47",
+      "primaryType": "insider-story",
+      "primaryTypeLabel": "대표 철학·내부자 고백형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-authority-benefit-howto",
+      "titlePatternDescription": "메인키워드 + 검증된 권위 + 독자가 얻는 구매 이익",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "authority",
+        "benefit"
+      ],
+      "readerQuestion": "대표의 운영 방식이 고객 조건에 어떤 차이를 만드는가",
+      "answerAgenda": [
+        "대표의 이해관계와 관찰",
+        "운영 선택의 이유",
+        "구매자가 적용할 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "operation-counterargument-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223226333086",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223226333086",
+      "sourceTitle": "동탄핸드폰성지, 아이폰15 사전예약 저렴하게 사는 방법",
+      "publishedAt": "2023. 10. 2. 16:21",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "device-launch",
+      "secondaryAngleLabel": "신제품 출시와 구매 시점",
+      "titlePatternId": "keyword-direct-howto",
+      "titlePatternDescription": "메인키워드 + 독자가 바로 얻는 방법",
+      "titleHookSignals": [
+        "number",
+        "benefit"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223194822455",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223194822455",
+      "sourceTitle": "병점휴대폰, 가격이 비싸다면 100프로 환불해 주는 곳?",
+      "publishedAt": "2023. 9. 1. 12:00",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "loss"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223198598791",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223198598791",
+      "sourceTitle": "용인핸드폰성지? 이런 말 한다면 바로 거르시기 바랍니다",
+      "publishedAt": "2023. 8. 31. 14:14",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223197652574",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223197652574",
+      "sourceTitle": "동탄휴대폰성지? 제발 찾지 마세요 (1년에 2000대 파는 직원 글)",
+      "publishedAt": "2023. 8. 30. 15:08",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "number"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223196651078",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223196651078",
+      "sourceTitle": "오산핸드폰성지, 좌표 찾아도 싸게 못 사는 이유 (구매 꿀팁 포함)",
+      "publishedAt": "2023. 8. 29. 15:10",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-causal-reason",
+      "titlePatternDescription": "메인키워드 + 원인에 대한 분명한 약속",
+      "titleHookSignals": [
+        "curiosity",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223195512730",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223195512730",
+      "sourceTitle": "용인휴대폰성지? '이걸' 모르면 싸게 못 삽니다 (대리점 직원 피셜)",
+      "publishedAt": "2023. 8. 28. 13:03",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223194819621",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223194819621",
+      "sourceTitle": "동탄아이폰 14 구매를 알아보시는 분들 '필독'",
+      "publishedAt": "2023. 8. 27. 17:33",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223064586341",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223064586341",
+      "sourceTitle": "의왕핸드폰성지? 찾아가도 호갱 당하는 이유 (방문 전 필독)",
+      "publishedAt": "2023. 4. 4. 17:04",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "question",
+        "loss",
+        "curiosity"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223063530649",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223063530649",
+      "sourceTitle": "산척동휴대폰? 싸게 사기 위한 핵심 1가지 공개합니다",
+      "publishedAt": "2023. 4. 3. 16:43",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "loss",
+        "benefit"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223060791294",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223060791294",
+      "sourceTitle": "봉담핸드폰, 더 이상 속아서 사는 분이 없으셨으면 해서 쓰는 글",
+      "publishedAt": "2023. 3. 31. 12:48",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223060188488",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223060188488",
+      "sourceTitle": "동탄휴대폰, 바가지 쓰지 않으려면 알아야 할 *tip 1가지*",
+      "publishedAt": "2023. 3. 30. 19:49",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223058673273",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223058673273",
+      "sourceTitle": "수원핸드폰? 싸게 산 줄 알았는데 수십만 원 손해 보게 되는 이유",
+      "publishedAt": "2023. 3. 29. 11:36",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-causal-reason",
+      "titlePatternDescription": "메인키워드 + 원인에 대한 분명한 약속",
+      "titleHookSignals": [
+        "question",
+        "loss",
+        "curiosity",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223057720154",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223057720154",
+      "sourceTitle": "반송동핸드폰, 싸게 사는 법? 이렇게만 따라 하세요",
+      "publishedAt": "2023. 3. 28. 11:40",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223056565055",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223056565055",
+      "sourceTitle": "동탄성지 좌표 공유? 이렇게 찾아가면 실패합니다",
+      "publishedAt": "2023. 3. 27. 10:42",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223054572249",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223054572249",
+      "sourceTitle": "군포핸드폰성지? 무작정 찾아가면 안 되는 이유",
+      "publishedAt": "2023. 3. 24. 17:15",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-causal-reason",
+      "titlePatternDescription": "메인키워드 + 원인에 대한 분명한 약속",
+      "titleHookSignals": [
+        "question",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223053253773",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223053253773",
+      "sourceTitle": "기흥핸드폰, 싸게 사려다 역으로 호갱 당하는 이유?",
+      "publishedAt": "2023. 3. 23. 13:20",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "question",
+        "loss",
+        "curiosity",
+        "benefit"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223052362994",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223052362994",
+      "sourceTitle": "광교아이폰, 남들보다 비싸게 사는 사람들 특징",
+      "publishedAt": "2023. 3. 22. 15:59",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "loss",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223040025953",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223040025953",
+      "sourceTitle": "동탄 목동휴대폰? 업계 관계자끼리 공유하는 <구매 팁 공개>",
+      "publishedAt": "2023. 3. 10. 11:05",
+      "primaryType": "insider-story",
+      "primaryTypeLabel": "대표 철학·내부자 고백형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question"
+      ],
+      "readerQuestion": "대표의 운영 방식이 고객 조건에 어떤 차이를 만드는가",
+      "answerAgenda": [
+        "대표의 이해관계와 관찰",
+        "운영 선택의 이유",
+        "구매자가 적용할 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "operation-counterargument-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223039608098",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223039608098",
+      "sourceTitle": "동탄목동핸드폰? 마진 구조 싹 다 오픈합니다",
+      "publishedAt": "2023. 3. 9. 16:29",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223038798904",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223038798904",
+      "sourceTitle": "산척동휴대폰, 싸게 사도 후회하는 사람 특징",
+      "publishedAt": "2023. 3. 8. 20:40",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223037749548",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223037749548",
+      "sourceTitle": "동탄아이폰, '호갱'처럼 싸게 팔 수 있는 이유?",
+      "publishedAt": "2023. 3. 7. 18:29",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "question",
+        "loss",
+        "curiosity",
+        "benefit"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223036208677",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223036208677",
+      "sourceTitle": "병점아이폰, 최신 기종? 개통이 늦어도 괜찮다면 읽지 마세요",
+      "publishedAt": "2023. 3. 6. 15:01",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223033563710",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223033563710",
+      "sourceTitle": "동탄성지? 늘 속아서 방문하시는 분들께 드리는 편지",
+      "publishedAt": "2023. 3. 3. 15:02",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223032779088",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223032779088",
+      "sourceTitle": "병점성지, 기기값 싼 곳 절대 가지 마라? <휴대폰 구매 TIP>",
+      "publishedAt": "2023. 3. 2. 18:53",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "question",
+        "loss"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223030311494",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223030311494",
+      "sourceTitle": "동탄핸드폰성지, 방문하고도 수십만 원 비싸게 산다?",
+      "publishedAt": "2023. 2. 28. 13:15",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "loss",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223029429859",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223029429859",
+      "sourceTitle": "오산성지, 실체? 핸드폰 업계 관계자의 <양심 고백>",
+      "publishedAt": "2023. 2. 27. 18:32",
+      "primaryType": "insider-story",
+      "primaryTypeLabel": "대표 철학·내부자 고백형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question"
+      ],
+      "readerQuestion": "대표의 운영 방식이 고객 조건에 어떤 차이를 만드는가",
+      "answerAgenda": [
+        "대표의 이해관계와 관찰",
+        "운영 선택의 이유",
+        "구매자가 적용할 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "operation-counterargument-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-223003057580",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/223003057580",
+      "sourceTitle": "[수원 핸드폰성지] 갤럭시 S23 사전예약 시작 !",
+      "publishedAt": "2023. 2. 2. 14:54",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "device-launch",
+      "secondaryAngleLabel": "신제품 출시와 구매 시점",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222993764644",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222993764644",
+      "sourceTitle": "[동탄 핸드폰 성지] 갤럭시 S23 출시일 가격 스펙, 혜택까지~",
+      "publishedAt": "2023. 1. 25. 16:25",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "device-launch",
+      "secondaryAngleLabel": "신제품 출시와 구매 시점",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222990501436",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222990501436",
+      "sourceTitle": "동탄 핸드폰 성지 알뜰폰이 저렴하다?",
+      "publishedAt": "2023. 1. 21. 17:30",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222753318747",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222753318747",
+      "sourceTitle": "병점 핸드폰 성지, 왜 비쌀까요?",
+      "publishedAt": "2022. 5. 31. 10:53",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-question-curiosity",
+      "titlePatternDescription": "메인키워드 질문 + 구체적인 궁금증",
+      "titleHookSignals": [
+        "question",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222752779588",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222752779588",
+      "sourceTitle": "병점 핸드폰 저렴하게 구매하려면 딱 1가지만 기억하세요",
+      "publishedAt": "2022. 5. 30. 22:29",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222748663802",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222748663802",
+      "sourceTitle": "병점 휴대폰 성지, 과연 저렴하게 판매할까?",
+      "publishedAt": "2022. 5. 27. 10:46",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222747075901",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222747075901",
+      "sourceTitle": "병점 휴대폰? 이것 모르면 절대 저렴하게 구매 못합니다",
+      "publishedAt": "2022. 5. 26. 10:05",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "question",
+        "loss",
+        "curiosity",
+        "benefit"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222745578757",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222745578757",
+      "sourceTitle": "동탄역 아이폰? 제발 좀 속지 마세요",
+      "publishedAt": "2022. 5. 25. 10:00",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "question"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222744045689",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222744045689",
+      "sourceTitle": "동탄 도매폰 찾아도 저렴하게 구매 못하는 1가지 이유",
+      "publishedAt": "2022. 5. 24. 9:47",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "curiosity",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222742694283",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222742694283",
+      "sourceTitle": "망포 핸드폰 구매? 적어도 눈탱이 맞지 않는 1가지 방법",
+      "publishedAt": "2022. 5. 23. 10:09",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "question",
+        "number"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222738913693",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222738913693",
+      "sourceTitle": "병점 아이폰? 비싸게 판매하는 1가지 이유",
+      "publishedAt": "2022. 5. 20. 10:40",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "loss",
+        "curiosity",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222738124973",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222738124973",
+      "sourceTitle": "수원역 아이폰 매장을 찾기 전, 1가지만 염두하세요",
+      "publishedAt": "2022. 5. 19. 9:56",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222736775827",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222736775827",
+      "sourceTitle": "수원역 아이폰? 저렴하게 구매할 수 있는 1가지 방법",
+      "publishedAt": "2022. 5. 18. 9:51",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "benefit"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222735581743",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222735581743",
+      "sourceTitle": "수원 아이폰 성지라고 해서 무조건 저렴하지 않습니다",
+      "publishedAt": "2022. 5. 17. 11:08",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "benefit"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222734903758",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222734903758",
+      "sourceTitle": "수원역 핸드폰 성지? 이것 모르면 저렴하게 구매하기 어렵습니다",
+      "publishedAt": "2022. 5. 16. 21:08",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-question-curiosity",
+      "titlePatternDescription": "메인키워드 질문 + 구체적인 궁금증",
+      "titleHookSignals": [
+        "question",
+        "curiosity",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222730820554",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222730820554",
+      "sourceTitle": "수원역 휴대폰 성지 찾기 전, 꼭 확인해야 할 1가지",
+      "publishedAt": "2022. 5. 13. 9:49",
+      "primaryType": "purchase-checklist",
+      "primaryTypeLabel": "구매 기준·체크리스트형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "휴대폰 계약 전에 무엇을 순서대로 확인해야 하는가",
+      "answerAgenda": [
+        "계약 전에 볼 구체 항목",
+        "항목을 놓쳤을 때의 결과",
+        "현장에서 물어볼 질문"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222729518181",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222729518181",
+      "sourceTitle": "광교 핸드폰 성지? OO 아니면, 저렴하게 구매할 수 없다",
+      "publishedAt": "2022. 5. 12. 9:32",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222728324065",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222728324065",
+      "sourceTitle": "광교 핸드폰? 의외로 모르는 저렴하게 구매하는 방법",
+      "publishedAt": "2022. 5. 11. 10:17",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-direct-howto",
+      "titlePatternDescription": "메인키워드 + 독자가 바로 얻는 방법",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222727046870",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222727046870",
+      "sourceTitle": "광교 휴대폰 성지? 저렴할 거라고 착각하지 마세요",
+      "publishedAt": "2022. 5. 10. 10:18",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222725743152",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222725743152",
+      "sourceTitle": "기흥역 휴대폰 맛집 찾기 전, 이것 1가지만 기억하세요",
+      "publishedAt": "2022. 5. 9. 10:30",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "curiosity"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222722518107",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222722518107",
+      "sourceTitle": "기흥역 휴대폰? 왜 비싸게 구매하세요?",
+      "publishedAt": "2022. 5. 6. 10:14",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-question-curiosity",
+      "titlePatternDescription": "메인키워드 질문 + 구체적인 궁금증",
+      "titleHookSignals": [
+        "question",
+        "loss",
+        "curiosity",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222720623615",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222720623615",
+      "sourceTitle": "기흥역 핸드폰 저렴한 곳? 이거 하나로 끝내세요",
+      "publishedAt": "2022. 5. 4. 12:08",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222719297365",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222719297365",
+      "sourceTitle": "기흥 휴대폰 성지가 비싼 1가지 이유",
+      "publishedAt": "2022. 5. 3. 10:19",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222718152754",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222718152754",
+      "sourceTitle": "기흥 휴대폰맛집 선택 전, 이것 1가지 모르면 손해봅니다",
+      "publishedAt": "2022. 5. 2. 10:55",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "loss",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222715226403",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222715226403",
+      "sourceTitle": "봉담 핸드폰 살 때, 당하는 사람들의 1가지 특징",
+      "publishedAt": "2022. 4. 29. 11:26",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222714193513",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222714193513",
+      "sourceTitle": "안양휴대폰, 평생 호갱 되실 분은 클릭하지 마세요",
+      "publishedAt": "2022. 4. 28. 11:46",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "loss"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222713075075",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222713075075",
+      "sourceTitle": "안양 휴대폰성지라도 수십만 원 손해 보는 1가지 이유",
+      "publishedAt": "2022. 4. 27. 11:45",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "loss",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222711812853",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222711812853",
+      "sourceTitle": "동탄 휴대폰할인매장? 의외로 모르는 1가지 비밀",
+      "publishedAt": "2022. 4. 26. 10:47",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222710688304",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222710688304",
+      "sourceTitle": "화성 휴대폰 성지? 무조건 싸다고 착각하지 마세요",
+      "publishedAt": "2022. 4. 25. 11:39",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222707057704",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222707057704",
+      "sourceTitle": "수지휴대폰? 남들보다 비싸게 사는 1가지 이유",
+      "publishedAt": "2022. 4. 21. 17:50",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "loss",
+        "curiosity",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222706937237",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222706937237",
+      "sourceTitle": "동탄갤럭시s22, 실패없이 저렴하게 구매하는 1가지 비밀",
+      "publishedAt": "2022. 4. 21. 10:33",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "curiosity",
+        "benefit"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222706423875",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222706423875",
+      "sourceTitle": "동탄아이폰매장? 비싸게 사기 싫다면 1가지만 기억하세요",
+      "publishedAt": "2022. 4. 20. 17:43",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "loss",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222706103953",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222706103953",
+      "sourceTitle": "평택핸드폰대리점? 저렴하게 구매하는 1가지 노하우",
+      "publishedAt": "2022. 4. 20. 12:05",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222705169559",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222705169559",
+      "sourceTitle": "안양핸드폰/휴대폰 매장 찾기 전, 이것 1가지만 기억하세요",
+      "publishedAt": "2022. 4. 19. 14:28",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222705044529",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222705044529",
+      "sourceTitle": "청북핸드폰/휴대폰 매장, 손해보지 마세요",
+      "publishedAt": "2022. 4. 19. 12:12",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "loss"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222704325843",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222704325843",
+      "sourceTitle": "호매실핸드폰/휴대폰 매장, 이거 1가지는 꼭 기억하세요",
+      "publishedAt": "2022. 4. 18. 18:07",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222704251379",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222704251379",
+      "sourceTitle": "공도핸드폰/휴대폰 매장, 이제 속지마세요",
+      "publishedAt": "2022. 4. 18. 16:53",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222702368383",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222702368383",
+      "sourceTitle": "송탄핸드폰/휴대폰 매장 찾기 전, 1가지만 확인하세요",
+      "publishedAt": "2022. 4. 16. 12:41",
+      "primaryType": "purchase-checklist",
+      "primaryTypeLabel": "구매 기준·체크리스트형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "휴대폰 계약 전에 무엇을 순서대로 확인해야 하는가",
+      "answerAgenda": [
+        "계약 전에 볼 구체 항목",
+        "항목을 놓쳤을 때의 결과",
+        "현장에서 물어볼 질문"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222701865490",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222701865490",
+      "sourceTitle": "이천핸드폰/휴대폰 매장, 이것 모르면 눈탱이 맞습니다",
+      "publishedAt": "2022. 4. 15. 19:32",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222693341506",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222693341506",
+      "sourceTitle": "안양 핸드폰/휴대폰 매장? 다 퍼줄 수 있는 진짜 이유",
+      "publishedAt": "2022. 4. 6. 15:51",
+      "primaryType": "store-trust-intro",
+      "primaryTypeLabel": "업체·신뢰 소개형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-question-curiosity",
+      "titlePatternDescription": "메인키워드 질문 + 구체적인 궁금증",
+      "titleHookSignals": [
+        "question",
+        "curiosity"
+      ],
+      "readerQuestion": "광고 문구가 아니라 어떤 근거로 매장을 판단할 수 있는가",
+      "answerAgenda": [
+        "광고를 의심하는 독자의 반론",
+        "검증 가능한 운영·신뢰 근거",
+        "매장을 고르는 일반 기준"
+      ],
+      "compatibleWritingMasterIds": [
+        "operation-counterargument-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222691483872",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222691483872",
+      "sourceTitle": "용인 핸드폰/휴대폰 매장? 고객이 가격에 속을 수밖에 없는 이유",
+      "publishedAt": "2022. 4. 4. 18:10",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-causal-reason",
+      "titlePatternDescription": "메인키워드 + 원인에 대한 분명한 약속",
+      "titleHookSignals": [
+        "question",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222689050999",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222689050999",
+      "sourceTitle": "오산 핸드폰/휴대폰 매장, 업계 관계자가 공개하는 가격 구조",
+      "publishedAt": "2022. 4. 1. 17:10",
+      "primaryType": "insider-story",
+      "primaryTypeLabel": "대표 철학·내부자 고백형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "대표의 운영 방식이 고객 조건에 어떤 차이를 만드는가",
+      "answerAgenda": [
+        "대표의 이해관계와 관찰",
+        "운영 선택의 이유",
+        "구매자가 적용할 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "operation-counterargument-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222686880036",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222686880036",
+      "sourceTitle": "안산 핸드폰/휴대폰 매장? 최저가라는 말이 99% 거짓인 이유",
+      "publishedAt": "2022. 3. 30. 12:55",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222685090751",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222685090751",
+      "sourceTitle": "수원 핸드폰/휴대폰 매장? 제일 비싸게 사는 고객님 특징",
+      "publishedAt": "2022. 3. 28. 15:03",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "loss",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222682664575",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222682664575",
+      "sourceTitle": "평택 핸드폰/휴대폰 매장 가서 비싼 요금제 강요 당하는 고객 특징",
+      "publishedAt": "2022. 3. 25. 14:36",
+      "primaryType": "plan-contract-explainer",
+      "primaryTypeLabel": "요금제·결합·약정 정보형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "요금제·결합·약정 조건이 실제로 유리한지 어떻게 확인하는가",
+      "answerAgenda": [
+        "제도의 실제 의미",
+        "이익과 예외 조건",
+        "계약서에서 확인할 항목"
+      ],
+      "compatibleWritingMasterIds": [
+        "authority-broadcast-reason-01",
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222676518818",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222676518818",
+      "sourceTitle": "외국인 핸드폰/휴대폰 개통 후 후회하지 않으려면 보세요",
+      "publishedAt": "2022. 3. 23. 10:00",
+      "primaryType": "faq-aftercare",
+      "primaryTypeLabel": "FAQ·사후관리형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "해당 상황에서 개통과 사후관리를 위해 무엇을 준비해야 하는가",
+      "answerAgenda": [
+        "해당 상황의 준비 조건",
+        "진행 중 막히는 지점",
+        "개통·사후관리 행동"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222676305663",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222676305663",
+      "sourceTitle": "화성 핸드폰/휴대폰 매장? 저렴한 곳 가지 마세요.",
+      "publishedAt": "2022. 3. 21. 10:00",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222675720303",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222675720303",
+      "sourceTitle": "동탄 핸드폰/휴대폰 매장? 진짜 싼 곳 알아내는 꿀팁",
+      "publishedAt": "2022. 3. 18. 10:00",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-question-curiosity",
+      "titlePatternDescription": "메인키워드 질문 + 구체적인 궁금증",
+      "titleHookSignals": [
+        "question",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222674606650",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222674606650",
+      "sourceTitle": "동탄 도매폰센타, 충격적 마진 구조 폭로합니다.",
+      "publishedAt": "2022. 3. 16. 20:12",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222558645939",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222558645939",
+      "sourceTitle": "동탄 롯데백화점 휴대폰 매장, 이거 하나는 꼭 기억하세요",
+      "publishedAt": "2021. 11. 4. 19:13",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222556778135",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222556778135",
+      "sourceTitle": "동탄 롯데백화점 핸드폰 매장? 절대 실패하지 않는 구매 방법",
+      "publishedAt": "2021. 11. 2. 21:44",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "question",
+        "loss"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222544043950",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222544043950",
+      "sourceTitle": "동탄2 핸드폰 매장, 더 저렴한 곳이 있나요?",
+      "publishedAt": "2021. 10. 22. 15:20",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222543037945",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222543037945",
+      "sourceTitle": "동탄2 휴대폰 매장? 이것만 기억하면 후회할 일 없습니다",
+      "publishedAt": "2021. 10. 20. 19:21",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-question-curiosity",
+      "titlePatternDescription": "메인키워드 질문 + 구체적인 궁금증",
+      "titleHookSignals": [
+        "question",
+        "number",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222515117691",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222515117691",
+      "sourceTitle": "외국인 개통? 이렇게만 하면 핸드폰 싸게 살 수 있습니다",
+      "publishedAt": "2021. 9. 24. 17:30",
+      "primaryType": "faq-aftercare",
+      "primaryTypeLabel": "FAQ·사후관리형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "해당 상황에서 개통과 사후관리를 위해 무엇을 준비해야 하는가",
+      "answerAgenda": [
+        "해당 상황의 준비 조건",
+        "진행 중 막히는 지점",
+        "개통·사후관리 행동"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222515090668",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222515090668",
+      "sourceTitle": "화성 핸드폰 가게, 상위 1% 매장에서 싸게 사는 법 알려드립니다",
+      "publishedAt": "2021. 9. 24. 10:00",
+      "primaryType": "store-trust-intro",
+      "primaryTypeLabel": "업체·신뢰 소개형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-authority-benefit-howto",
+      "titlePatternDescription": "메인키워드 + 검증된 권위 + 독자가 얻는 구매 이익",
+      "titleHookSignals": [
+        "number",
+        "authority",
+        "benefit"
+      ],
+      "readerQuestion": "광고 문구가 아니라 어떤 근거로 매장을 판단할 수 있는가",
+      "answerAgenda": [
+        "광고를 의심하는 독자의 반론",
+        "검증 가능한 운영·신뢰 근거",
+        "매장을 고르는 일반 기준"
+      ],
+      "compatibleWritingMasterIds": [
+        "operation-counterargument-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222507503334",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222507503334",
+      "sourceTitle": "외국인 알뜰폰 개통? 사기당하기 싫으면 꼭 보세요",
+      "publishedAt": "2021. 9. 16. 15:40",
+      "primaryType": "faq-aftercare",
+      "primaryTypeLabel": "FAQ·사후관리형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "question",
+        "loss"
+      ],
+      "readerQuestion": "해당 상황에서 개통과 사후관리를 위해 무엇을 준비해야 하는가",
+      "answerAgenda": [
+        "해당 상황의 준비 조건",
+        "진행 중 막히는 지점",
+        "개통·사후관리 행동"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222505223420",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222505223420",
+      "sourceTitle": "화성 휴대폰, 당신이 스마트폰을 비싸게 사는 1가지 이유",
+      "publishedAt": "2021. 9. 14. 15:30",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "loss",
+        "curiosity",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222500282787",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222500282787",
+      "sourceTitle": "외국인 휴대폰 개통? 한국인보다 저렴하게 사는 방법",
+      "publishedAt": "2021. 9. 9. 15:50",
+      "primaryType": "faq-aftercare",
+      "primaryTypeLabel": "FAQ·사후관리형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-direct-howto",
+      "titlePatternDescription": "메인키워드 + 독자가 바로 얻는 방법",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "해당 상황에서 개통과 사후관리를 위해 무엇을 준비해야 하는가",
+      "answerAgenda": [
+        "해당 상황의 준비 조건",
+        "진행 중 막히는 지점",
+        "개통·사후관리 행동"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222497781390",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222497781390",
+      "sourceTitle": "화성 핸드폰 매장, 아침부터 줄 서서 기다리는 곳",
+      "publishedAt": "2021. 9. 7. 15:10",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222492401325",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222492401325",
+      "sourceTitle": "외국인 핸드폰 개통? 이것 안챙기면 핸드폰 못삽니다",
+      "publishedAt": "2021. 9. 2. 15:30",
+      "primaryType": "faq-aftercare",
+      "primaryTypeLabel": "FAQ·사후관리형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-question-curiosity",
+      "titlePatternDescription": "메인키워드 질문 + 구체적인 궁금증",
+      "titleHookSignals": [
+        "question",
+        "curiosity"
+      ],
+      "readerQuestion": "해당 상황에서 개통과 사후관리를 위해 무엇을 준비해야 하는가",
+      "answerAgenda": [
+        "해당 상황의 준비 조건",
+        "진행 중 막히는 지점",
+        "개통·사후관리 행동"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222490402939",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222490402939",
+      "sourceTitle": "동탄역 핸드폰, 여기보다 저렴한 곳이 있나요?",
+      "publishedAt": "2021. 8. 31. 17:47",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222485427135",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222485427135",
+      "sourceTitle": "동탄 아이폰? 싸게 살 수 있을거란 멍청한 생각",
+      "publishedAt": "2021. 8. 27. 11:28",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222483484845",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222483484845",
+      "sourceTitle": "동탄 핸드폰 판매, 비싸게 사기 싫다면 1가지만 기억하세요",
+      "publishedAt": "2021. 8. 25. 15:46",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "loss",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222481094127",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222481094127",
+      "sourceTitle": "동탄 휴대폰 대리점, 싸게 사는 꿀팁 공유",
+      "publishedAt": "2021. 8. 23. 14:18",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222477944068",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222477944068",
+      "sourceTitle": "동탄스마트폰 싸게 사는 법? 이 중에서 고르시면 됩니다",
+      "publishedAt": "2021. 8. 20. 16:48",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222475159884",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222475159884",
+      "sourceTitle": "동탄 아이폰 매장? 핸드폰 살 때 안보면 후회할 글",
+      "publishedAt": "2021. 8. 18. 20:05",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222473590274",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222473590274",
+      "sourceTitle": "동탄 핸드폰 싼곳, 진짜 최저가 찾는 분들만 보세요",
+      "publishedAt": "2021. 8. 17. 16:47",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222468411843",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222468411843",
+      "sourceTitle": "동탄 도매폰 매장? 수만 대를 팔 수 있었던 이유",
+      "publishedAt": "2021. 8. 13. 17:10",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-causal-reason",
+      "titlePatternDescription": "메인키워드 + 원인에 대한 분명한 약속",
+      "titleHookSignals": [
+        "question",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222465921012",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222465921012",
+      "sourceTitle": "동탄 스마트폰 성지? 평생 비싸게 사실분은 클릭하지 마세요",
+      "publishedAt": "2021. 8. 11. 18:17",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "loss",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222463248219",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222463248219",
+      "sourceTitle": "동탄 휴대폰 가게, 제발 이런 곳은 피하세요",
+      "publishedAt": "2021. 8. 9. 20:29",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222458499143",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222458499143",
+      "sourceTitle": "동탄 핸드폰 파는곳, 여기보다 저렴한 곳이 있을까?",
+      "publishedAt": "2021. 8. 6. 11:30",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222456810368",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222456810368",
+      "sourceTitle": "동탄 스마트폰 싼곳? 휴대폰도 도매가로 살 수 있다고?",
+      "publishedAt": "2021. 8. 4. 16:32",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222454435598",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222454435598",
+      "sourceTitle": "동탄 핸드폰 가게, 비싼요금제 안 써도 싸게 살 수 있다구요?",
+      "publishedAt": "2021. 8. 2. 17:35",
+      "primaryType": "plan-contract-explainer",
+      "primaryTypeLabel": "요금제·결합·약정 정보형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "요금제·결합·약정 조건이 실제로 유리한지 어떻게 확인하는가",
+      "answerAgenda": [
+        "제도의 실제 의미",
+        "이익과 예외 조건",
+        "계약서에서 확인할 항목"
+      ],
+      "compatibleWritingMasterIds": [
+        "authority-broadcast-reason-01",
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222451152147",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222451152147",
+      "sourceTitle": "동탄휴대폰매장? 많이 파는 곳을 가야하는 이유",
+      "publishedAt": "2021. 7. 30. 17:43",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-causal-reason",
+      "titlePatternDescription": "메인키워드 + 원인에 대한 분명한 약속",
+      "titleHookSignals": [
+        "question",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222448693016",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222448693016",
+      "sourceTitle": "동탄핸드폰매장? 싸게 살 수 있는 곳이 정말 있을까?",
+      "publishedAt": "2021. 7. 28. 17:06",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222425658267",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222425658267",
+      "sourceTitle": "동탄도매폰센타 : 핸드폰 구매 정보, \"아는 사람이 이긴다!\"",
+      "publishedAt": "2021. 7. 9. 14:37",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222418868013",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222418868013",
+      "sourceTitle": "동탄 도매폰센타. 오직 \"LG U+\"에서만! 마음대로 폰교체 하나면 까탈스런 보험 필요없어요~",
+      "publishedAt": "2021. 7. 3. 15:48",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222392920751",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222392920751",
+      "sourceTitle": "동탄도매폰센타 / KT 단독출시 - 국내 첫 5G 갓성비 \"갤럭시 점프\"",
+      "publishedAt": "2021. 6. 10. 19:33",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "device-launch",
+      "secondaryAngleLabel": "신제품 출시와 구매 시점",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222317000576",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222317000576",
+      "sourceTitle": "동탄도매폰센타, 양자보안 기술 A82 \"퀀텀2\"",
+      "publishedAt": "2021. 4. 20. 19:45",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222285022307",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222285022307",
+      "sourceTitle": "동탄핸드폰성지, 갤럭시 A42 스펙 !",
+      "publishedAt": "2021. 3. 23. 17:58",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "device-launch",
+      "secondaryAngleLabel": "신제품 출시와 구매 시점",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222253721980",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222253721980",
+      "sourceTitle": "[ U+ ] 요금제 컨설팅",
+      "publishedAt": "2021. 2. 23. 16:56",
+      "primaryType": "plan-contract-explainer",
+      "primaryTypeLabel": "요금제·결합·약정 정보형",
+      "secondaryAngle": "rate-plan",
+      "secondaryAngleLabel": "요금제와 지원금",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "요금제·결합·약정 조건이 실제로 유리한지 어떻게 확인하는가",
+      "answerAgenda": [
+        "제도의 실제 의미",
+        "이익과 예외 조건",
+        "계약서에서 확인할 항목"
+      ],
+      "compatibleWritingMasterIds": [
+        "authority-broadcast-reason-01",
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222253718120",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222253718120",
+      "sourceTitle": "[ KT ] 요금제 컨설팅",
+      "publishedAt": "2021. 2. 23. 16:52",
+      "primaryType": "plan-contract-explainer",
+      "primaryTypeLabel": "요금제·결합·약정 정보형",
+      "secondaryAngle": "rate-plan",
+      "secondaryAngleLabel": "요금제와 지원금",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "요금제·결합·약정 조건이 실제로 유리한지 어떻게 확인하는가",
+      "answerAgenda": [
+        "제도의 실제 의미",
+        "이익과 예외 조건",
+        "계약서에서 확인할 항목"
+      ],
+      "compatibleWritingMasterIds": [
+        "authority-broadcast-reason-01",
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222253714480",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222253714480",
+      "sourceTitle": "[ SK ] 요금제 컨설팅",
+      "publishedAt": "2021. 2. 23. 16:49",
+      "primaryType": "plan-contract-explainer",
+      "primaryTypeLabel": "요금제·결합·약정 정보형",
+      "secondaryAngle": "rate-plan",
+      "secondaryAngleLabel": "요금제와 지원금",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "요금제·결합·약정 조건이 실제로 유리한지 어떻게 확인하는가",
+      "answerAgenda": [
+        "제도의 실제 의미",
+        "이익과 예외 조건",
+        "계약서에서 확인할 항목"
+      ],
+      "compatibleWritingMasterIds": [
+        "authority-broadcast-reason-01",
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222240225081",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222240225081",
+      "sourceTitle": "화성 동탄 핸드폰 매장, 한 번도 안 오거나, 한 번만 안 오거나 !",
+      "publishedAt": "2021. 2. 11. 15:32",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222238146573",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222238146573",
+      "sourceTitle": "아이폰 살 때 비싸요? 싸게 살 수 있는데...",
+      "publishedAt": "2021. 2. 9. 20:29",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question",
+        "loss",
+        "benefit"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222237996580",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222237996580",
+      "sourceTitle": "LG U+ 카카오리틀프렌즈폰4 '키즈폰, 학생폰' 만족도 높은 이유",
+      "publishedAt": "2021. 2. 9. 17:53",
+      "primaryType": "purchase-checklist",
+      "primaryTypeLabel": "구매 기준·체크리스트형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number",
+        "curiosity"
+      ],
+      "readerQuestion": "휴대폰 계약 전에 무엇을 순서대로 확인해야 하는가",
+      "answerAgenda": [
+        "계약 전에 볼 구체 항목",
+        "항목을 놓쳤을 때의 결과",
+        "현장에서 물어볼 질문"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222236603049",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222236603049",
+      "sourceTitle": "동탄 휴대폰 매장, 가장 싸게 사는 방법 사장이 직접 알려준다.",
+      "publishedAt": "2021. 2. 8. 19:00",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-direct-howto",
+      "titlePatternDescription": "메인키워드 + 독자가 바로 얻는 방법",
+      "titleHookSignals": [
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222236412731",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222236412731",
+      "sourceTitle": "병점 핸드폰 매장, 내가 이런곳을 찾았다고?",
+      "publishedAt": "2021. 2. 8. 14:54",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222233196856",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222233196856",
+      "sourceTitle": "동탄 핸드폰 싼 곳, 저렴해서 문의가 빗발칩니다.",
+      "publishedAt": "2021. 2. 5. 21:00",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222233163533",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222233163533",
+      "sourceTitle": "화성 핸드폰 매장, 싼곳 알아보는 5가지 '노하우'",
+      "publishedAt": "2021. 2. 5. 18:16",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-numbered-curiosity",
+      "titlePatternDescription": "메인키워드 + 검증 가능한 숫자 + 이유·비밀·기준",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222231912729",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222231912729",
+      "sourceTitle": "동탄 영천동 핸드폰 대리점, 동탄 산다면 운이 좋은 겁니다.",
+      "publishedAt": "2021. 2. 4. 20:10",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222231784073",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222231784073",
+      "sourceTitle": "동탄 핸드폰 대리점, 아무리 싸다고 해도 실제로 싸지 않은 이유",
+      "publishedAt": "2021. 2. 4. 17:13",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-causal-reason",
+      "titlePatternDescription": "메인키워드 + 원인에 대한 분명한 약속",
+      "titleHookSignals": [
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222230413488",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222230413488",
+      "sourceTitle": "동탄 핸드폰 매장, 차별화를 두는 핸드폰매장.",
+      "publishedAt": "2021. 2. 3. 20:30",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222230380241",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222230380241",
+      "sourceTitle": "동탄 반송동 핸드폰 매장, 이렇게 하면 15% 싸게 살 수 있습니다.",
+      "publishedAt": "2021. 2. 3. 17:12",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "number",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222229099700",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222229099700",
+      "sourceTitle": "병점동 핸드폰 매장, 도매폰은 일반 휴대폰보다 얼마나 더 쌀까?",
+      "publishedAt": "2021. 2. 2. 17:42",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222229074737",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222229074737",
+      "sourceTitle": "수원 핸드폰 매장, 왜 나는 항상 핸드폰매장에게 속는 걸까?",
+      "publishedAt": "2021. 2. 2. 17:25",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-question-curiosity",
+      "titlePatternDescription": "메인키워드 질문 + 구체적인 궁금증",
+      "titleHookSignals": [
+        "question",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222227791743",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222227791743",
+      "sourceTitle": "동탄 핸드폰 싼 곳, 이 원리를 모른다면 싸게 살 수 없습니다.",
+      "publishedAt": "2021. 2. 1. 17:26",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222227790462",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222227790462",
+      "sourceTitle": "화성 동탄 휴대폰 싼곳, 나만 알고 있기 아깝다.",
+      "publishedAt": "2021. 2. 1. 17:25",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222224826982",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222224826982",
+      "sourceTitle": "오산 휴대폰 매장, 얼마나 싸길래 줄까지 서?",
+      "publishedAt": "2021. 1. 29. 23:41",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "question"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222224503419",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222224503419",
+      "sourceTitle": "수원역 핸드폰, 진짜 저렴한 도매폰센타지점의 이유",
+      "publishedAt": "2021. 1. 29. 18:43",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-causal-reason",
+      "titlePatternDescription": "메인키워드 + 원인에 대한 분명한 약속",
+      "titleHookSignals": [
+        "curiosity",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222224487259",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222224487259",
+      "sourceTitle": "오산 휴대폰, 15% 저렴하게 사는 방법",
+      "publishedAt": "2021. 1. 29. 18:30",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-direct-howto",
+      "titlePatternDescription": "메인키워드 + 독자가 바로 얻는 방법",
+      "titleHookSignals": [
+        "number",
+        "benefit"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222219593515",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222219593515",
+      "sourceTitle": "동탄 휴대폰 매장, 왜 도매폰센터는 미친듯이 싼 걸까?",
+      "publishedAt": "2021. 1. 25. 19:38",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-question-curiosity",
+      "titlePatternDescription": "메인키워드 질문 + 구체적인 궁금증",
+      "titleHookSignals": [
+        "question",
+        "curiosity"
+      ],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222197535689",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222197535689",
+      "sourceTitle": "갤럭시 S21 사전예약 및 출시 동탄 핸드폰 성지",
+      "publishedAt": "2021. 1. 5. 21:14",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "device-launch",
+      "secondaryAngleLabel": "신제품 출시와 구매 시점",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222157798911",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222157798911",
+      "sourceTitle": "휴대폰 통신사 대리점과 판매점의 차이점",
+      "publishedAt": "2020. 11. 29. 19:26",
+      "primaryType": "price-mechanism",
+      "primaryTypeLabel": "가격 구조·저렴한 이유형",
+      "secondaryAngle": "store-selection",
+      "secondaryAngleLabel": "매장 선택",
+      "titlePatternId": "keyword-choice-comparison",
+      "titlePatternDescription": "메인키워드 + 두 선택의 충돌 + 판단 답",
+      "titleHookSignals": [],
+      "readerQuestion": "같은 휴대폰 가격이 매장마다 다른 이유는 무엇인가",
+      "answerAgenda": [
+        "같은 기종 가격이 달라지는 원인",
+        "판매량·마진 등 운영 구조",
+        "동일 조건 비교법"
+      ],
+      "compatibleWritingMasterIds": [
+        "price-reader-objections-01",
+        "authority-broadcast-reason-01"
+      ],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222154418013",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222154418013",
+      "sourceTitle": "핸드폰 분실했을 때 위치 추적, 초기화하는 방법 (아이폰 버전)",
+      "publishedAt": "2020. 11. 25. 19:11",
+      "primaryType": "faq-aftercare",
+      "primaryTypeLabel": "FAQ·사후관리형",
+      "secondaryAngle": "device-launch",
+      "secondaryAngleLabel": "신제품 출시와 구매 시점",
+      "titlePatternId": "keyword-direct-howto",
+      "titlePatternDescription": "메인키워드 + 독자가 바로 얻는 방법",
+      "titleHookSignals": [],
+      "readerQuestion": "해당 상황에서 개통과 사후관리를 위해 무엇을 준비해야 하는가",
+      "answerAgenda": [
+        "해당 상황의 준비 조건",
+        "진행 중 막히는 지점",
+        "개통·사후관리 행동"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222153428677",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222153428677",
+      "sourceTitle": "핸드폰 분실했을 때 위치 추적, 초기화하는 방법 (안드로이드 버전)",
+      "publishedAt": "2020. 11. 24. 19:39",
+      "primaryType": "faq-aftercare",
+      "primaryTypeLabel": "FAQ·사후관리형",
+      "secondaryAngle": "price",
+      "secondaryAngleLabel": "가격과 매장 수익 구조",
+      "titlePatternId": "keyword-direct-howto",
+      "titlePatternDescription": "메인키워드 + 독자가 바로 얻는 방법",
+      "titleHookSignals": [],
+      "readerQuestion": "해당 상황에서 개통과 사후관리를 위해 무엇을 준비해야 하는가",
+      "answerAgenda": [
+        "해당 상황의 준비 조건",
+        "진행 중 막히는 지점",
+        "개통·사후관리 행동"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222147038401",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222147038401",
+      "sourceTitle": "동탄 도매폰 센타 핸드폰매장 아이폰12mini & 아이폰12Pro Max 사전예약",
+      "publishedAt": "2020. 11. 17. 21:51",
+      "primaryType": "launch-stock",
+      "primaryTypeLabel": "신제품·사전예약·재고형",
+      "secondaryAngle": "device-launch",
+      "secondaryAngleLabel": "신제품 출시와 구매 시점",
+      "titlePatternId": "keyword-specific-promise",
+      "titlePatternDescription": "메인키워드 + 구체적인 문제·이익 약속",
+      "titleHookSignals": [
+        "number"
+      ],
+      "readerQuestion": "신제품을 예약하거나 구매하기 전에 무엇을 확인해야 하는가",
+      "answerAgenda": [
+        "출시·예약 조건",
+        "재고와 수령 시점",
+        "구매 전 확인 항목"
+      ],
+      "compatibleWritingMasterIds": [],
+      "sourceFactsBlocked": true
+    },
+    {
+      "id": "sungji-222145840793",
+      "sourceUrl": "https://blog.naver.com/sungji_dongtan/222145840793",
+      "sourceTitle": "반송동 핸드폰 구매, 사기당하지 않는 팁",
+      "publishedAt": "2020. 11. 16. 17:51",
+      "primaryType": "fraud-prevention",
+      "primaryTypeLabel": "사기·호갱 피해예방형",
+      "secondaryAngle": "installment",
+      "secondaryAngleLabel": "할부 기간과 할부원금",
+      "titlePatternId": "keyword-warning-loss",
+      "titlePatternDescription": "메인키워드 + 손실 경고 + 즉시 이해되는 행동",
+      "titleHookSignals": [
+        "loss"
+      ],
+      "readerQuestion": "계약 전에 어떤 위험 신호를 확인해야 하는가",
+      "answerAgenda": [
+        "경계할 말이나 조건",
+        "소비자에게 생기는 손실",
+        "계약 전 중단·확인 행동"
+      ],
+      "compatibleWritingMasterIds": [
+        "warning-seller-lines-01"
+      ],
+      "sourceFactsBlocked": true
+    }
+  ]
+}

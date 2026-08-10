@@ -1,0 +1,41 @@
+{
+  "maxEntries": 3,
+  "entries": [
+    {
+      "title": "광주 휴대폰 매장, 가격표보다 판매량을 먼저 봐야 하는 이유",
+      "mainKeyword": "광주 휴대폰 매장",
+      "ideaReferenceId": "sungji-224370916235",
+      "ideaReferenceTitle": "동탄영천동 휴대폰?, 누적 12만명 만들게 된 진짜 이유 3가지",
+      "ideaReferenceUrl": "https://blog.naver.com/sungji_dongtan/224370916235",
+      "ideaType": "store-trust-intro",
+      "titlePatternId": "keyword-question-authority-reason",
+      "writingMasterId": "authority-broadcast-reason-01",
+      "writingReferenceUrl": "https://blog.naver.com/cjdsus4444/224275775634",
+      "writtenAt": "2026-08-09"
+    },
+    {
+      "title": "광주 휴대폰 매장, 개통 전 놓치면 안 될 조건 3가지",
+      "mainKeyword": "광주 휴대폰 매장",
+      "ideaReferenceId": "sungji-224360317905",
+      "ideaReferenceTitle": "동탄오산동 휴대폰 개통 전, 10명 중 8명이 놓치는 기준",
+      "ideaReferenceUrl": "https://blog.naver.com/sungji_dongtan/224360317905",
+      "ideaType": "purchase-checklist",
+      "titlePatternId": "keyword-preopen-missed-criterion",
+      "writingMasterId": "warning-seller-lines-01",
+      "writingReferenceUrl": "https://blog.naver.com/cjdsus4444/223515173954",
+      "writtenAt": "2026-08-09"
+    },
+    {
+      "title": "광주 휴대폰 매장, 같은 폰 가격이 다른 진짜 이유",
+      "mainKeyword": "광주 휴대폰 매장",
+      "ideaReferenceId": "sungji-223058673273",
+      "ideaReferenceTitle": "수원핸드폰? 싸게 산 줄 알았는데 수십만 원 손해 보게 되는 이유",
+      "ideaReferenceUrl": "https://blog.naver.com/sungji_dongtan/223058673273",
+      "ideaType": "price-mechanism",
+      "titlePatternId": "keyword-causal-reason",
+      "writingMasterId": "price-reader-objections-01",
+      "writingReferenceUrl": "https://blog.naver.com/cjdsus4444/224139466948",
+      "writtenAt": "2026-08-09"
+    }
+  ]
+}

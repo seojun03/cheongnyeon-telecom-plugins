@@ -1,0 +1,20 @@
+{
+  "name": "cheongnyeon-telecom",
+  "interface": {
+    "displayName": "청년통신"
+  },
+  "plugins": [
+    {
+      "name": "cheongnyeon-telecom-blog",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cheongnyeon-telecom-blog"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

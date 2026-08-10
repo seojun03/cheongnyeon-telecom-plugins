@@ -1,0 +1,566 @@
+{
+  "version": 1,
+  "copySafetyOverrides": {
+    "forbidUnderline": false,
+    "underlinePolicy": "exact-reference-roles-only",
+    "forbidDashOnlyParagraphs": true,
+    "forbidEmptyParagraphs": true,
+    "forbidNestedTableHeaderHighlight": true,
+    "gapCharacter": "U+2060"
+  },
+  "profiles": {
+    "warning-seller-lines-01": {
+      "sourceUrl": "https://blog.naver.com/cjdsus4444/223515173954",
+      "sourceTitle": "광주광산구휴대폰? 의외로 모르는 폰팔이 사기 수법",
+      "observedSmartEditorFacts": {
+        "componentCount": 18,
+        "componentSequence": [
+          "text",
+          "image",
+          "text",
+          "table",
+          "image",
+          "quotation",
+          "text",
+          "image",
+          "quotation",
+          "text",
+          "image",
+          "quotation",
+          "text",
+          "imageGroup",
+          "text",
+          "table",
+          "placesMap",
+          "text"
+        ],
+        "paragraphCount": 113,
+        "nonemptyParagraphCount": 55,
+        "spacerParagraphCount": 58,
+        "centeredParagraphCount": 107,
+        "defaultParagraphCount": 6,
+        "boldRunCount": 38,
+        "sourceUnderlineRunCount": 12,
+        "fontSizeClasses": {"fs19": 5, "fs24": 2, "fs16": 1},
+        "textColors": {"#ff0010": 11, "#000000": 9},
+        "backgroundColors": {"#28e1ff": 2, "#ffef34": 2},
+        "quotationCount": 3,
+        "tableRowCounts": [5, 2]
+      },
+      "mediaSlots": [
+        {
+          "slot": "after-hook",
+          "componentIndex": 2,
+          "layout": "single",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNDA3MTZfOCAg/MDAxNzIxMTM4MjQzOTE4.jfeVlw2LDoHd6czlLZPJX1wIdgc3x7GiSFuu5lAhBi4g.PKHnQF9FN2rL5Dd3wF8Pgmh-EATdn8xy99S-dbq-cMcg.JPEG/%EC%83%81%EB%8B%B4.jpg?type=w966",
+          "localAsset": "assets/reference-media/warning-seller-lines-01/01-after-hook.jpg",
+          "sourceDimensions": [1440, 1080]
+        },
+        {
+          "slot": "after-proof-table",
+          "componentIndex": 5,
+          "layout": "single",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNDA3MTZfNDMg/MDAxNzIxMTM4MzQxNjc5.Zf0m2O3q9oSvZOl0UJgI3ISLSpIwqxgveUZ1ct9MGl8g.d9A5m4tKy7dGC0taesjbls2329sViGVVxbTIxNG-fowg.JPEG/KakaoTalk_20240716_225054239_01.jpg?type=w966",
+          "localAsset": "assets/reference-media/warning-seller-lines-01/02-after-proof.jpg",
+          "sourceDimensions": [1440, 1080]
+        },
+        {
+          "slot": "after-section-1",
+          "componentIndex": 8,
+          "layout": "single",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNDA3MTZfNzUg/MDAxNzIxMTM4MzQ4MTky.sIsRKdGvIfF2WSHNGdXJdsc4ySTnKtAOPBAyC4DMecAg.Llk1it7dtOIB8oG49xmSC0pyFgpbRRixbMnSrpRoAT4g.JPEG/KakaoTalk_20240716_225054239.jpg?type=w966",
+          "localAsset": "assets/reference-media/warning-seller-lines-01/03-after-section-1.jpg",
+          "sourceDimensions": [1469, 1102]
+        },
+        {
+          "slot": "after-section-2",
+          "componentIndex": 11,
+          "layout": "single",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNDA3MTZfMTQ1/MDAxNzIxMTM4MzYzMDEx.2xDTZCa1DuuPBAXaEe6yeZMI7l0Yur26zFJmbnRlZdQg.w4EtyNp7JMef9MC7K_oH6aY-niR9HXeKCmiWNNqfDx0g.JPEG/KakaoTalk_20240716_225054239_02.jpg?type=w966",
+          "localAsset": "assets/reference-media/warning-seller-lines-01/04-after-section-2.jpg",
+          "sourceDimensions": [901, 1600]
+        },
+        {
+          "slot": "after-section-3-group-1",
+          "componentIndex": 14,
+          "layout": "collage-row-1-left-59.557",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNDA3MTZfMjI2/MDAxNzIxMTM4Mzk2NDAw.jKNGN7APcNxDRy-hxGGbDf_zZXgVSKGUQpK6-Z_qNVAg.Y1fvAEb34sjwAtoOP_JRTkwujvOkKcB-1ZOQenOAS7Yg.PNG/%E3%85%893.png?type=w966",
+          "localAsset": "assets/reference-media/warning-seller-lines-01/05-closing-group-1.png",
+          "sourceDimensions": [395, 243]
+        },
+        {
+          "slot": "after-section-3-group-2",
+          "componentIndex": 14,
+          "layout": "collage-row-1-right-40.443",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNDA3MTZfNSAg/MDAxNzIxMTM4Mzk2Mzk4.bey-Ni-Uwpk4jqLtlkg-9_ONBt_e5_0iMWdbr13bWaMg.3R_-q9NhfL05-K1UXoZVjU1RDTU2SUftKVEjqNpDtsQg.PNG/%EC%B0%901.png?type=w966",
+          "localAsset": "assets/reference-media/warning-seller-lines-01/06-closing-group-2.png",
+          "sourceDimensions": [404, 366]
+        },
+        {
+          "slot": "after-section-3-group-3",
+          "componentIndex": 14,
+          "layout": "collage-row-2-full",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNDA3MTZfMTcz/MDAxNzIxMTM4Mzk2Mzk4.MqF-6WdicGzXTBJcqfY0xkkUFqIond00Zl0AOkgq2uYg.NvGfHa0Xak3YyPzUKpY0hxdFQ-g9PPBU9wkitpeTSxAg.PNG/%EC%B0%902.png?type=w966",
+          "localAsset": "assets/reference-media/warning-seller-lines-01/07-closing-group-3.png",
+          "sourceDimensions": [409, 297]
+        }
+      ],
+      "renderContract": {
+        "requiredRoleCounts": {
+          "hook-line": 3,
+          "verdict": 1,
+          "proof-table": 1,
+          "section-quotation": 3,
+          "reference-image": 4,
+          "reference-image-group": 1,
+          "reference-group-image": 3,
+          "contact-table": 1
+        },
+        "requiredOrderedRoles": [
+          "verdict",
+          "reference-image",
+          "proof-table",
+          "reference-image",
+          "section-quotation",
+          "reference-image",
+          "section-quotation",
+          "reference-image",
+          "section-quotation",
+          "reference-image-group",
+          "contact-table"
+        ],
+        "requireExactMediaSources": true,
+        "requiredUnderlineRoleCounts": {
+          "hook-line": 3,
+          "danger-warning": 1,
+          "seller-promise": 1,
+          "contact-phone": 1,
+          "contact-note": 2
+        },
+        "requiredUnderlineCount": 8,
+        "requiredColors": ["#000000", "#ff0010", "#ffef34", "#28e1ff"],
+        "minimumCenterRatio": 0.85,
+        "tableRowCounts": [5, 2],
+        "hookTreatment": "19px-equivalent black bold underline, matching the three source hook runs",
+        "verdictTreatment": "red bold on yellow highlight",
+        "sectionTreatment": "three plain Naver quotation components with cite lines; no decorative card",
+        "tableTreatment": "one cyan header layer; white body cells; red only on factual emphasis",
+        "spacerTreatment": "after every 2 or 3 visible mobile body lines, exactly one U+2060 paragraph",
+        "maxConsecutiveDirectBodyParagraphs": 3,
+        "minEstimatedMobileLinesPerBodyGroup": 2,
+        "maxEstimatedMobileLinesPerBodyGroup": 3,
+        "estimatedMobileCharactersPerLine": 24
+      }
+    },
+    "price-reader-objections-01": {
+      "sourceUrl": "https://blog.naver.com/cjdsus4444/224139466948",
+      "sourceTitle": "[공지] 광주 휴대폰매장, 왜 청년통신은 미친듯이 싼 걸까?",
+      "observedSmartEditorFacts": {
+        "componentCount": 19,
+        "componentSequence": [
+          "text",
+          "image",
+          "text",
+          "table",
+          "image",
+          "text",
+          "quotation",
+          "text",
+          "imageGroup",
+          "text",
+          "quotation",
+          "text",
+          "imageGroup",
+          "text",
+          "imageGroup",
+          "text",
+          "table",
+          "placesMap",
+          "text"
+        ],
+        "paragraphCount": 111,
+        "nonemptyParagraphCount": 63,
+        "spacerParagraphCount": 48,
+        "centeredParagraphCount": 100,
+        "defaultParagraphCount": 11,
+        "boldRunCount": 48,
+        "sourceUnderlineRunCount": 19,
+        "fontSizeClasses": {"fs15": 13, "fs19": 8, "fs16": 4, "fs30": 2, "fs24": 1},
+        "textColors": {"#000000": 19, "#555555": 13, "#ff0010": 11},
+        "backgroundColors": {"#f7f7f7": 10, "#ffffff": 4, "#28e1ff": 2, "#9bdfff": 2, "#f5f5f8": 1, "#ffef34": 1},
+        "quotationCount": 2,
+        "tableRowCounts": [5, 2]
+      },
+      "mediaSlots": [
+        {
+          "slot": "after-intro-broadcast",
+          "componentIndex": 1,
+          "layout": "single",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNjA1MDVfMjYy/MDAxNzc3OTg1MDUyNDg3.ZbNdK5AS2F9JwOd1stujwOyQTIJz1T7XOXNkNUt4K-Yg.v7sPK93-14qLUBt7mHNokVs1MqN7Bm4UCf3imebfiGIg.PNG/%EC%83%9D%EB%8B%AC%EC%9E%90%EB%A3%8C8.png?type=w580",
+          "localAsset": "assets/reference-media/price-reader-objections-01/01-broadcast.png"
+        },
+        {
+          "slot": "after-proof-store",
+          "componentIndex": 4,
+          "layout": "single-gif",
+          "sourceUrl": "https://blogfiles.pstatic.net/MjAyNTA2MzBfMTIy/MDAxNzUxMjUxNDIzMzQ5.lJWARbTOZDjKLB3kmsvsOuonSJ2KHt2RKEbghzBmwUgg.Ef_dU76_XwApPqHu9S1klzX_dwhk60TpeONFAsvlVBYg.GIF/364762662.gif?type=w1",
+          "localAsset": "assets/reference-media/price-reader-objections-01/02-store.gif"
+        },
+        {
+          "slot": "price-structure-news-1",
+          "componentIndex": 8,
+          "layout": "collage-half-1",
+          "sourceUrl": "https://blogfiles.pstatic.net/MjAyNTA2MzBfMTMg/MDAxNzUxMjUxNTI5Njcx.TjwTGIEPqUbaEXypJL7HAVeToLQ0NXBUBFBdUb3m5Lcg.5j1Zsrv415ogWXUSyCva--28ragLHuUZqvityJLvGtIg.PNG/IMG%EF%BC%BF6201.PNG?type=w1",
+          "localAsset": "assets/reference-media/price-reader-objections-01/03-news-1.png"
+        },
+        {
+          "slot": "price-structure-news-2",
+          "componentIndex": 8,
+          "layout": "collage-half-2",
+          "sourceUrl": "https://blogfiles.pstatic.net/MjAyNTA2MzBfMjQg/MDAxNzUxMjUxNTI5MzEx.NOyECBxTGSlvl76No0KKjStCF0Z-04Um2sYX-h-NA3og.bapbY3JCoUpV7BT5xZcW1f1x4flr385BNIPaTcxv4TMg.PNG/IMG%EF%BC%BF6199.PNG?type=w1",
+          "localAsset": "assets/reference-media/price-reader-objections-01/04-news-2.png"
+        },
+        {
+          "slot": "review-group-1",
+          "componentIndex": 12,
+          "layout": "collage-third-1",
+          "sourceUrl": "https://blogfiles.pstatic.net/MjAyNTA2MzBfMjI5/MDAxNzUxMjUxNTg1NzUx.g1vP6Wt0k_tusL_76HiwNkk-9UVWWOcU33eZ5eO-QFIg.cXFE8nBPJonhIN_HY8gLhzZBrV-ILGf7LEBEKfWPfLIg.PNG/IMG%EF%BC%BF6197.PNG?type=w1",
+          "localAsset": "assets/reference-media/price-reader-objections-01/05-review-1.png"
+        },
+        {
+          "slot": "review-group-2",
+          "componentIndex": 12,
+          "layout": "collage-third-2",
+          "sourceUrl": "https://blogfiles.pstatic.net/MjAyNTA2MzBfMTI1/MDAxNzUxMjUxNTg1NTQz.CWMK3eEardj4IAaifs_buoQSmlvZSA89Vp859tcqV20g.rEM-tv6exIPUstZ1HpebotrCM3GTgClh3VuqzaBRxkQg.PNG/IMG%EF%BC%BF6195.PNG?type=w1",
+          "localAsset": "assets/reference-media/price-reader-objections-01/06-review-2.png"
+        },
+        {
+          "slot": "review-group-3",
+          "componentIndex": 12,
+          "layout": "collage-third-3",
+          "sourceUrl": "https://blogfiles.pstatic.net/MjAyNTA2MzBfNzkg/MDAxNzUxMjUxNTg1NTcw.5M6YV_NiAaBArrlUBjaN7DJmeePySa-rKrbwAoNI_B0g.L1u7zIEtTpzy8RlmZodurgOH_q2pBmE3Mbpo2ehi4ZAg.PNG/IMG%EF%BC%BF6194.PNG?type=w1",
+          "localAsset": "assets/reference-media/price-reader-objections-01/07-review-3.png"
+        },
+        {
+          "slot": "award-group-1",
+          "componentIndex": 14,
+          "layout": "collage-third-1",
+          "sourceUrl": "https://blogfiles.pstatic.net/MjAyNTA2MzBfMjYz/MDAxNzUxMjUxNjUzMDcz.jTYW56T_08iZTicegsjXPLAg1d6TT4u0NPHu5xXurHEg.Crl8ksebYiFORuQU2BsLIjtlGHE2g1lz48z0h0LPq24g.JPEG/IMG%EF%BC%BF6208.JPG?type=w1",
+          "localAsset": "assets/reference-media/price-reader-objections-01/08-award-1.jpg"
+        },
+        {
+          "slot": "award-group-2",
+          "componentIndex": 14,
+          "layout": "collage-third-2",
+          "sourceUrl": "https://blogfiles.pstatic.net/MjAyNTA2MzBfMzkg/MDAxNzUxMjUxNjUyOTg3.qthTwUCT0MvcQRSZKvxp9lfwZgTsmN9dleEU5gatlLYg.Xul_ACf9-GHYBZ8kwW_Fs4WrA6sskZePZSqZhXf-Iecg.JPEG/IMG%EF%BC%BF6207.JPG?type=w1",
+          "localAsset": "assets/reference-media/price-reader-objections-01/09-award-2.jpg"
+        },
+        {
+          "slot": "award-group-3",
+          "componentIndex": 14,
+          "layout": "collage-third-3",
+          "sourceUrl": "https://blogfiles.pstatic.net/MjAyNTA2MzBfMjY1/MDAxNzUxMjUxNjUzMDc4.xglP-yZTGTxSU4nkaHXadU30YPWRv9GJ_KQpDRNMSygg.Z6IZTkwt8kg61KIva1C6OHXN7kCBBUCaAs4_WhGLDxMg.JPEG/IMG%EF%BC%BF6190.JPG?type=w1",
+          "localAsset": "assets/reference-media/price-reader-objections-01/10-award-3.jpg"
+        },
+        {
+          "slot": "store-map",
+          "componentIndex": 17,
+          "layout": "naver-map-static",
+          "sourceUrl": "https://simg.pstatic.net/static.map/v2/map/staticmap.bin?caller=smarteditor&markers=size%3Amid%7Ccolor%3A0x11cc73%7Ctype%3Ad%7CviewSizeRatio%3A0.7%7Cpos%3A126.8809875%2035.1619491&w=700&h=315&scale=2&dataversion=175.98",
+          "localAsset": "assets/reference-media/price-reader-objections-01/11-map.jpg"
+        }
+      ],
+      "renderContract": {
+        "requiredRoleCounts": {
+          "reference-image": 2,
+          "proof-table": 1,
+          "section-quotation": 2,
+          "reference-image-group": 3,
+          "contact-table": 1,
+          "places-map": 1
+        },
+        "requiredOrderedRoles": [
+          "reference-image",
+          "proof-table",
+          "reference-image",
+          "section-quotation",
+          "reference-image-group",
+          "section-quotation",
+          "reference-image-group",
+          "reference-image-group",
+          "contact-table",
+          "places-map"
+        ],
+        "requireExactMediaSources": true,
+        "requiredUnderlineRoleCounts": {
+          "second-hook-industry": 2,
+          "price-gap-proof": 2,
+          "support-context": 1,
+          "review-caption": 1,
+          "founder-story": 1,
+          "contact-phone": 1,
+          "contact-note": 1,
+          "contact-booking": 1
+        },
+        "requiredUnderlineCount": 10,
+        "requiredColors": ["#000000", "#555555", "#ff0010", "#28e1ff", "#f7f7f7", "#ffef34"],
+        "minimumCenterRatio": 0.85,
+        "tableRowCounts": [5, 2],
+        "hookTreatment": "representative introduction followed by three reader objections, empathy, and a second promise hook",
+        "sectionTreatment": "two post-it quotation sections with price-structure evidence, reviews, awards, and founder story",
+        "tableTreatment": "cyan five-row proof table and two-row cyan contact table",
+        "spacerTreatment": "after every 2 or 3 visible mobile body lines, exactly one U+2060 paragraph",
+        "maxConsecutiveDirectBodyParagraphs": 3,
+        "minEstimatedMobileLinesPerBodyGroup": 2,
+        "maxEstimatedMobileLinesPerBodyGroup": 3,
+        "estimatedMobileCharactersPerLine": 24
+      }
+    },
+    "authority-broadcast-reason-01": {
+      "sourceUrl": "https://blog.naver.com/cjdsus4444/224275775634",
+      "sourceTitle": "'생활의 달인'에서 광주 휴대폰매장을 촬영 온 이유",
+      "mediaSlots": [
+        {
+          "slot": "after-intro-broadcast",
+          "componentIndex": 1,
+          "layout": "single",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNjA1MDVfMjQz/MDAxNzc3OTg1MzY4MDY5.anNn48OZFng16bI8qQt3fyPNE0bFCaFxXQRUf6f501Qg.O-yTfn3ki_QBekMSSHZDNFSgbxeQdT-H2zRPXa9mkoUg.PNG/%EC%83%9D%EB%8B%AC%EC%9E%90%EB%A3%8C8.png?type=w580",
+          "localAsset": "assets/reference-media/authority-broadcast-reason-01/01-source.png",
+          "sourceDimensions": [580, 327]
+        },
+        {
+          "slot": "after-proof-award",
+          "componentIndex": 10,
+          "layout": "single",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNjA1MDVfMjUg/MDAxNzc3OTg1MzE1MzQ5._l6qtt-rHpmFC-gPgj60uvabF06CP7VenShlJPbm7kgg.cz31vX_fXrU8jMNKTYRUgkry2lI1_m2hTApAqFMeGKAg.PNG/%EC%83%9D%EB%8B%AC%EC%9E%90%EB%A3%8C3.png?type=w580",
+          "localAsset": "assets/reference-media/authority-broadcast-reason-01/02-source.png",
+          "sourceDimensions": [580, 326]
+        },
+        {
+          "slot": "award-collage-1",
+          "componentIndex": 12,
+          "layout": "collage-third-1",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNjA1MDVfMTE5/MDAxNzc3OTg2MzUyNzYw.1tjOsYVdBlhjSm9SMpcGl38Y-tBpn2H7LdAbUrlq5Wwg.rFa-1eHttZMCCBVVy_FI0ONNynRl6-d3_LFOHXG8M1Mg.JPEG/3.jpg?type=w275",
+          "localAsset": "assets/reference-media/authority-broadcast-reason-01/03-source.jpg",
+          "sourceDimensions": [275, 275]
+        },
+        {
+          "slot": "award-collage-2",
+          "componentIndex": 12,
+          "layout": "collage-third-2",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNjA1MDVfMTI0/MDAxNzc3OTg2MzUzMzk4.Zf-xjBMs31Y_BD_ZtbfoWFbQpAIVWncOlci6qmQXHE8g.MWUBGXfIq_Dnhwl8s9YKesVW3-EJ96fdAN-y0LYG38cg.JPEG/2.jpg?type=w275",
+          "localAsset": "assets/reference-media/authority-broadcast-reason-01/04-source.jpg",
+          "sourceDimensions": [275, 275]
+        },
+        {
+          "slot": "award-collage-3",
+          "componentIndex": 12,
+          "layout": "collage-third-3",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNjA1MDVfMjky/MDAxNzc3OTg2MzUzOTkz.wngdG_U90798l-JmlORD1GMJSpKx5aCglui1kDJ8G5Ag.mdMgv_xux9LFU0DOI37EUPrdiO16SRU2h2sYkmGvaP8g.JPEG/1.jpg?type=w580",
+          "localAsset": "assets/reference-media/authority-broadcast-reason-01/05-source.jpg",
+          "sourceDimensions": [580, 580]
+        },
+        {
+          "slot": "closing-broadcast",
+          "componentIndex": 14,
+          "layout": "single",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNjA1MDVfOTIg/MDAxNzc3OTg2MzUyODA1.vRKUi0MxZ_vQS5LQYfwOCKM71THvLsEK-IssLNG9RHIg.FPoh5V5NhP4lIxxnJ6VzhIcaIFbXEj_cFNlv0NJLH0Ig.PNG/900%EF%BC%BF%EC%83%9D%EB%8B%AC%EC%9E%90%EB%A3%8C4.png?type=w580",
+          "localAsset": "assets/reference-media/authority-broadcast-reason-01/06-source.png",
+          "sourceDimensions": [580, 325]
+        }
+      ],
+      "observedSmartEditorFacts": {
+        "componentCount": 19,
+        "componentSequence": [
+          "text",
+          "image",
+          "text",
+          "table",
+          "quotation",
+          "text",
+          "table",
+          "text",
+          "quotation",
+          "text",
+          "image",
+          "text",
+          "imageGroup",
+          "text",
+          "image",
+          "text",
+          "horizontalLine",
+          "table",
+          "text"
+        ],
+        "paragraphCount": 99,
+        "nonemptyParagraphCount": 62,
+        "spacerParagraphCount": 37,
+        "centeredParagraphCount": 86,
+        "defaultParagraphCount": 13,
+        "boldRunCount": 8,
+        "sourceUnderlineRunCount": 2,
+        "fontSizeClasses": {"fs16": 9, "fs13": 2, "fs19": 2, "fs24": 1},
+        "textColors": {"#ff0010": 6, "#000000": 5, "#555555": 3, "#9c9c9c": 2, "#333333": 1},
+        "backgroundColors": {"#ffffff": 4, "#e2e2e2": 1, "#e3fdc8": 1, "#f5f5f8": 1},
+        "quotationCount": 2,
+        "tableCount": 3
+      },
+      "renderContract": {
+        "requiredRoleCounts": {
+          "reference-image": 3,
+          "proof-table": 1,
+          "section-quotation": 2,
+          "comparison-table": 1,
+          "reference-image-group": 1,
+          "contact-table": 1
+        },
+        "requiredOrderedRoles": [
+          "reference-image",
+          "proof-table",
+          "section-quotation",
+          "comparison-table",
+          "section-quotation",
+          "reference-image",
+          "reference-image-group",
+          "reference-image",
+          "contact-table"
+        ],
+        "requireExactMediaSources": false,
+        "requiredUnderlineRoleCounts": {
+          "contact-note": 1,
+          "contact-booking": 1
+        },
+        "requiredUnderlineCount": 2,
+        "requiredColors": ["#000000", "#555555", "#ff0010", "#e2e2e2", "#e3fdc8", "#f5f5f8"],
+        "minimumCenterRatio": 0.85,
+        "tableRowCounts": [5, 1, 2],
+        "hookTreatment": "centered quote components with short source rhythm",
+        "tableTreatment": "gray proof header, one-row comparison table, pale-green contact header",
+        "spacerTreatment": "after every 2 or 3 visible mobile body lines, exactly one U+2060 paragraph",
+        "maxConsecutiveDirectBodyParagraphs": 3,
+        "minEstimatedMobileLinesPerBodyGroup": 2,
+        "maxEstimatedMobileLinesPerBodyGroup": 3,
+        "estimatedMobileCharactersPerLine": 24
+      }
+    },
+    "operation-counterargument-01": {
+      "sourceUrl": "https://blog.naver.com/cjdsus4444/223722832688",
+      "sourceTitle": "광주휴대폰성지, 왜 폰팔이란 말이 생겼을까요?",
+      "observedSmartEditorFacts": {
+        "componentCount": 14,
+        "componentSequence": [
+          "text",
+          "image",
+          "text",
+          "table",
+          "image",
+          "text",
+          "image",
+          "text",
+          "image",
+          "text",
+          "table",
+          "placesMap",
+          "text"
+        ],
+        "paragraphCount": 91,
+        "nonemptyParagraphCount": 50,
+        "spacerParagraphCount": 41,
+        "centeredParagraphCount": 85,
+        "defaultParagraphCount": 6,
+        "boldRunCount": 25,
+        "sourceUnderlineRunCount": 7,
+        "fontSizeClasses": {"fs15": 50, "fs19": 6, "fs24": 1},
+        "textColors": {"#000000": 12, "#555555": 1, "#ff0010": 9},
+        "backgroundColors": {"#ffffff": 10, "#f7f7f7": 5, "#b0f1ff": 2, "#e3fdc8": 2},
+        "quotationCount": 2,
+        "tableRowCounts": [5, 2]
+      },
+      "mediaSlots": [
+        {
+          "slot": "after-hook-award",
+          "componentIndex": 1,
+          "layout": "single",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNTAxMTFfMjU5/MDAxNzM2NTk4Njc0Mjky.sKfunpTwvxX4ymdn2qI6C5_3XNRLGj2o7Qu9dOqsQdAg.V8rMmukdxzxauLHivxnFlH8lqrWbIClgm5W3x7NrQfEg.JPEG/IMG_2900.jpg?type=w966",
+          "localAsset": "assets/reference-media/operation-counterargument-01/01-award.jpg",
+          "sourceDimensions": [900, 1200]
+        },
+        {
+          "slot": "after-proof-waiting",
+          "componentIndex": 4,
+          "layout": "single",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNTAxMTFfMTEx/MDAxNzM2NTk4NzA5OTQw.ab710ZLgcilyMQrQdjYIOxL9xh-wlq3EYI-y9AkV96wg.mT5RJOjCciMvUsOP7WM61O_DGfcAW-kGQCBS8Ivt728g.JPEG/output_2976572721.jpg?type=w966",
+          "localAsset": "assets/reference-media/operation-counterargument-01/02-waiting.jpg",
+          "sourceDimensions": [736, 441]
+        },
+        {
+          "slot": "between-sections-gif",
+          "componentIndex": 6,
+          "layout": "single-gif",
+      "sourceUrl": "https://postfiles.pstatic.net/MjAyNTAxMTFfMTU0/MDAxNzM2NTk4NzM3Mzgz.FDhdOTgATJLjnrDB4wPDDzEGP-lIatvFiEyjg-KavMMg.Vwl-_5pQF0mTKDBXTpJAcFhaQleGK8sbOCYfBkCaJzUg.GIF/3083204867.gif?type=w580",
+          "localAsset": "assets/reference-media/operation-counterargument-01/03-store.gif",
+          "sourceDimensions": [800, 450]
+        },
+        {
+          "slot": "after-operation-proof",
+          "componentIndex": 8,
+          "layout": "single",
+          "sourceUrl": "https://postfiles.pstatic.net/MjAyNTAxMTFfNTMg/MDAxNzM2NTk4NzU4MDI3.OGwcZp14o8IhWArycIVGyj_yzceTUnHm8E-yjco7iRcg.jYuHek3t_mB9vFGQujeDKMeT6fGtYXC85aWT9bOTMzsg.JPEG/IMG_3056.jpg?type=w966",
+          "localAsset": "assets/reference-media/operation-counterargument-01/04-consult.jpg",
+          "sourceDimensions": [900, 959]
+        },
+        {
+          "slot": "store-map",
+          "componentIndex": 11,
+          "layout": "naver-map-static",
+          "sourceUrl": "https://simg.pstatic.net/static.map/v2/map/staticmap.bin?caller=smarteditor&markers=color%3A0x11cc73%7Csize%3Amid%7Cpos%3A126.8806325%2035.162083%7CviewSizeRatio%3A0.7%7Ctype%3Ad&w=700&h=315&scale=2&dataversion=173.82",
+          "localAsset": "assets/reference-media/operation-counterargument-01/05-map.jpg",
+          "sourceDimensions": [1400, 630]
+        }
+      ],
+      "renderContract": {
+        "requiredRoleCounts": {
+          "verdict": 1,
+          "reference-image": 4,
+          "proof-table": 1,
+          "section-quotation": 2,
+          "contact-table": 1,
+          "places-map": 1
+        },
+        "requiredOrderedRoles": [
+          "verdict",
+          "reference-image",
+          "proof-table",
+          "reference-image",
+          "section-quotation",
+          "reference-image",
+          "section-quotation",
+          "reference-image",
+          "contact-table",
+          "places-map"
+        ],
+        "requireExactMediaSources": true,
+        "requiredUnderlineRoleCounts": {
+          "hook-warning": 1,
+          "section-risk": 1,
+          "operation-proof": 1,
+          "selection-rule": 1,
+          "contact-note": 2,
+          "contact-booking": 1
+        },
+        "requiredUnderlineCount": 7,
+        "requiredColors": ["#000000", "#555555", "#ff0010", "#b0f1ff", "#e3fdc8", "#ffffff"],
+        "minimumCenterRatio": 0.85,
+        "tableRowCounts": [5, 2],
+        "hookTreatment": "15px-equivalent centered quote lines with red emphasis matching the source rhythm",
+        "sectionTreatment": "two centered question blocks followed by plain explanatory paragraphs and the source GIF",
+        "tableTreatment": "one cyan proof header and one pale-green contact header; white body cells with red factual emphasis",
+        "spacerTreatment": "after every 2 or 3 visible mobile body lines, exactly one U+2060 paragraph",
+        "maxConsecutiveDirectBodyParagraphs": 3,
+        "minEstimatedMobileLinesPerBodyGroup": 2,
+        "maxEstimatedMobileLinesPerBodyGroup": 3,
+        "estimatedMobileCharactersPerLine": 24
+      }
+    }
+  }
+}
