@@ -93,6 +93,9 @@ install_chatgpt_app() {
 }
 
 install_chatgpt_app
+if [ -n "${CODEX_HOME:-}" ]; then
+  mkdir -p "$CODEX_HOME"
+fi
 CODEX_BIN="$(find_codex || true)"
 [ -n "$CODEX_BIN" ] || fail "플러그인 기능이 있는 Codex 실행 파일을 찾지 못했습니다. ChatGPT 앱을 한 번 실행한 뒤 다시 시도하세요."
 

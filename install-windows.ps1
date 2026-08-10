@@ -86,7 +86,8 @@ function Invoke-Codex([string[]]$Arguments, [switch]$IgnoreFailure, [switch]$Cap
     }
     $exitCode = $LASTEXITCODE
     if ($exitCode -ne 0 -and -not $IgnoreFailure) {
-        throw "Codex 명령에 실패했습니다: codex $($Arguments -join ' ') (종료 코드 $exitCode)"
+        $details = if ($output) { "`n$($output -join [Environment]::NewLine)" } else { "" }
+        throw "Codex 명령에 실패했습니다: codex $($Arguments -join ' ') (종료 코드 $exitCode)$details"
     }
     if ($Capture) {
         return ($output -join [Environment]::NewLine)
@@ -95,6 +96,10 @@ function Invoke-Codex([string[]]$Arguments, [switch]$IgnoreFailure, [switch]$Cap
 
 if ($PSVersionTable.PSEdition -eq "Core" -and -not $IsWindows) {
     throw "이 설치기는 Windows PowerShell용입니다. macOS에서는 install-macos.sh를 사용하세요."
+}
+
+if ($env:CODEX_HOME -and -not (Test-Path -LiteralPath $env:CODEX_HOME)) {
+    New-Item -ItemType Directory -Path $env:CODEX_HOME -Force | Out-Null
 }
 
 if (-not $SkipAppInstall) {
