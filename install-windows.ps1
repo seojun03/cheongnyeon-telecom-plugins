@@ -124,7 +124,8 @@ function Install-AutoUpdate {
         "`$env:CHEONGNYEON_CODEX_PATH = $(ConvertTo-SingleQuotedLiteral $script:CodexExecutable)",
         "`$env:CHEONGNYEON_REPOSITORY_SOURCE = $(ConvertTo-SingleQuotedLiteral $RepositorySource)",
         "`$env:CHEONGNYEON_REPOSITORY_REF = $(ConvertTo-SingleQuotedLiteral $Ref)",
-        "`$source = Invoke-RestMethod -Uri $(ConvertTo-SingleQuotedLiteral $updaterUrl)",
+        '$cacheBuster = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()',
+        "`$source = Invoke-RestMethod -Uri ($(ConvertTo-SingleQuotedLiteral $updaterUrl) + '?cachebust=' + `$cacheBuster)",
         '& ([scriptblock]::Create([string]$source))'
     )
     $encoding = New-Object System.Text.UTF8Encoding($false)

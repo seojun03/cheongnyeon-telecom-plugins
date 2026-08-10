@@ -7,7 +7,9 @@ MARKETPLACE_NAME="cheongnyeon-telecom"
 PLUGIN_NAME="cheongnyeon-telecom-blog"
 PLUGIN_SELECTOR="$PLUGIN_NAME@$MARKETPLACE_NAME"
 CODEX_HOME_DIR="${CODEX_HOME:-$HOME/.codex}"
-MANIFEST_URL="https://raw.githubusercontent.com/$REPOSITORY_SOURCE/$REPOSITORY_REF/plugins/$PLUGIN_NAME/.codex-plugin/plugin.json"
+CACHEBUSTER="$(date +%s)"
+MANIFEST_URL="https://raw.githubusercontent.com/$REPOSITORY_SOURCE/$REPOSITORY_REF/plugins/$PLUGIN_NAME/.codex-plugin/plugin.json?cachebust=$CACHEBUSTER"
+INSTALLER_URL="https://raw.githubusercontent.com/$REPOSITORY_SOURCE/$REPOSITORY_REF/install-macos.sh?cachebust=$CACHEBUSTER"
 
 log() {
   printf '[청년통신 자동 업데이트] %s\n' "$1"
@@ -79,7 +81,7 @@ CHEONGNYEON_REPOSITORY_REF="$REPOSITORY_REF" \
 CHEONGNYEON_SKIP_APP_INSTALL=1 \
 CHEONGNYEON_NO_LAUNCH=1 \
 CHEONGNYEON_SKIP_AUTO_UPDATE_SETUP=1 \
-/bin/bash -c "$(curl -fsSL --retry 3 --connect-timeout 20 "https://raw.githubusercontent.com/$REPOSITORY_SOURCE/$REPOSITORY_REF/install-macos.sh")"
+/bin/bash -c "$(curl -fsSL --retry 3 --connect-timeout 20 "$INSTALLER_URL")"
 
 UPDATED_VERSION="$(installed_version || true)"
 [ "$UPDATED_VERSION" = "$REMOTE_VERSION" ] || \

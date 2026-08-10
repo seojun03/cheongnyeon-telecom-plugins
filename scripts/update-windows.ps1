@@ -11,8 +11,9 @@ $ProgressPreference = "SilentlyContinue"
 $MarketplaceName = "cheongnyeon-telecom"
 $PluginName = "cheongnyeon-telecom-blog"
 $PluginSelector = "$PluginName@$MarketplaceName"
-$ManifestUrl = "https://raw.githubusercontent.com/$RepositorySource/$Ref/plugins/$PluginName/.codex-plugin/plugin.json"
-$InstallerUrl = "https://raw.githubusercontent.com/$RepositorySource/$Ref/install-windows.ps1"
+$CacheBuster = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
+$ManifestUrl = "https://raw.githubusercontent.com/$RepositorySource/$Ref/plugins/$PluginName/.codex-plugin/plugin.json?cachebust=$CacheBuster"
+$InstallerUrl = "https://raw.githubusercontent.com/$RepositorySource/$Ref/install-windows.ps1?cachebust=$CacheBuster"
 
 function Write-UpdateLog([string]$Message) {
     Write-Host "[청년통신 자동 업데이트] $Message"

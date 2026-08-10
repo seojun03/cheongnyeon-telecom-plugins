@@ -118,8 +118,10 @@ install_auto_update() {
     printf 'export CHEONGNYEON_CODEX_BIN=%q\n' "$CODEX_BIN"
     printf 'export CHEONGNYEON_REPOSITORY_SOURCE=%q\n' "$REPOSITORY_SOURCE"
     printf 'export CHEONGNYEON_REPOSITORY_REF=%q\n' "$REPOSITORY_REF"
-    printf '/bin/bash -c "$(/usr/bin/curl -fsSL --retry 3 --connect-timeout 20 %q)"\n' \
+    printf 'UPDATER_URL=%q\n' \
       "https://raw.githubusercontent.com/$REPOSITORY_SOURCE/$REPOSITORY_REF/scripts/update-macos.sh"
+    printf 'CACHEBUSTER="$(/bin/date +%%s)"\n'
+    printf '/bin/bash -c "$(/usr/bin/curl -fsSL --retry 3 --connect-timeout 20 "${UPDATER_URL}?cachebust=${CACHEBUSTER}")"\n'
   } > "$bootstrap_path"
   chmod 700 "$bootstrap_path"
 
