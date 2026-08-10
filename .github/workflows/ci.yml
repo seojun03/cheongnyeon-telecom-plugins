@@ -9,6 +9,9 @@ on:
 permissions:
   contents: read
 
+env:
+  PYTHONUTF8: "1"
+
 jobs:
   plugin-tests:
     name: Plugin tests (${{ matrix.os }})
