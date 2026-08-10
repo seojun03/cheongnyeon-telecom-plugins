@@ -65,6 +65,22 @@ jobs:
           codex plugin list --json | python -c 'import json,sys; d=json.load(sys.stdin); p=next(x for x in d["installed"] if x["pluginId"]=="cheongnyeon-telecom-blog@cheongnyeon-telecom"); assert p["version"]=="0.1.0+codex.20260810141037", p'
           env -i HOME="$HOME" PATH="/usr/bin:/bin:/usr/sbin:/sbin" /bin/bash "${{ runner.temp }}/auto-updater/run-update.sh"
           codex plugin list --json | python -c 'import json,sys,pathlib; d=json.load(sys.stdin); p=next(x for x in d["installed"] if x["pluginId"]=="cheongnyeon-telecom-blog@cheongnyeon-telecom"); expected=json.loads(pathlib.Path("plugins/cheongnyeon-telecom-blog/.codex-plugin/plugin.json").read_text())["version"]; assert p["enabled"] and p["version"]==expected, (p,expected)'
+      - name: Install editable copy and verify local edits
+        env:
+          CODEX_HOME: ${{ runner.temp }}/codex-home
+          CHEONGNYEON_EDITABLE_ROOT: ${{ runner.temp }}/editable-plugin
+          CHEONGNYEON_LAUNCH_AGENTS_DIR: ${{ runner.temp }}/launch-agents
+          CHEONGNYEON_SKIP_APP_INSTALL: "1"
+          CHEONGNYEON_NO_LAUNCH: "1"
+          CHEONGNYEON_SKIP_DESKTOP_SHORTCUT: "1"
+          CHEONGNYEON_REPOSITORY_REF: ${{ github.sha }}
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/${{ github.sha }}/install-editable-macos.sh)"
+          test ! -f "${{ runner.temp }}/launch-agents/com.cheongnyeon.telecom.plugin-updater.plist"
+          codex plugin list --json | python -c 'import json,sys; d=json.load(sys.stdin); p=next(x for x in d["installed"] if x["pluginId"]=="cheongnyeon-telecom-blog@cheongnyeon-telecom"); assert p["enabled"] and p["marketplaceSource"]["sourceType"]=="local", p'
+          printf '\nEDITABLE_LOCAL_TEST_MARKER\n' >> "${{ runner.temp }}/editable-plugin/plugins/cheongnyeon-telecom-blog/skills/cheongnyeon-telecom-blog/SKILL.md"
+          /bin/bash "${{ runner.temp }}/editable-plugin/scripts/apply-local-edits-macos.sh"
+          codex plugin list --json | python -c 'import json,sys,pathlib; d=json.load(sys.stdin); p=next(x for x in d["installed"] if x["pluginId"]=="cheongnyeon-telecom-blog@cheongnyeon-telecom"); assert p["enabled"] and "+codex.local." in p["version"] and p["marketplaceSource"]["sourceType"]=="local", p; f=pathlib.Path("${{ runner.temp }}/codex-home/plugins/cache/cheongnyeon-telecom/cheongnyeon-telecom-blog")/p["version"]/"skills/cheongnyeon-telecom-blog/SKILL.md"; assert "EDITABLE_LOCAL_TEST_MARKER" in f.read_text(), f'
 
   install-windows:
     name: Public Git install (Windows)
@@ -111,6 +127,32 @@ jobs:
           $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
           $expected = (Get-Content -LiteralPath "plugins\cheongnyeon-telecom-blog\.codex-plugin\plugin.json" -Raw | ConvertFrom-Json).version
           if (-not $installed.enabled -or $installed.version -ne $expected) { throw "Auto update failed: $($installed.version), expected $expected" }
+      - name: Install editable copy and verify local edits
+        shell: pwsh
+        env:
+          CODEX_HOME: ${{ runner.temp }}\codex-home
+          CHEONGNYEON_EDITABLE_ROOT: ${{ runner.temp }}\editable-plugin
+          CHEONGNYEON_AUTO_UPDATE_TASK_NAME: CheongnyeonTelecomPluginUpdate-CI
+          CHEONGNYEON_SKIP_APP_INSTALL: "1"
+          CHEONGNYEON_SKIP_DEPENDENCY_INSTALL: "1"
+          CHEONGNYEON_NO_LAUNCH: "1"
+          CHEONGNYEON_SKIP_DESKTOP_SHORTCUT: "1"
+          CHEONGNYEON_REPOSITORY_REF: ${{ github.sha }}
+        run: |
+          $env:CHEONGNYEON_CODEX_PATH = (Get-Command codex.cmd).Source
+          irm "https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/${{ github.sha }}/install-editable-windows.ps1" | iex
+          if (Get-ScheduledTask -TaskName "CheongnyeonTelecomPluginUpdate-CI" -ErrorAction SilentlyContinue) { throw "Automatic updater task was not removed" }
+          $plugins = codex plugin list --json | ConvertFrom-Json
+          $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
+          if (-not $installed.enabled -or $installed.marketplaceSource.sourceType -ne "local") { throw "Editable plugin is not local" }
+          $skill = Join-Path $env:CHEONGNYEON_EDITABLE_ROOT "plugins\cheongnyeon-telecom-blog\skills\cheongnyeon-telecom-blog\SKILL.md"
+          Add-Content -LiteralPath $skill -Value "`nEDITABLE_LOCAL_TEST_MARKER" -Encoding utf8
+          & (Join-Path $env:CHEONGNYEON_EDITABLE_ROOT "scripts\apply-local-edits-windows.ps1")
+          $plugins = codex plugin list --json | ConvertFrom-Json
+          $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
+          if (-not $installed.enabled -or $installed.version -notlike "*+codex.local.*" -or $installed.marketplaceSource.sourceType -ne "local") { throw "Local edit was not applied" }
+          $cachedSkill = Join-Path $env:CODEX_HOME "plugins\cache\cheongnyeon-telecom\cheongnyeon-telecom-blog\$($installed.version)\skills\cheongnyeon-telecom-blog\SKILL.md"
+          if (-not (Select-String -LiteralPath $cachedSkill -SimpleMatch "EDITABLE_LOCAL_TEST_MARKER" -Quiet)) { throw "Local edit marker was not copied into the installed cache" }
       - name: Verify Windows HTML output
         shell: pwsh
         env:

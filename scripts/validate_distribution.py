@@ -69,8 +69,12 @@ def validate_tree() -> None:
         PLUGIN_ROOT / "skills" / PLUGIN_NAME / "SKILL.md",
         ROOT / "install-macos.sh",
         ROOT / "install-windows.ps1",
+        ROOT / "install-editable-macos.sh",
+        ROOT / "install-editable-windows.ps1",
         ROOT / "scripts" / "update-macos.sh",
         ROOT / "scripts" / "update-windows.ps1",
+        ROOT / "scripts" / "apply-local-edits-macos.sh",
+        ROOT / "scripts" / "apply-local-edits-windows.ps1",
         ROOT / "scripts" / "publish-update.sh",
         ROOT / "AUTHOR_UPDATE.md",
     )
@@ -101,6 +105,30 @@ def validate_installers() -> None:
         require("6시간마다" in text, f"{path.name} 자동 업데이트 안내 누락")
     require("StartInterval" in (ROOT / "install-macos.sh").read_text(encoding="utf-8"), "macOS LaunchAgent 누락")
     require("Register-ScheduledTask" in (ROOT / "install-windows.ps1").read_text(encoding="utf-8"), "Windows 예약 작업 누락")
+
+    editable_installers = (
+        ROOT / "install-editable-macos.sh",
+        ROOT / "install-editable-windows.ps1",
+    )
+    for path in editable_installers:
+        text = path.read_text(encoding="utf-8")
+        require("CHEONGNYEON_EDITABLE_ROOT" in text, f"{path.name} 편집 폴더 설정 누락")
+        require("CHEONGNYEON_DISABLE_AUTO_UPDATE" in text, f"{path.name} 자동 업데이트 차단 누락")
+        require("sourceType" in text and "local" in text, f"{path.name} 로컬 소스 검증 누락")
+        require("apply-local-edits" in text, f"{path.name} 로컬 수정 적용기 연결 누락")
+
+    mac_editable = (ROOT / "install-editable-macos.sh").read_text(encoding="utf-8")
+    windows_editable = (ROOT / "install-editable-windows.ps1").read_text(encoding="utf-8")
+    require("launchctl bootout" in mac_editable, "macOS 편집용 설치기의 자동 업데이트 해제 누락")
+    require("Unregister-ScheduledTask" in windows_editable, "Windows 편집용 설치기의 자동 업데이트 해제 누락")
+
+    for path in (
+        ROOT / "scripts" / "apply-local-edits-macos.sh",
+        ROOT / "scripts" / "apply-local-edits-windows.ps1",
+    ):
+        text = path.read_text(encoding="utf-8")
+        require("codex.local" in text, f"{path.name} 로컬 캐시버스터 누락")
+        require("sourceType" in text and "local" in text, f"{path.name} 로컬 연결 검증 누락")
 
 
 def main() -> int:

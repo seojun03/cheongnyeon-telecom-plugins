@@ -2,6 +2,47 @@
 
 청년통신 방식의 네이버 블로그 원고와 복사용 HTML을 만드는 공개 Codex 플러그인 저장소입니다.
 
+## 어떤 설치 방식을 고르면 되나요?
+
+| 용도 | 자동 업데이트 | 사용자가 지침 수정 | 설치 방법 |
+| --- | --- | --- | --- |
+| 일반 배포용 | 켜짐 | 업데이트 때 덮어써질 수 있음 | 기존 한 줄 설치 |
+| 사용자 자유 수정용 | 꺼짐 | 가능 | 아래의 편집용 한 줄 설치 |
+
+상대방이 자기 방식으로 플러그인 지침을 계속 수정하게 하려면 **사용자 자유 수정용**을 설치하세요.
+
+## 사용자 자유 수정용 · 자동 업데이트 없음
+
+이 설치 방식은 GitHub의 새 버전을 자동으로 받지 않습니다. 플러그인 전체를 사용자의 일반 폴더에 복사하고 로컬 플러그인으로 연결하므로, 중앙 업데이트가 사용자의 수정을 덮어쓰지 않습니다. 같은 설치 명령을 다시 실행해도 기존 로컬 수정본을 보존합니다.
+
+### Windows 편집용 한 줄 설치
+
+PowerShell에 아래 한 줄을 붙여넣으세요.
+
+```powershell
+irm https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/main/install-editable-windows.ps1 | iex
+```
+
+### macOS 편집용 한 줄 설치
+
+터미널에 아래 한 줄을 붙여넣으세요.
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/main/install-editable-macos.sh)"
+```
+
+설치 후 지침 파일 위치는 다음과 같습니다.
+
+- Windows: `%USERPROFILE%\CheongnyeonTelecomPlugin\plugins\cheongnyeon-telecom-blog\skills\cheongnyeon-telecom-blog\SKILL.md`
+- macOS: `~/CheongnyeonTelecomPlugin/plugins/cheongnyeon-telecom-blog/skills/cheongnyeon-telecom-blog/SKILL.md`
+
+`SKILL.md`와 같은 폴더의 `references`, `templates`, `scripts`도 수정할 수 있습니다. 수정 후 바탕화면의 아래 파일을 한 번 실행하고 ChatGPT에서 새 작업을 여세요.
+
+- Windows: `청년통신_플러그인_내수정적용.cmd`
+- macOS: `청년통신_플러그인_내수정적용.command`
+
+이 로컬 수정본은 제작자의 새 버전을 자동으로 합치지 않습니다. 나중에 제작자 최신판으로 완전히 교체하려면 로컬 폴더를 별도로 백업한 뒤 삭제하고 편집용 설치 명령을 다시 실행해야 합니다.
+
 ## Windows 한 줄 설치
 
 Windows에서 **PowerShell**을 열고 아래 한 줄을 그대로 붙여넣으세요.
@@ -66,6 +107,8 @@ GitHub Actions가 macOS와 Windows에서 다음을 자동 확인합니다.
 - Windows의 `Ctrl+V` 안내와 바탕화면 출력
 - 공개 Git 저장소를 통한 Codex 마켓플레이스 등록 및 플러그인 설치
 - 공개 `v0.1.0` 구버전에서 최신 버전으로의 자동 업데이트
+- macOS·Windows 편집용 설치가 기존 자동 업데이트를 해제하는지 확인
+- 로컬 `SKILL.md` 수정 후 재적용한 내용이 설치 캐시에 반영되는지 확인
 
 ## 공개 범위
 
