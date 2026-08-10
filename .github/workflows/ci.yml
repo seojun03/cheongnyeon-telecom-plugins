@@ -63,7 +63,7 @@ jobs:
           codex plugin marketplace add seojun03/cheongnyeon-telecom-plugins --ref v0.1.0 --json >/dev/null
           codex plugin add cheongnyeon-telecom-blog@cheongnyeon-telecom --json >/dev/null
           codex plugin list --json | python -c 'import json,sys; d=json.load(sys.stdin); p=next(x for x in d["installed"] if x["pluginId"]=="cheongnyeon-telecom-blog@cheongnyeon-telecom"); assert p["version"]=="0.1.0+codex.20260810141037", p'
-          "${{ runner.temp }}/auto-updater/run-update.sh"
+          env -i HOME="$HOME" PATH="/usr/bin:/bin:/usr/sbin:/sbin" /bin/bash "${{ runner.temp }}/auto-updater/run-update.sh"
           codex plugin list --json | python -c 'import json,sys,pathlib; d=json.load(sys.stdin); p=next(x for x in d["installed"] if x["pluginId"]=="cheongnyeon-telecom-blog@cheongnyeon-telecom"); expected=json.loads(pathlib.Path("plugins/cheongnyeon-telecom-blog/.codex-plugin/plugin.json").read_text())["version"]; assert p["enabled"] and p["version"]==expected, (p,expected)'
 
   install-windows:

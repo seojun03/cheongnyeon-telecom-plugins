@@ -113,6 +113,7 @@ install_auto_update() {
   {
     printf '#!/bin/bash\n'
     printf 'set -euo pipefail\n'
+    printf 'export PATH=%q\n' "${PATH:-/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin}"
     printf 'export CODEX_HOME=%q\n' "$CODEX_HOME_DIR"
     printf 'export CHEONGNYEON_CODEX_BIN=%q\n' "$CODEX_BIN"
     printf 'export CHEONGNYEON_REPOSITORY_SOURCE=%q\n' "$REPOSITORY_SOURCE"
