@@ -59,6 +59,21 @@ class SkillContractTests(unittest.TestCase):
         metadata = (SKILL_DIR / "agents" / "openai.yaml").read_text(encoding="utf-8")
         self.assertIn('default_prompt: "$cheongnyeon-telecom-blog', metadata)
 
+    def test_auto_mode_first_requests_only_main_keyword(self) -> None:
+        skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
+        metadata = (SKILL_DIR / "agents" / "openai.yaml").read_text(encoding="utf-8")
+        request = "메인키워드를 입력해 주세요."
+        self.assertIn("자동모드 첫 입력 계약", skill)
+        self.assertIn("사용자가 모드를 아직 지정하지 않았을 때만", skill)
+        self.assertIn("첫 응답은 아래 한 문장만 정확히 출력", skill)
+        self.assertIn(request, skill)
+        self.assertIn(request, metadata)
+        self.assertIn("다른 사전 질문 없이", metadata)
+        self.assertIn("메인키워드를 다시 묻지 않고 즉시 자동 작성", skill)
+        self.assertIn("띄어쓰기와 표기를 정확히 유지", skill)
+        self.assertIn("주제·제목·글 유형·마스터·추가 사실·이미지를 사전 인터뷰로 묻지 않는다", skill)
+        self.assertNotIn("제목 장치·독자 질문·답변 의제만 사용해 메인키워드와 제목을 만든", skill)
+
     def test_model_recommendation_warns_without_blocking(self) -> None:
         skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
         metadata = (SKILL_DIR / "agents" / "openai.yaml").read_text(encoding="utf-8")
