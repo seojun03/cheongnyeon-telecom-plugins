@@ -48,9 +48,20 @@ function Test-PythonAvailable {
     foreach ($name in @("py.exe", "python.exe")) {
         $command = Get-Command $name -ErrorAction SilentlyContinue | Select-Object -First 1
         if ($command) {
-            & $command.Source --version *> $null
-            if ($LASTEXITCODE -eq 0) {
-                return $true
+            $previousErrorActionPreference = $ErrorActionPreference
+            try {
+                # Windows' Microsoft Store execution alias can write a NativeCommandError
+                # while Python is not installed. Treat that alias as unavailable instead of
+                # aborting the entire plugin installer.
+                $ErrorActionPreference = "SilentlyContinue"
+                & $command.Source --version 2>$null | Out-Null
+                if ($LASTEXITCODE -eq 0) {
+                    return $true
+                }
+            } catch {
+                continue
+            } finally {
+                $ErrorActionPreference = $previousErrorActionPreference
             }
         }
     }

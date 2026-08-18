@@ -90,6 +90,41 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
+      - name: Verify unavailable Python alias does not abort installer detection
+        shell: powershell
+        run: |
+          $installer = Get-Content -LiteralPath "install-windows.ps1" -Raw
+          $tokens = $null
+          $errors = $null
+          $ast = [System.Management.Automation.Language.Parser]::ParseInput($installer, [ref]$tokens, [ref]$errors)
+          if ($errors.Count -ne 0) { throw "Installer PowerShell parse failed" }
+          $functionAst = $ast.Find({
+              param($node)
+              $node -is [System.Management.Automation.Language.FunctionDefinitionAst] -and $node.Name -eq "Test-PythonAvailable"
+          }, $true)
+          if (-not $functionAst) { throw "Test-PythonAvailable was not found" }
+          Invoke-Expression $functionAst.Extent.Text
+
+          $fakeRoot = Join-Path $env:RUNNER_TEMP "fake-python-alias"
+          New-Item -ItemType Directory -Path $fakeRoot -Force | Out-Null
+          $source = @'
+          using System;
+          public static class Program {
+              public static int Main() {
+                  Console.Error.WriteLine("Python");
+                  return 1;
+              }
+          }
+          '@
+          Add-Type -TypeDefinition $source -OutputAssembly (Join-Path $fakeRoot "python.exe") -OutputType ConsoleApplication
+          $previousPath = $env:Path
+          try {
+              $env:Path = $fakeRoot
+              $ErrorActionPreference = "Stop"
+              if (Test-PythonAvailable) { throw "Broken Python alias was reported as available" }
+          } finally {
+              $env:Path = $previousPath
+          }
       - name: Install Codex CLI
         shell: pwsh
         run: npm install --global @openai/codex
