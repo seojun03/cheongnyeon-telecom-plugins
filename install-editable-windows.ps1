@@ -20,7 +20,8 @@ function Write-Step([string]$Message) {
 
 function Get-ChatGPTPackage {
     Get-AppxPackage | Where-Object {
-        $_.Name -match "ChatGPT" -or $_.PackageFamilyName -match "ChatGPT"
+        $identity = "$($_.Name) $($_.PackageFamilyName) $($_.PackageFullName) $($_.InstallLocation)"
+        $identity -match "ChatGPT|OpenAI|Codex"
     } | Select-Object -First 1
 }
 
@@ -105,6 +106,8 @@ function Create-DesktopShortcut {
 Disable-AutoUpdate
 $env:CHEONGNYEON_DISABLE_AUTO_UPDATE = "1"
 $env:CHEONGNYEON_NO_LAUNCH = "1"
+$env:CHEONGNYEON_SKIP_APP_INSTALL = "1"
+Write-Step "ChatGPT 앱은 변경하지 않고 플러그인만 설치합니다."
 $cacheBuster = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
 $baseInstallerUrl = "https://raw.githubusercontent.com/$RepositorySource/$Ref/install-windows.ps1?cachebust=$cacheBuster"
 $baseInstallerSource = Invoke-RestMethod -Uri $baseInstallerUrl

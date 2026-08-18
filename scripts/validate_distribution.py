@@ -105,6 +105,10 @@ def validate_installers() -> None:
         require("6시간마다" in text, f"{path.name} 자동 업데이트 안내 누락")
     require("StartInterval" in (ROOT / "install-macos.sh").read_text(encoding="utf-8"), "macOS LaunchAgent 누락")
     require("Register-ScheduledTask" in (ROOT / "install-windows.ps1").read_text(encoding="utf-8"), "Windows 예약 작업 누락")
+    windows_installer = (ROOT / "install-windows.ps1").read_text(encoding="utf-8")
+    require("Test-WingetPackageInstalled" in windows_installer, "Windows 기설치 패키지 감지 누락")
+    require("-1978335189" in windows_installer, "winget 최신 버전 반환값 처리 누락")
+    require("플러그인 설치는 계속합니다" in windows_installer, "ChatGPT 앱 실패 시 플러그인 계속 처리 누락")
 
     editable_installers = (
         ROOT / "install-editable-macos.sh",
@@ -121,6 +125,16 @@ def validate_installers() -> None:
     windows_editable = (ROOT / "install-editable-windows.ps1").read_text(encoding="utf-8")
     require("launchctl bootout" in mac_editable, "macOS 편집용 설치기의 자동 업데이트 해제 누락")
     require("Unregister-ScheduledTask" in windows_editable, "Windows 편집용 설치기의 자동 업데이트 해제 누락")
+    require("CHEONGNYEON_SKIP_APP_INSTALL" in windows_editable, "Windows 편집용 설치기의 ChatGPT 앱 변경 차단 누락")
+
+    for path in (
+        ROOT / "install-windows.ps1",
+        ROOT / "install-editable-windows.ps1",
+        ROOT / "scripts" / "update-windows.ps1",
+        ROOT / "scripts" / "apply-local-edits-windows.ps1",
+    ):
+        text = path.read_text(encoding="utf-8")
+        require('ChatGPT|OpenAI|Codex' in text, f"{path.name} 통합 ChatGPT 앱 감지 누락")
 
     for path in (
         ROOT / "scripts" / "apply-local-edits-macos.sh",

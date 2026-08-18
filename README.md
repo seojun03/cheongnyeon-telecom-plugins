@@ -17,7 +17,7 @@
 
 ### Windows 편집용 한 줄 설치
 
-PowerShell에 아래 한 줄을 붙여넣으세요.
+공식 ChatGPT Windows 앱을 먼저 설치하고 완전히 종료한 뒤, PowerShell에 아래 한 줄을 붙여넣으세요. 편집용 설치기는 기존 ChatGPT 앱을 설치·업그레이드하지 않고 플러그인만 설치합니다.
 
 ```powershell
 irm https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/main/install-editable-windows.ps1 | iex

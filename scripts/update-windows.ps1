@@ -21,7 +21,8 @@ function Write-UpdateLog([string]$Message) {
 
 function Get-ChatGPTPackage {
     Get-AppxPackage | Where-Object {
-        $_.Name -match "ChatGPT" -or $_.PackageFamilyName -match "ChatGPT"
+        $identity = "$($_.Name) $($_.PackageFamilyName) $($_.PackageFullName) $($_.InstallLocation)"
+        $identity -match "ChatGPT|OpenAI|Codex"
     } | Select-Object -First 1
 }
 

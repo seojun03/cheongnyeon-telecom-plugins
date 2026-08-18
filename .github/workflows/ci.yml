@@ -123,6 +123,50 @@ jobs:
           } finally {
               $env:Path = $previousPath
           }
+      - name: Verify already-current winget result is successful
+        shell: powershell
+        run: |
+          $installer = Get-Content -LiteralPath "install-windows.ps1" -Raw
+          foreach ($functionName in @("Write-Step", "Refresh-ProcessPath", "Test-WingetPackageInstalled", "Install-WingetPackage")) {
+              $escapedName = [regex]::Escape($functionName)
+              $functionMatch = [regex]::Match(
+                  $installer,
+                  "(?ms)^function $escapedName(?:\([^)]*\))? \{.*?^\}"
+              )
+              if (-not $functionMatch.Success) { throw "$functionName was not found" }
+              Invoke-Expression $functionMatch.Value
+          }
+
+          $fakeRoot = Join-Path $env:RUNNER_TEMP "fake-winget"
+          New-Item -ItemType Directory -Path $fakeRoot -Force | Out-Null
+          $source = @'
+          using System;
+          public static class Program {
+              public static int Main() {
+                  string value = Environment.GetEnvironmentVariable("CHEONGNYEON_FAKE_WINGET_EXIT_CODE");
+                  return String.IsNullOrEmpty(value) ? 0 : Int32.Parse(value);
+              }
+          }
+          '@
+          Add-Type -TypeDefinition $source -OutputAssembly (Join-Path $fakeRoot "winget.exe") -OutputType ConsoleApplication
+          $previousPath = $env:Path
+          try {
+              $env:Path = "$fakeRoot;$previousPath"
+              $env:CHEONGNYEON_FAKE_WINGET_EXIT_CODE = "0"
+              if (-not (Test-WingetPackageInstalled -Id "9PLM9XGG6VKS" -Source "msstore")) {
+                  throw "Installed package was not detected"
+              }
+
+              foreach ($exitCode in @("-1978335189", "-1978335153", "-1978335135")) {
+                  $env:Path = "$fakeRoot;$previousPath"
+                  $env:CHEONGNYEON_FAKE_WINGET_EXIT_CODE = $exitCode
+                  Install-WingetPackage -Id "9PLM9XGG6VKS" -Source "msstore"
+              }
+              $global:LASTEXITCODE = 0
+          } finally {
+              $env:Path = $previousPath
+              Remove-Item Env:CHEONGNYEON_FAKE_WINGET_EXIT_CODE -ErrorAction SilentlyContinue
+          }
       - name: Install Codex CLI
         shell: pwsh
         run: npm install --global @openai/codex
@@ -166,13 +210,14 @@ jobs:
           CODEX_HOME: ${{ runner.temp }}\codex-home
           CHEONGNYEON_EDITABLE_ROOT: ${{ runner.temp }}\editable-plugin
           CHEONGNYEON_AUTO_UPDATE_TASK_NAME: CheongnyeonTelecomPluginUpdate-CI
-          CHEONGNYEON_SKIP_APP_INSTALL: "1"
           CHEONGNYEON_SKIP_DEPENDENCY_INSTALL: "1"
           CHEONGNYEON_NO_LAUNCH: "1"
           CHEONGNYEON_SKIP_DESKTOP_SHORTCUT: "1"
           CHEONGNYEON_REPOSITORY_REF: ${{ github.sha }}
         run: |
           $env:CHEONGNYEON_CODEX_PATH = (Get-Command codex.cmd).Source
+          $env:CHEONGNYEON_FAKE_WINGET_EXIT_CODE = "-1978335189"
+          $env:Path = "$env:RUNNER_TEMP\fake-winget;$env:Path"
           irm "https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/${{ github.sha }}/install-editable-windows.ps1" | iex
           if (Get-ScheduledTask -TaskName "CheongnyeonTelecomPluginUpdate-CI" -ErrorAction SilentlyContinue) { throw "Automatic updater task was not removed" }
           $plugins = codex plugin list --json | ConvertFrom-Json

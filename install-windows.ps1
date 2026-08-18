@@ -31,15 +31,55 @@ function Refresh-ProcessPath {
 
 function Get-ChatGPTPackage {
     Get-AppxPackage | Where-Object {
-        $_.Name -match "ChatGPT" -or $_.PackageFamilyName -match "ChatGPT"
+        $identity = "$($_.Name) $($_.PackageFamilyName) $($_.PackageFullName) $($_.InstallLocation)"
+        $identity -match "ChatGPT|OpenAI|Codex"
     } | Select-Object -First 1
 }
 
+function Test-WingetPackageInstalled([string]$Id, [string]$Source = "winget") {
+    if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
+        return $false
+    }
+
+    $previousErrorActionPreference = $ErrorActionPreference
+    try {
+        $ErrorActionPreference = "SilentlyContinue"
+        & winget list --id $Id --exact --source $Source --accept-source-agreements *> $null
+        return $LASTEXITCODE -eq 0
+    } catch {
+        return $false
+    } finally {
+        $ErrorActionPreference = $previousErrorActionPreference
+    }
+}
+
 function Install-WingetPackage([string]$Id, [string]$Source = "winget") {
+    if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
+        throw "winget을 찾을 수 없습니다. Microsoft Store에서 '앱 설치 관리자'를 설치한 뒤 다시 실행하세요."
+    }
+
     Write-Step "$Id 설치를 확인합니다."
-    & winget install --id $Id --exact --source $Source --accept-package-agreements --accept-source-agreements --silent
-    if ($LASTEXITCODE -ne 0) {
-        throw "$Id 설치에 실패했습니다. winget 종료 코드: $LASTEXITCODE"
+    $previousErrorActionPreference = $ErrorActionPreference
+    try {
+        $ErrorActionPreference = "SilentlyContinue"
+        & winget install --id $Id --exact --source $Source --accept-package-agreements --accept-source-agreements --silent
+        $exitCode = $LASTEXITCODE
+    } finally {
+        $ErrorActionPreference = $previousErrorActionPreference
+    }
+
+    # winget returns non-zero HRESULTs when the requested package is already
+    # installed and current. Those are successful no-op outcomes for this installer.
+    $alreadyCurrentExitCodes = @(
+        -1978335189, # 0x8A15002B: no applicable update found
+        -1978335153, # 0x8A15004F: upgrade version is not newer
+        -1978335135  # 0x8A150061: package already installed
+    )
+    if ($exitCode -ne 0 -and $alreadyCurrentExitCodes -notcontains $exitCode) {
+        throw "$Id 설치에 실패했습니다. winget 종료 코드: $exitCode"
+    }
+    if ($alreadyCurrentExitCodes -contains $exitCode) {
+        Write-Step "$Id 최신 버전이 이미 설치되어 있어 계속합니다."
     }
     Refresh-ProcessPath
 }
@@ -169,13 +209,18 @@ if ($env:CODEX_HOME -and -not (Test-Path -LiteralPath $env:CODEX_HOME)) {
 }
 
 if (-not $SkipAppInstall) {
-    if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
-        throw "winget을 찾을 수 없습니다. Microsoft Store에서 '앱 설치 관리자'를 설치한 뒤 다시 실행하세요."
-    }
-    if (-not (Get-ChatGPTPackage)) {
-        Install-WingetPackage -Id "9PLM9XGG6VKS" -Source "msstore"
-    } else {
+    if (Get-ChatGPTPackage) {
         Write-Step "ChatGPT Windows 앱이 이미 설치되어 있습니다."
+    } elseif (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
+        Write-Warning "winget을 찾을 수 없어 ChatGPT 앱 자동 설치만 건너뜁니다. 플러그인 설치는 계속합니다."
+    } elseif (Test-WingetPackageInstalled -Id "9PLM9XGG6VKS" -Source "msstore") {
+        Write-Step "ChatGPT Windows 앱이 이미 설치되어 있습니다."
+    } else {
+        try {
+            Install-WingetPackage -Id "9PLM9XGG6VKS" -Source "msstore"
+        } catch {
+            Write-Warning "ChatGPT 앱 자동 설치를 건너뜁니다. 플러그인 설치는 계속합니다. 앱이 없다면 https://chatgpt.com/download/ 에서 별도로 설치하세요. 원인: $($_.Exception.Message)"
+        }
     }
 }
 
