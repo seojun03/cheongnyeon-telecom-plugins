@@ -94,16 +94,12 @@ jobs:
         shell: powershell
         run: |
           $installer = Get-Content -LiteralPath "install-windows.ps1" -Raw
-          $tokens = $null
-          $errors = $null
-          $ast = [System.Management.Automation.Language.Parser]::ParseInput($installer, [ref]$tokens, [ref]$errors)
-          if ($errors.Count -ne 0) { throw "Installer PowerShell parse failed" }
-          $functionAst = $ast.Find({
-              param($node)
-              $node -is [System.Management.Automation.Language.FunctionDefinitionAst] -and $node.Name -eq "Test-PythonAvailable"
-          }, $true)
-          if (-not $functionAst) { throw "Test-PythonAvailable was not found" }
-          Invoke-Expression $functionAst.Extent.Text
+          $functionMatch = [regex]::Match(
+              $installer,
+              '(?ms)^function Test-PythonAvailable \{.*?^\}'
+          )
+          if (-not $functionMatch.Success) { throw "Test-PythonAvailable was not found" }
+          Invoke-Expression $functionMatch.Value
 
           $fakeRoot = Join-Path $env:RUNNER_TEMP "fake-python-alias"
           New-Item -ItemType Directory -Path $fakeRoot -Force | Out-Null
