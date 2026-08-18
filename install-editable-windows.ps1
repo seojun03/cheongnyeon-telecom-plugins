@@ -192,13 +192,16 @@ function Refresh-EditableSupportFiles {
         $source = Invoke-RestMethod -Uri $applyUrl
         [IO.File]::WriteAllText($tempPath, [string]$source, $encoding)
 
+        # Windows PowerShell 5.1 treats UTF-8 files without a BOM as the local
+        # ANSI code page when ParseFile is used. Read explicit UTF-8 first and
+        # parse the in-memory text so Korean messages cannot create false errors.
+        $validatedSource = Get-Content -LiteralPath $tempPath -Raw -Encoding UTF8
         $tokens = $null
         $parseErrors = $null
-        [System.Management.Automation.Language.Parser]::ParseFile($tempPath, [ref]$tokens, [ref]$parseErrors) | Out-Null
+        [System.Management.Automation.Language.Parser]::ParseInput($validatedSource, [ref]$tokens, [ref]$parseErrors) | Out-Null
         if (@($parseErrors).Count -gt 0) {
             throw "다운로드한 로컬 수정 적용기의 PowerShell 문법이 올바르지 않습니다. 기존 적용기는 보존했습니다."
         }
-        $validatedSource = Get-Content -LiteralPath $tempPath -Raw -Encoding UTF8
         foreach ($requiredFunction in @("Test-CodexExecutable", "Get-CodexCommand", "Invoke-Codex")) {
             if ($validatedSource -notmatch ("function\s+" + [regex]::Escape($requiredFunction) + "\b")) {
                 throw "다운로드한 로컬 수정 적용기에 $requiredFunction 함수가 없습니다. 기존 적용기는 보존했습니다."
@@ -257,32 +260,33 @@ $env:CHEONGNYEON_CODEX_PATH = $script:CodexExecutable
 
 $before = (Invoke-Codex -Arguments @("plugin", "list", "--json") -Capture) | ConvertFrom-Json
 $beforeInstalled = $before.installed | Where-Object { $_.pluginId -eq $PluginSelector } | Select-Object -First 1
-$previousLocalSource = if ($beforeInstalled) { [string]$beforeInstalled.marketplaceSource.source } else { "" }
-$hadLocalConnection = $beforeInstalled -and $beforeInstalled.marketplaceSource.sourceType -eq "local" -and (-not [string]::IsNullOrWhiteSpace($previousLocalSource))
+$previousSourceType = if ($beforeInstalled) { [string]$beforeInstalled.marketplaceSource.sourceType } else { "" }
+$previousMarketplaceSource = if ($beforeInstalled) { [string]$beforeInstalled.marketplaceSource.source } else { "" }
+$canRestoreConnection = $beforeInstalled -and (@("local", "git") -contains $previousSourceType) -and (-not [string]::IsNullOrWhiteSpace($previousMarketplaceSource))
 try {
     Invoke-Codex -Arguments @("plugin", "remove", $PluginSelector, "--json") -IgnoreFailure -Capture | Out-Null
     Invoke-Codex -Arguments @("plugin", "marketplace", "remove", $MarketplaceName, "--json") -IgnoreFailure -Capture | Out-Null
     Invoke-Codex -Arguments @("plugin", "marketplace", "add", $EditableRoot, "--json") -Capture | Out-Null
     Invoke-Codex -Arguments @("plugin", "add", $PluginSelector, "--json") -Capture | Out-Null
+
+    $plugins = (Invoke-Codex -Arguments @("plugin", "list", "--json") -Capture) | ConvertFrom-Json
+    $installed = $plugins.installed | Where-Object { $_.pluginId -eq $PluginSelector } | Select-Object -First 1
+    if (-not $installed -or -not $installed.enabled -or $installed.marketplaceSource.sourceType -ne "local") {
+        throw "설치된 플러그인이 로컬 수정본에 연결되지 않았습니다."
+    }
 } catch {
     $installError = $_.Exception
-    if ($hadLocalConnection) {
-        Write-Warning "재연결에 실패해 기존 로컬 편집본 연결을 복구합니다."
+    if ($canRestoreConnection) {
+        Write-Warning "재연결에 실패해 기존 플러그인 연결을 복구합니다."
         try {
             Invoke-Codex -Arguments @("plugin", "marketplace", "remove", $MarketplaceName, "--json") -IgnoreFailure -Capture | Out-Null
-            Invoke-Codex -Arguments @("plugin", "marketplace", "add", $previousLocalSource, "--json") -Capture | Out-Null
+            Invoke-Codex -Arguments @("plugin", "marketplace", "add", $previousMarketplaceSource, "--json") -Capture | Out-Null
             Invoke-Codex -Arguments @("plugin", "add", $PluginSelector, "--json") -Capture | Out-Null
         } catch {
-            Write-Warning "기존 로컬 플러그인 연결을 자동으로 복구하지 못했습니다: $($_.Exception.Message)"
+            Write-Warning "기존 플러그인 연결을 자동으로 복구하지 못했습니다: $($_.Exception.Message)"
         }
     }
     throw $installError
-}
-
-$plugins = (Invoke-Codex -Arguments @("plugin", "list", "--json") -Capture) | ConvertFrom-Json
-$installed = $plugins.installed | Where-Object { $_.pluginId -eq $PluginSelector } | Select-Object -First 1
-if (-not $installed -or -not $installed.enabled -or $installed.marketplaceSource.sourceType -ne "local") {
-    throw "설치된 플러그인이 로컬 수정본에 연결되지 않았습니다."
 }
 $skillPath = Join-Path $EditableRoot "plugins\$PluginName\skills\$PluginName\SKILL.md"
 $probe = Get-Item -LiteralPath $skillPath

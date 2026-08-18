@@ -267,13 +267,13 @@ function Refresh-EditableSupportFiles {
         New-Item -ItemType Directory -Path $destinationParent -Force | Out-Null
     }
 
+    $validatedSource = Get-Content -LiteralPath $source -Raw -Encoding UTF8
     $tokens = $null
     $parseErrors = $null
-    [System.Management.Automation.Language.Parser]::ParseFile($source, [ref]$tokens, [ref]$parseErrors) | Out-Null
+    [System.Management.Automation.Language.Parser]::ParseInput($validatedSource, [ref]$tokens, [ref]$parseErrors) | Out-Null
     if (@($parseErrors).Count -gt 0) {
         throw "The ZIP contains an invalid local edit helper. The existing helper was preserved."
     }
-    $validatedSource = Get-Content -LiteralPath $source -Raw -Encoding UTF8
     foreach ($requiredFunction in @("Test-CodexExecutable", "Get-CodexCommand", "Invoke-Codex")) {
         if ($validatedSource -notmatch ("function\s+" + [regex]::Escape($requiredFunction) + "\b")) {
             throw "The ZIP local edit helper is missing $requiredFunction. The existing helper was preserved."
@@ -347,39 +347,40 @@ function Install-DownloadedPlugin {
     $localVersion = Set-UniqueLocalVersion
     $before = (Invoke-Codex -Arguments @("plugin", "list", "--json") -Capture) | ConvertFrom-Json
     $beforeInstalled = $before.installed | Where-Object { $_.pluginId -eq $PluginSelector } | Select-Object -First 1
-    $previousLocalSource = if ($beforeInstalled) { [string]$beforeInstalled.marketplaceSource.source } else { "" }
-    $hadLocalConnection = $beforeInstalled -and $beforeInstalled.marketplaceSource.sourceType -eq "local" -and (-not [string]::IsNullOrWhiteSpace($previousLocalSource))
+    $previousSourceType = if ($beforeInstalled) { [string]$beforeInstalled.marketplaceSource.sourceType } else { "" }
+    $previousMarketplaceSource = if ($beforeInstalled) { [string]$beforeInstalled.marketplaceSource.source } else { "" }
+    $canRestoreConnection = $beforeInstalled -and (@("local", "git") -contains $previousSourceType) -and (-not [string]::IsNullOrWhiteSpace($previousMarketplaceSource))
     try {
         Invoke-Codex -Arguments @("plugin", "remove", $PluginSelector, "--json") -IgnoreFailure -Capture | Out-Null
         Invoke-Codex -Arguments @("plugin", "marketplace", "remove", $MarketplaceName, "--json") -IgnoreFailure -Capture | Out-Null
         Invoke-Codex -Arguments @("plugin", "marketplace", "add", $EditableRoot, "--json") -Capture | Out-Null
         Invoke-Codex -Arguments @("plugin", "add", $PluginSelector, "--json") -Capture | Out-Null
+
+        $json = Invoke-Codex -Arguments @("plugin", "list", "--json") -Capture
+        $plugins = $json | ConvertFrom-Json
+        $installed = $plugins.installed | Where-Object { $_.pluginId -eq $PluginSelector } | Select-Object -First 1
+        if (-not $installed -or -not $installed.enabled) {
+            throw "The plugin was not enabled after installation."
+        }
+        if ($installed.marketplaceSource.sourceType -ne "local") {
+            throw "The installed plugin is not connected to the editable local copy."
+        }
+        if ([string]$installed.version -ne [string]$localVersion) {
+            throw "The installed version does not match the downloaded local copy."
+        }
     } catch {
         $installError = $_.Exception
-        if ($hadLocalConnection) {
-            Write-Warning "Install failed. Restoring the previous local plugin connection."
+        if ($canRestoreConnection) {
+            Write-Warning "Install failed. Restoring the previous plugin connection."
             try {
                 Invoke-Codex -Arguments @("plugin", "marketplace", "remove", $MarketplaceName, "--json") -IgnoreFailure -Capture | Out-Null
-                Invoke-Codex -Arguments @("plugin", "marketplace", "add", $previousLocalSource, "--json") -Capture | Out-Null
+                Invoke-Codex -Arguments @("plugin", "marketplace", "add", $previousMarketplaceSource, "--json") -Capture | Out-Null
                 Invoke-Codex -Arguments @("plugin", "add", $PluginSelector, "--json") -Capture | Out-Null
             } catch {
-                Write-Warning "Could not restore the previous local plugin connection: $($_.Exception.Message)"
+                Write-Warning "Could not restore the previous plugin connection: $($_.Exception.Message)"
             }
         }
         throw $installError
-    }
-
-    $json = Invoke-Codex -Arguments @("plugin", "list", "--json") -Capture
-    $plugins = $json | ConvertFrom-Json
-    $installed = $plugins.installed | Where-Object { $_.pluginId -eq $PluginSelector } | Select-Object -First 1
-    if (-not $installed -or -not $installed.enabled) {
-        throw "The plugin was not enabled after installation."
-    }
-    if ($installed.marketplaceSource.sourceType -ne "local") {
-        throw "The installed plugin is not connected to the editable local copy."
-    }
-    if ([string]$installed.version -ne [string]$localVersion) {
-        throw "The installed version does not match the downloaded local copy."
     }
 
     $skillPath = Join-Path $EditableRoot "plugins\$PluginName\skills\$PluginName\SKILL.md"

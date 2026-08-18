@@ -279,6 +279,7 @@ jobs:
         shell: powershell
         env:
           CODEX_HOME: ${{ runner.temp }}\zip-codex-home
+          CODEX_INSTALL_DIR: ${{ runner.temp }}\zip-codex-bin
           CHEONGNYEON_EDITABLE_ROOT: ${{ runner.temp }}\zip-editable-plugin
           CHEONGNYEON_SKIP_DESKTOP_SHORTCUT: "1"
         run: |
@@ -288,9 +289,15 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw "Failed to create source ZIP" }
           Expand-Archive -LiteralPath $archive -DestinationPath $expanded -Force
           $source = Join-Path $expanded "cheongnyeon-telecom-plugins-main"
-          $env:CHEONGNYEON_CODEX_PATH = $env:CODEX_BIN
+          $mainCodexDirectory = (Split-Path -Parent $env:CODEX_BIN).TrimEnd("\")
+          $env:Path = (($env:Path -split ";") | Where-Object { $_ -and $_.TrimEnd("\") -ne $mainCodexDirectory }) -join ";"
+          Remove-Item Env:CHEONGNYEON_CODEX_PATH -ErrorAction SilentlyContinue
           & (Join-Path $source "install-from-download-windows.ps1")
-          $plugins = (& $env:CODEX_BIN plugin list --json) | ConvertFrom-Json
+          $zipCodex = Join-Path $env:CODEX_INSTALL_DIR "codex.exe"
+          if (-not (Test-Path -LiteralPath $zipCodex -PathType Leaf)) { throw "ZIP installer did not install its own official Codex CLI" }
+          & $zipCodex plugin --help | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw "ZIP-installed Codex does not support plugins" }
+          $plugins = (& $zipCodex plugin list --json) | ConvertFrom-Json
           $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
           if (-not $installed.enabled -or $installed.marketplaceSource.sourceType -ne "local") { throw "ZIP plugin is not connected locally" }
           if ($installed.version -notlike "*+codex.local.install.*") { throw "ZIP plugin version is not cache-busted: $($installed.version)" }

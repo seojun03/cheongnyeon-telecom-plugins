@@ -410,7 +410,9 @@ if (-not $SkipAppInstall) {
 }
 
 if (-not $SkipDependencyInstall) {
-    if (-not (Get-Command git.exe -ErrorAction SilentlyContinue)) {
+    # Editable installs download a ZIP and register a local marketplace, so Git
+    # is unnecessary in dependencies-only mode and should not become a blocker.
+    if (-not $DependenciesOnly -and -not (Get-Command git.exe -ErrorAction SilentlyContinue)) {
         Install-WingetPackage -Id "Git.Git"
     }
     if (-not (Test-PythonAvailable)) {
