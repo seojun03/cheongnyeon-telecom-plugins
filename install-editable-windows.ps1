@@ -188,7 +188,10 @@ function Refresh-EditableSupportFiles {
     }
     $tempPath = Join-Path $parent (".apply-local-edits-windows." + [Guid]::NewGuid().ToString("N") + ".tmp.ps1")
     $backupPath = Join-Path $parent (".apply-local-edits-windows." + [Guid]::NewGuid().ToString("N") + ".backup.ps1")
-    $encoding = New-Object System.Text.UTF8Encoding($false)
+    # Windows PowerShell 5.1 opens script files using the active ANSI code page
+    # unless UTF-8 has a BOM. Write the installed helper with a BOM so it can
+    # be executed directly after validation, including on Korean Windows.
+    $encoding = New-Object System.Text.UTF8Encoding($true)
     try {
         $source = Invoke-RestMethod -Uri $applyUrl
         [IO.File]::WriteAllText($tempPath, [string]$source, $encoding)

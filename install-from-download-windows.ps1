@@ -280,28 +280,28 @@ function Refresh-EditableSupportFiles {
         }
     }
 
-    $sourceResolved = (Resolve-Path -LiteralPath $source).Path
-    $destinationResolved = if (Test-Path -LiteralPath $destination -PathType Leaf) { (Resolve-Path -LiteralPath $destination).Path } else { "" }
-    if ($sourceResolved -ne $destinationResolved) {
-        $tempPath = Join-Path $destinationParent (".apply-local-edits-windows." + [Guid]::NewGuid().ToString("N") + ".tmp.ps1")
-        $backupPath = Join-Path $destinationParent (".apply-local-edits-windows." + [Guid]::NewGuid().ToString("N") + ".backup.ps1")
-        try {
-            Copy-Item -LiteralPath $source -Destination $tempPath -Force
-            if (Test-Path -LiteralPath $destination -PathType Leaf) {
-                [IO.File]::Replace($tempPath, $destination, $backupPath)
+    # Always rewrite the helper with a UTF-8 BOM. Windows PowerShell 5.1 reads
+    # UTF-8 script files without a BOM as the active ANSI code page, which can
+    # turn Korean messages into parser errors when the helper runs directly.
+    $tempPath = Join-Path $destinationParent (".apply-local-edits-windows." + [Guid]::NewGuid().ToString("N") + ".tmp.ps1")
+    $backupPath = Join-Path $destinationParent (".apply-local-edits-windows." + [Guid]::NewGuid().ToString("N") + ".backup.ps1")
+    $utf8Bom = New-Object System.Text.UTF8Encoding($true)
+    try {
+        [IO.File]::WriteAllText($tempPath, $validatedSource, $utf8Bom)
+        if (Test-Path -LiteralPath $destination -PathType Leaf) {
+            [IO.File]::Replace($tempPath, $destination, $backupPath)
+        } else {
+            [IO.File]::Move($tempPath, $destination)
+        }
+    } finally {
+        if (Test-Path -LiteralPath $tempPath) {
+            Remove-Item -LiteralPath $tempPath -Force -ErrorAction SilentlyContinue
+        }
+        if (Test-Path -LiteralPath $backupPath) {
+            if (-not (Test-Path -LiteralPath $destination -PathType Leaf)) {
+                Move-Item -LiteralPath $backupPath -Destination $destination -Force
             } else {
-                [IO.File]::Move($tempPath, $destination)
-            }
-        } finally {
-            if (Test-Path -LiteralPath $tempPath) {
-                Remove-Item -LiteralPath $tempPath -Force -ErrorAction SilentlyContinue
-            }
-            if (Test-Path -LiteralPath $backupPath) {
-                if (-not (Test-Path -LiteralPath $destination -PathType Leaf)) {
-                    Move-Item -LiteralPath $backupPath -Destination $destination -Force
-                } else {
-                    Remove-Item -LiteralPath $backupPath -Force -ErrorAction SilentlyContinue
-                }
+                Remove-Item -LiteralPath $backupPath -Force -ErrorAction SilentlyContinue
             }
         }
     }
