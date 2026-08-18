@@ -93,7 +93,7 @@ jobs:
       - name: Verify unavailable Python alias does not abort installer detection
         shell: powershell
         run: |
-          $installer = Get-Content -LiteralPath "install-windows.ps1" -Raw
+          $installer = Get-Content -LiteralPath "install-windows.ps1" -Raw -Encoding UTF8
           $functionMatch = [regex]::Match(
               $installer,
               '(?ms)^function Test-PythonAvailable \{.*?^\}'
@@ -126,7 +126,7 @@ jobs:
       - name: Verify already-current winget result is successful
         shell: powershell
         run: |
-          $installer = Get-Content -LiteralPath "install-windows.ps1" -Raw
+          $installer = Get-Content -LiteralPath "install-windows.ps1" -Raw -Encoding UTF8
           foreach ($functionName in @("Write-Step", "Refresh-ProcessPath", "Test-WingetPackageInstalled", "Install-WingetPackage")) {
               $escapedName = [regex]::Escape($functionName)
               $functionMatch = [regex]::Match(
