@@ -87,9 +87,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-python@v5
         with:
-          node-version: "lts/*"
+          python-version: "3.12"
       - name: Verify unavailable Python alias does not abort installer detection
         shell: powershell
         run: |
@@ -167,9 +167,114 @@ jobs:
               $env:Path = $previousPath
               Remove-Item Env:CHEONGNYEON_FAKE_WINGET_EXIT_CODE -ErrorAction SilentlyContinue
           }
-      - name: Install Codex CLI
-        shell: pwsh
-        run: npm install --global @openai/codex
+      - name: Reject inaccessible Codex and fall back to a usable command
+        shell: powershell
+        run: |
+          $installer = Get-Content -LiteralPath "install-windows.ps1" -Raw -Encoding UTF8
+          foreach ($functionName in @("Test-CodexExecutable", "Get-NpmCommand", "Get-CodexCommand", "Invoke-Codex")) {
+              $escapedName = [regex]::Escape($functionName)
+              $functionMatch = [regex]::Match(
+                  $installer,
+                  "(?ms)^function $escapedName(?:\([^)]*\))? \{.*?^\}"
+              )
+              if (-not $functionMatch.Success) { throw "$functionName was not found" }
+              Invoke-Expression $functionMatch.Value
+          }
+
+          $fakeRoot = Join-Path $env:RUNNER_TEMP "fake-codex-candidates"
+          New-Item -ItemType Directory -Path $fakeRoot -Force | Out-Null
+          $blocked = Join-Path $fakeRoot "blocked-codex.exe"
+          Set-Content -LiteralPath $blocked -Value "not a Windows executable" -Encoding ASCII
+          $versionOnly = Join-Path $fakeRoot "version-only.cmd"
+          Set-Content -LiteralPath $versionOnly -Value '@if "%1"=="--version" (exit /b 0) else (exit /b 1)' -Encoding ASCII
+          $usable = Join-Path $fakeRoot "codex.cmd"
+          Set-Content -LiteralPath $usable -Value '@if "%1"=="plugin" if "%2"=="--help" (exit /b 0) else (exit /b 1)' -Encoding ASCII
+          $warningOnly = Join-Path $fakeRoot "warning-codex.cmd"
+          Set-Content -LiteralPath $warningOnly -Value '@echo harmless warning 1>&2 & exit /b 0' -Encoding ASCII
+
+          if (Test-CodexExecutable -Candidate $blocked) { throw "An unlaunchable executable was accepted" }
+          if (Test-CodexExecutable -Candidate $versionOnly) { throw "A CLI without plugin support was accepted" }
+          if (-not (Test-CodexExecutable -Candidate $warningOnly)) { throw "A successful CLI warning on stderr was treated as failure" }
+
+          $warningJson = Join-Path $fakeRoot "warning-json-codex.exe"
+          $warningJsonSource = @'
+          using System;
+          public static class WarningJsonCodex {
+              public static int Main(string[] args) {
+                  Console.Error.WriteLine("harmless warning");
+                  Console.WriteLine("{\"installed\":[]}");
+                  return 0;
+              }
+          }
+          '@
+          Add-Type -TypeDefinition $warningJsonSource -OutputAssembly $warningJson -OutputType ConsoleApplication
+          $script:CodexExecutable = $warningJson
+          $warningResult = (Invoke-Codex -Arguments @("plugin", "list", "--json") -Capture) | ConvertFrom-Json
+          if ($null -eq $warningResult.installed) { throw "Codex stdout JSON was lost when stderr contained a warning" }
+
+          $accessDenied = Join-Path $fakeRoot "access-denied-codex.exe"
+          Copy-Item -LiteralPath (Join-Path $env:SystemRoot "System32\whoami.exe") -Destination $accessDenied
+          $originalAcl = Get-Acl -LiteralPath $accessDenied
+          $identity = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+          $denyRule = New-Object System.Security.AccessControl.FileSystemAccessRule(
+              $identity,
+              [System.Security.AccessControl.FileSystemRights]::ExecuteFile,
+              [System.Security.AccessControl.AccessControlType]::Deny
+          )
+          $blockedAcl = Get-Acl -LiteralPath $accessDenied
+          $blockedAcl.AddAccessRule($denyRule)
+          Set-Acl -LiteralPath $accessDenied -AclObject $blockedAcl
+          try {
+              if (Test-CodexExecutable -Candidate $accessDenied) { throw "An access-denied executable was accepted" }
+          } finally {
+              Set-Acl -LiteralPath $accessDenied -AclObject $originalAcl
+          }
+
+          $previousPath = $env:Path
+          $previousExplicit = $env:CHEONGNYEON_CODEX_PATH
+          $previousLocalAppData = $env:LOCALAPPDATA
+          $previousAppData = $env:APPDATA
+          try {
+              $CodexPath = $blocked
+              $env:CHEONGNYEON_CODEX_PATH = $blocked
+              $env:LOCALAPPDATA = Join-Path $fakeRoot "local-app-data"
+              $env:APPDATA = Join-Path $fakeRoot "roaming-app-data"
+              $env:Path = "$fakeRoot;$previousPath"
+              $resolved = Get-CodexCommand
+              if ($resolved -ne $usable) { throw "Did not recover from an invalid explicit Codex path: $resolved" }
+          } finally {
+              $env:Path = $previousPath
+              $env:LOCALAPPDATA = $previousLocalAppData
+              $env:APPDATA = $previousAppData
+              if ($null -eq $previousExplicit) {
+                  Remove-Item Env:CHEONGNYEON_CODEX_PATH -ErrorAction SilentlyContinue
+              } else {
+                  $env:CHEONGNYEON_CODEX_PATH = $previousExplicit
+              }
+          }
+      - name: Run Windows PowerShell 5.1 installer against this commit
+        shell: powershell
+        env:
+          CODEX_HOME: ${{ runner.temp }}\codex-home
+          CODEX_INSTALL_DIR: ${{ runner.temp }}\codex-bin
+          CHEONGNYEON_AUTO_UPDATE_ROOT: ${{ runner.temp }}\auto-updater
+          CHEONGNYEON_AUTO_UPDATE_TASK_NAME: CheongnyeonTelecomPluginUpdate-CI
+          CHEONGNYEON_SKIP_APP_INSTALL: "1"
+          CHEONGNYEON_NO_LAUNCH: "1"
+          CHEONGNYEON_REPOSITORY_REF: ${{ github.sha }}
+        run: |
+          $blocked = Join-Path $env:RUNNER_TEMP "blocked-appx-codex.exe"
+          Set-Content -LiteralPath $blocked -Value "simulated unlaunchable Appx executable" -Encoding ASCII
+          $env:CHEONGNYEON_CODEX_PATH = $blocked
+          irm "https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/${{ github.sha }}/install-windows.ps1" | iex
+          $standalone = Join-Path $env:CODEX_INSTALL_DIR "codex.exe"
+          if (-not (Test-Path -LiteralPath $standalone -PathType Leaf)) { throw "Official standalone Codex was not installed" }
+          & $standalone plugin --help | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw "Official standalone Codex does not support plugins" }
+          if ($env:CHEONGNYEON_CODEX_PATH -ne $standalone) { throw "Installer did not export the verified standalone Codex path" }
+          $utf8 = New-Object System.Text.UTF8Encoding($false)
+          [IO.File]::AppendAllText($env:GITHUB_PATH, (Split-Path -Parent $standalone) + [Environment]::NewLine, $utf8)
+          [IO.File]::AppendAllText($env:GITHUB_ENV, "CODEX_BIN=$standalone" + [Environment]::NewLine, $utf8)
       - name: Install from an extracted GitHub ZIP
         shell: powershell
         env:
@@ -183,30 +288,16 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw "Failed to create source ZIP" }
           Expand-Archive -LiteralPath $archive -DestinationPath $expanded -Force
           $source = Join-Path $expanded "cheongnyeon-telecom-plugins-main"
-          $env:CHEONGNYEON_CODEX_PATH = (Get-Command codex.cmd).Source
+          $env:CHEONGNYEON_CODEX_PATH = $env:CODEX_BIN
           & (Join-Path $source "install-from-download-windows.ps1")
-          if ($LASTEXITCODE -ne 0) { throw "Downloaded ZIP installer failed" }
-          $plugins = codex plugin list --json | ConvertFrom-Json
+          $plugins = (& $env:CODEX_BIN plugin list --json) | ConvertFrom-Json
           $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
           if (-not $installed.enabled -or $installed.marketplaceSource.sourceType -ne "local") { throw "ZIP plugin is not connected locally" }
           if ($installed.version -notlike "*+codex.local.install.*") { throw "ZIP plugin version is not cache-busted: $($installed.version)" }
           $skill = Join-Path $env:CHEONGNYEON_EDITABLE_ROOT "plugins\cheongnyeon-telecom-blog\skills\cheongnyeon-telecom-blog\SKILL.md"
           if (-not (Test-Path -LiteralPath $skill)) { throw "Editable ZIP skill was not copied" }
-      - name: Run Windows installer against this commit
-        shell: pwsh
-        env:
-          CODEX_HOME: ${{ runner.temp }}\codex-home
-          CHEONGNYEON_AUTO_UPDATE_ROOT: ${{ runner.temp }}\auto-updater
-          CHEONGNYEON_AUTO_UPDATE_TASK_NAME: CheongnyeonTelecomPluginUpdate-CI
-          CHEONGNYEON_SKIP_APP_INSTALL: "1"
-          CHEONGNYEON_SKIP_DEPENDENCY_INSTALL: "1"
-          CHEONGNYEON_NO_LAUNCH: "1"
-          CHEONGNYEON_REPOSITORY_REF: ${{ github.sha }}
-        run: |
-          $env:CHEONGNYEON_CODEX_PATH = (Get-Command codex.cmd).Source
-          irm "https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/${{ github.sha }}/install-windows.ps1" | iex
       - name: Verify scheduler and old-to-new auto update
-        shell: pwsh
+        shell: powershell
         env:
           CODEX_HOME: ${{ runner.temp }}\codex-home
         run: |
@@ -214,56 +305,29 @@ jobs:
           if (@($task.Triggers).Count -ne 2) { throw "Expected two automatic update triggers" }
           $bootstrap = Join-Path $env:RUNNER_TEMP "auto-updater\run-update.ps1"
           if (-not (Test-Path -LiteralPath $bootstrap)) { throw "Updater bootstrap was not created" }
-          codex plugin remove cheongnyeon-telecom-blog@cheongnyeon-telecom --json | Out-Null
-          codex plugin marketplace remove cheongnyeon-telecom --json | Out-Null
-          codex plugin marketplace add seojun03/cheongnyeon-telecom-plugins --ref v0.1.0 --json | Out-Null
-          codex plugin add cheongnyeon-telecom-blog@cheongnyeon-telecom --json | Out-Null
-          $oldData = codex plugin list --json | ConvertFrom-Json
+          & $env:CODEX_BIN plugin remove cheongnyeon-telecom-blog@cheongnyeon-telecom --json | Out-Null
+          & $env:CODEX_BIN plugin marketplace remove cheongnyeon-telecom --json | Out-Null
+          & $env:CODEX_BIN plugin marketplace add seojun03/cheongnyeon-telecom-plugins --ref v0.1.0 --json | Out-Null
+          & $env:CODEX_BIN plugin add cheongnyeon-telecom-blog@cheongnyeon-telecom --json | Out-Null
+          $oldData = (& $env:CODEX_BIN plugin list --json) | ConvertFrom-Json
           $old = $oldData.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
           if ($old.version -ne "0.1.0+codex.20260810141037") { throw "Old-version setup failed: $($old.version)" }
           & $bootstrap
-          $plugins = codex plugin list --json | ConvertFrom-Json
+          $plugins = (& $env:CODEX_BIN plugin list --json) | ConvertFrom-Json
           $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
           $expected = (Get-Content -LiteralPath "plugins\cheongnyeon-telecom-blog\.codex-plugin\plugin.json" -Raw | ConvertFrom-Json).version
           if (-not $installed.enabled -or $installed.version -ne $expected) { throw "Auto update failed: $($installed.version), expected $expected" }
-      - name: Install editable copy and verify local edits
-        shell: pwsh
-        env:
-          CODEX_HOME: ${{ runner.temp }}\codex-home
-          CHEONGNYEON_EDITABLE_ROOT: ${{ runner.temp }}\editable-plugin
-          CHEONGNYEON_AUTO_UPDATE_TASK_NAME: CheongnyeonTelecomPluginUpdate-CI
-          CHEONGNYEON_SKIP_DEPENDENCY_INSTALL: "1"
-          CHEONGNYEON_NO_LAUNCH: "1"
-          CHEONGNYEON_SKIP_DESKTOP_SHORTCUT: "1"
-          CHEONGNYEON_REPOSITORY_REF: ${{ github.sha }}
-        run: |
-          $env:CHEONGNYEON_CODEX_PATH = (Get-Command codex.cmd).Source
-          $env:CHEONGNYEON_FAKE_WINGET_EXIT_CODE = "-1978335189"
-          $env:Path = "$env:RUNNER_TEMP\fake-winget;$env:Path"
-          irm "https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/${{ github.sha }}/install-editable-windows.ps1" | iex
-          if (Get-ScheduledTask -TaskName "CheongnyeonTelecomPluginUpdate-CI" -ErrorAction SilentlyContinue) { throw "Automatic updater task was not removed" }
-          $plugins = codex plugin list --json | ConvertFrom-Json
-          $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
-          if (-not $installed.enabled -or $installed.marketplaceSource.sourceType -ne "local") { throw "Editable plugin is not local" }
-          $skill = Join-Path $env:CHEONGNYEON_EDITABLE_ROOT "plugins\cheongnyeon-telecom-blog\skills\cheongnyeon-telecom-blog\SKILL.md"
-          Add-Content -LiteralPath $skill -Value "`nEDITABLE_LOCAL_TEST_MARKER" -Encoding utf8
-          & (Join-Path $env:CHEONGNYEON_EDITABLE_ROOT "scripts\apply-local-edits-windows.ps1")
-          $plugins = codex plugin list --json | ConvertFrom-Json
-          $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
-          if (-not $installed.enabled -or $installed.version -notlike "*+codex.local.*" -or $installed.marketplaceSource.sourceType -ne "local") { throw "Local edit was not applied" }
-          $cachedSkill = Join-Path $env:CODEX_HOME "plugins\cache\cheongnyeon-telecom\cheongnyeon-telecom-blog\$($installed.version)\skills\cheongnyeon-telecom-blog\SKILL.md"
-          if (-not (Select-String -LiteralPath $cachedSkill -SimpleMatch "EDITABLE_LOCAL_TEST_MARKER" -Quiet)) { throw "Local edit marker was not copied into the installed cache" }
       - name: Verify Windows HTML output
-        shell: pwsh
+        shell: powershell
         env:
           CODEX_HOME: ${{ runner.temp }}\codex-home
           CHEONGNYEON_OUTPUT_DIR: ${{ runner.temp }}\naver-output
         run: |
-          $plugins = codex plugin list --json | ConvertFrom-Json
+          $plugins = (& $env:CODEX_BIN plugin list --json) | ConvertFrom-Json
           $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" }
           if (-not $installed.enabled) { throw "Plugin is not enabled" }
           $cache = Join-Path $env:CODEX_HOME "plugins\cache\cheongnyeon-telecom\cheongnyeon-telecom-blog"
-          $installedVersion = (codex plugin list --json | ConvertFrom-Json).installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -ExpandProperty version -First 1
+          $installedVersion = ((& $env:CODEX_BIN plugin list --json) | ConvertFrom-Json).installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -ExpandProperty version -First 1
           $pluginVersion = Get-ChildItem -Path $cache -Directory | Where-Object { $_.Name -eq $installedVersion } | Select-Object -First 1
           if (-not $pluginVersion) { throw "Installed plugin cache was not found" }
           $article = Join-Path $env:RUNNER_TEMP "article.html"
@@ -277,3 +341,75 @@ jobs:
         if: always()
         shell: pwsh
         run: Unregister-ScheduledTask -TaskName "CheongnyeonTelecomPluginUpdate-CI" -Confirm:$false -ErrorAction SilentlyContinue
+
+  install-editable-windows:
+    name: Editable one-line install (Windows PowerShell 5.1)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run the public editable command from a clean state and retry safely
+        shell: powershell
+        env:
+          CODEX_HOME: ${{ runner.temp }}\editable-codex-home
+          CODEX_INSTALL_DIR: ${{ runner.temp }}\editable-codex-bin
+          CHEONGNYEON_EDITABLE_ROOT: ${{ runner.temp }}\editable-plugin
+          CHEONGNYEON_AUTO_UPDATE_TASK_NAME: CheongnyeonTelecomPluginUpdate-Editable-CI
+          CHEONGNYEON_SKIP_APP_INSTALL: "1"
+          CHEONGNYEON_NO_LAUNCH: "1"
+          CHEONGNYEON_SKIP_DESKTOP_SHORTCUT: "1"
+          CHEONGNYEON_REPOSITORY_REF: ${{ github.sha }}
+        run: |
+          $blocked = Join-Path $env:RUNNER_TEMP "editable-access-denied-appx-codex.exe"
+          Copy-Item -LiteralPath (Join-Path $env:SystemRoot "System32\whoami.exe") -Destination $blocked
+          $originalAcl = Get-Acl -LiteralPath $blocked
+          $identity = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+          $denyRule = New-Object System.Security.AccessControl.FileSystemAccessRule(
+              $identity,
+              [System.Security.AccessControl.FileSystemRights]::ExecuteFile,
+              [System.Security.AccessControl.AccessControlType]::Deny
+          )
+          $blockedAcl = Get-Acl -LiteralPath $blocked
+          $blockedAcl.AddAccessRule($denyRule)
+          Set-Acl -LiteralPath $blocked -AclObject $blockedAcl
+          $env:CHEONGNYEON_CODEX_PATH = $blocked
+          try {
+              irm "https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/${{ github.sha }}/install-editable-windows.ps1" | iex
+          } finally {
+              Set-Acl -LiteralPath $blocked -AclObject $originalAcl
+          }
+
+          $standalone = Join-Path $env:CODEX_INSTALL_DIR "codex.exe"
+          if (-not (Test-Path -LiteralPath $standalone -PathType Leaf)) { throw "Official standalone Codex was not installed" }
+          & $standalone plugin --help | Out-Null
+          if ($LASTEXITCODE -ne 0) { throw "Official standalone Codex does not support plugins" }
+          $env:CHEONGNYEON_CODEX_PATH = $standalone
+
+          $plugins = (& $standalone plugin list --json) | ConvertFrom-Json
+          $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
+          if (-not $installed.enabled -or $installed.marketplaceSource.sourceType -ne "local") { throw "Editable one-line install is not connected locally" }
+          if (Get-ScheduledTask -TaskName $env:CHEONGNYEON_AUTO_UPDATE_TASK_NAME -ErrorAction SilentlyContinue) { throw "Editable installer registered an automatic update task" }
+
+          $skill = Join-Path $env:CHEONGNYEON_EDITABLE_ROOT "plugins\cheongnyeon-telecom-blog\skills\cheongnyeon-telecom-blog\SKILL.md"
+          Add-Content -LiteralPath $skill -Value "`nEDITABLE_WINDOWS_RETRY_MARKER" -Encoding UTF8
+          $helper = Join-Path $env:CHEONGNYEON_EDITABLE_ROOT "scripts\apply-local-edits-windows.ps1"
+          Set-Content -LiteralPath $helper -Value "BROKEN_OLD_HELPER" -Encoding ASCII
+
+          irm "https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/${{ github.sha }}/install-editable-windows.ps1" | iex
+
+          if ((Get-Content -LiteralPath $skill -Raw -Encoding UTF8) -notmatch "EDITABLE_WINDOWS_RETRY_MARKER") { throw "Editable SKILL.md was overwritten during retry" }
+          $refreshedHelper = Get-Content -LiteralPath $helper -Raw -Encoding UTF8
+          if ($refreshedHelper -notmatch "function\s+Test-CodexExecutable" -or $refreshedHelper -notmatch "function\s+Invoke-Codex") { throw "Retry did not repair the local edit helper" }
+
+          & $helper -CodexPath $standalone
+          $plugins = (& $standalone plugin list --json) | ConvertFrom-Json
+          $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
+          if (-not $installed.enabled -or $installed.marketplaceSource.sourceType -ne "local" -or $installed.version -notlike "*+codex.local.*") { throw "Repaired local helper did not apply the editable plugin" }
+          $cacheSkill = Join-Path $env:CODEX_HOME "plugins\cache\cheongnyeon-telecom\cheongnyeon-telecom-blog\$($installed.version)\skills\cheongnyeon-telecom-blog\SKILL.md"
+          if ((Get-Content -LiteralPath $cacheSkill -Raw -Encoding UTF8) -notmatch "EDITABLE_WINDOWS_RETRY_MARKER") { throw "Local edit marker was not copied to the active plugin cache" }
+      - name: Remove editable CI scheduled task
+        if: always()
+        shell: powershell
+        run: Unregister-ScheduledTask -TaskName "CheongnyeonTelecomPluginUpdate-Editable-CI" -Confirm:$false -ErrorAction SilentlyContinue

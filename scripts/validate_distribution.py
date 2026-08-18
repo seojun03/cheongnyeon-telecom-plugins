@@ -108,9 +108,12 @@ def validate_installers() -> None:
     require("StartInterval" in (ROOT / "install-macos.sh").read_text(encoding="utf-8"), "macOS LaunchAgent 누락")
     require("Register-ScheduledTask" in (ROOT / "install-windows.ps1").read_text(encoding="utf-8"), "Windows 예약 작업 누락")
     windows_installer = (ROOT / "install-windows.ps1").read_text(encoding="utf-8")
+    ci_workflow = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
     require("Test-WingetPackageInstalled" in windows_installer, "Windows 기설치 패키지 감지 누락")
     require("-1978335189" in windows_installer, "winget 최신 버전 반환값 처리 누락")
     require("플러그인 설치는 계속합니다" in windows_installer, "ChatGPT 앱 실패 시 플러그인 계속 처리 누락")
+    require("https://chatgpt.com/codex/install.ps1" in windows_installer, "OpenAI 공식 Windows Codex CLI 설치기 누락")
+    require("install-editable-windows:" in ci_workflow and "editable-access-denied-appx-codex.exe" in ci_workflow, "Windows 편집용 한 줄 설치의 접근 거부 통합 테스트 누락")
 
     editable_installers = (
         ROOT / "install-editable-macos.sh",
@@ -128,20 +131,32 @@ def validate_installers() -> None:
     require("launchctl bootout" in mac_editable, "macOS 편집용 설치기의 자동 업데이트 해제 누락")
     require("Unregister-ScheduledTask" in windows_editable, "Windows 편집용 설치기의 자동 업데이트 해제 누락")
     require("CHEONGNYEON_SKIP_APP_INSTALL" in windows_editable, "Windows 편집용 설치기의 ChatGPT 앱 변경 차단 누락")
+    require("CHEONGNYEON_DEPENDENCIES_ONLY" in windows_editable, "Windows 편집용 설치기의 기존 로컬 연결 보호 누락")
+    require("DependenciesOnly" in windows_installer, "Windows 일반 설치기의 의존성 전용 모드 누락")
+    require("ParseFile" in windows_editable and "File]::Replace" in windows_editable, "Windows 편집용 보조 스크립트 안전 교체 누락")
 
     download_installer = (ROOT / "install-from-download-windows.ps1").read_text(encoding="utf-8")
     require("Test-PluginTree" in download_installer, "Windows ZIP 설치기의 로컬 파일 검증 누락")
     require("sourceType" in download_installer and "local" in download_installer, "Windows ZIP 설치기의 로컬 연결 검증 누락")
-    require("Get-AppxPackage" in download_installer, "Windows ZIP 설치기의 ChatGPT 앱 감지 누락")
-    require("Install-WingetPackage" not in download_installer and "winget.exe" not in download_installer, "Windows ZIP 설치기가 winget을 실행할 수 있습니다")
-    require("Invoke-WebRequest" not in download_installer and "Invoke-RestMethod" not in download_installer, "Windows ZIP 설치기는 네트워크를 사용하면 안 됩니다")
+    require("Test-PythonAvailable" in download_installer and "Python.Python.3.14" in download_installer, "Windows ZIP 설치기의 Python 의존성 보완 누락")
+    require("ParseFile" in download_installer and "File]::Replace" in download_installer, "Windows ZIP 보조 스크립트 안전 교체 누락")
+    require("https://chatgpt.com/codex/install.ps1" in download_installer, "Windows ZIP 설치기의 공식 Codex CLI 보완 설치 누락")
 
-    for path in (
+    windows_codex_scripts = (
         ROOT / "install-windows.ps1",
         ROOT / "install-editable-windows.ps1",
+        ROOT / "install-from-download-windows.ps1",
         ROOT / "scripts" / "update-windows.ps1",
         ROOT / "scripts" / "apply-local-edits-windows.ps1",
-    ):
+    )
+    for path in windows_codex_scripts:
+        text = path.read_text(encoding="utf-8")
+        require("Test-CodexExecutable" in text, f"{path.name} Codex 실행 가능성 검증 누락")
+        require("plugin --help" in text, f"{path.name} Codex plugin 기능 검증 누락")
+        require("Programs\\OpenAI\\Codex\\bin\\codex.exe" in text, f"{path.name} 공식 standalone Codex 경로 누락")
+        require('-Filter "codex.exe"' not in text, f"{path.name} Appx 내부 Codex 재귀 탐색 잔존")
+
+    for path in (ROOT / "install-windows.ps1", ROOT / "install-editable-windows.ps1"):
         text = path.read_text(encoding="utf-8")
         require('ChatGPT|OpenAI|Codex' in text, f"{path.name} 통합 ChatGPT 앱 감지 누락")
 

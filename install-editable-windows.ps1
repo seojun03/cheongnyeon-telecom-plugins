@@ -25,30 +25,113 @@ function Get-ChatGPTPackage {
     } | Select-Object -First 1
 }
 
+function Test-CodexExecutable([string]$Candidate) {
+    if ([string]::IsNullOrWhiteSpace($Candidate)) { return $false }
+    $previousErrorActionPreference = $ErrorActionPreference
+    try {
+        if (-not (Test-Path -LiteralPath $Candidate -PathType Leaf)) { return $false }
+        $resolved = (Resolve-Path -LiteralPath $Candidate).Path
+        $ErrorActionPreference = "Continue"
+        $global:LASTEXITCODE = $null
+        & $resolved plugin --help *> $null
+        return $LASTEXITCODE -eq 0
+    } catch {
+        return $false
+    } finally {
+        $ErrorActionPreference = $previousErrorActionPreference
+        $global:LASTEXITCODE = 0
+    }
+}
+
+function Get-NpmCommand {
+    foreach ($name in @("npm.cmd", "npm")) {
+        foreach ($command in @(Get-Command $name -All -ErrorAction SilentlyContinue)) {
+            if ($command.Source -and (Test-Path -LiteralPath $command.Source -PathType Leaf)) { return $command.Source }
+        }
+    }
+    foreach ($candidate in @(
+        $(if ($env:ProgramFiles) { Join-Path $env:ProgramFiles "nodejs\npm.cmd" }),
+        $(if (${env:ProgramFiles(x86)}) { Join-Path ${env:ProgramFiles(x86)} "nodejs\npm.cmd" }),
+        $(if ($env:LOCALAPPDATA) { Join-Path $env:LOCALAPPDATA "Programs\nodejs\npm.cmd" })
+    )) {
+        if ($candidate -and (Test-Path -LiteralPath $candidate -PathType Leaf)) { return (Resolve-Path -LiteralPath $candidate).Path }
+    }
+    return $null
+}
+
 function Get-CodexCommand {
-    if ($CodexPath -and (Test-Path -LiteralPath $CodexPath)) {
-        return (Resolve-Path -LiteralPath $CodexPath).Path
+    $candidates = @()
+    foreach ($candidate in @($CodexPath, $env:CHEONGNYEON_CODEX_PATH)) {
+        if (-not [string]::IsNullOrWhiteSpace($candidate)) { $candidates += $candidate }
     }
-    foreach ($name in @("codex.exe", "codex.cmd", "codex")) {
-        $command = Get-Command $name -ErrorAction SilentlyContinue | Select-Object -First 1
-        if ($command) { return $command.Source }
+    if ($env:LOCALAPPDATA) {
+        $candidates += (Join-Path $env:LOCALAPPDATA "Programs\OpenAI\Codex\bin\codex.exe")
     }
-    $package = Get-ChatGPTPackage
-    if ($package -and $package.InstallLocation) {
-        $embedded = Get-ChildItem -LiteralPath $package.InstallLocation -Filter "codex.exe" -File -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1
-        if ($embedded) { return $embedded.FullName }
+    foreach ($name in @("codex.cmd", "codex.exe", "codex")) {
+        foreach ($command in @(Get-Command $name -All -ErrorAction SilentlyContinue)) {
+            if ($command.Source) { $candidates += $command.Source }
+        }
+    }
+    if ($env:APPDATA) { $candidates += (Join-Path $env:APPDATA "npm\codex.cmd") }
+    if ($env:LOCALAPPDATA) { $candidates += (Join-Path $env:LOCALAPPDATA "npm\codex.cmd") }
+    $npm = Get-NpmCommand
+    if ($npm) {
+        $previousErrorActionPreference = $ErrorActionPreference
+        try {
+            $ErrorActionPreference = "SilentlyContinue"
+            $prefixOutput = @(& $npm prefix --global 2>$null)
+            if ($LASTEXITCODE -eq 0 -and $prefixOutput.Count -gt 0) {
+                $prefix = [string]$prefixOutput[-1]
+                if (-not [string]::IsNullOrWhiteSpace($prefix)) { $candidates += (Join-Path $prefix.Trim() "codex.cmd") }
+            }
+        } catch {
+        } finally {
+            $ErrorActionPreference = $previousErrorActionPreference
+            $global:LASTEXITCODE = 0
+        }
+    }
+    $seen = @{}
+    foreach ($candidate in $candidates) {
+        if ([string]::IsNullOrWhiteSpace([string]$candidate)) { continue }
+        $key = ([string]$candidate).ToLowerInvariant()
+        if ($seen.ContainsKey($key)) { continue }
+        $seen[$key] = $true
+        if (Test-CodexExecutable -Candidate ([string]$candidate)) {
+            return (Resolve-Path -LiteralPath ([string]$candidate)).Path
+        }
     }
     return $null
 }
 
 function Invoke-Codex([string[]]$Arguments, [switch]$IgnoreFailure, [switch]$Capture) {
-    if ($Capture) { $output = & $script:CodexExecutable @Arguments 2>&1 } else { & $script:CodexExecutable @Arguments; $output = $null }
-    $exitCode = $LASTEXITCODE
-    if ($exitCode -ne 0 -and -not $IgnoreFailure) {
-        $details = if ($output) { "`n$($output -join [Environment]::NewLine)" } else { "" }
-        throw "Codex 명령에 실패했습니다: codex $($Arguments -join ' ')$details"
+    $stderrPath = Join-Path ([IO.Path]::GetTempPath()) ("cheongnyeon-codex-stderr-" + [Guid]::NewGuid().ToString("N") + ".log")
+    $previousNativeErrorActionPreference = $ErrorActionPreference
+    try {
+        try {
+            $ErrorActionPreference = "Continue"
+            $global:LASTEXITCODE = $null
+            $output = @(& $script:CodexExecutable @Arguments 2>$stderrPath)
+            $exitCode = $LASTEXITCODE
+        } catch {
+            if ($IgnoreFailure) { return $null }
+            throw "Codex 실행 파일을 시작하지 못했습니다: $script:CodexExecutable. $($_.Exception.Message)"
+        }
+        $stderr = if (Test-Path -LiteralPath $stderrPath) { Get-Content -LiteralPath $stderrPath -Raw -ErrorAction SilentlyContinue } else { "" }
+        if ($null -eq $exitCode) {
+            if ($IgnoreFailure) { return $null }
+            throw "Codex 실행 파일을 시작하지 못했습니다: $script:CodexExecutable"
+        }
+        if ($exitCode -ne 0 -and -not $IgnoreFailure) {
+            $details = if ($stderr) { "`n$stderr" } elseif ($output) { "`n$($output -join [Environment]::NewLine)" } else { "" }
+            throw "Codex 명령에 실패했습니다: codex $($Arguments -join ' ') (종료 코드 $exitCode)$details"
+        }
+        if ($Capture) { return ($output -join [Environment]::NewLine) }
+        if ($output) { $output | Write-Output }
+    } finally {
+        $ErrorActionPreference = $previousNativeErrorActionPreference
+        Remove-Item -LiteralPath $stderrPath -Force -ErrorAction SilentlyContinue
+        $global:LASTEXITCODE = 0
     }
-    if ($Capture) { return ($output -join [Environment]::NewLine) }
 }
 
 function Disable-AutoUpdate {
@@ -92,13 +175,56 @@ function Download-EditableCopy {
     }
 }
 
+function Refresh-EditableSupportFiles {
+    # Preserve the user's SKILL.md and all other local content, but replace the
+    # maintenance script so retries also receive installer bug fixes. Download
+    # and validate it beside the destination before replacing a working copy.
+    $applyPath = Join-Path $EditableRoot "scripts\apply-local-edits-windows.ps1"
+    $cacheBuster = [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()
+    $applyUrl = "https://raw.githubusercontent.com/$RepositorySource/$Ref/scripts/apply-local-edits-windows.ps1?cachebust=$cacheBuster"
+    $parent = Split-Path -Parent $applyPath
+    if (-not (Test-Path -LiteralPath $parent)) {
+        New-Item -ItemType Directory -Path $parent -Force | Out-Null
+    }
+    $tempPath = Join-Path $parent (".apply-local-edits-windows." + [Guid]::NewGuid().ToString("N") + ".tmp.ps1")
+    $encoding = New-Object System.Text.UTF8Encoding($false)
+    try {
+        $source = Invoke-RestMethod -Uri $applyUrl
+        [IO.File]::WriteAllText($tempPath, [string]$source, $encoding)
+
+        $tokens = $null
+        $parseErrors = $null
+        [System.Management.Automation.Language.Parser]::ParseFile($tempPath, [ref]$tokens, [ref]$parseErrors) | Out-Null
+        if (@($parseErrors).Count -gt 0) {
+            throw "다운로드한 로컬 수정 적용기의 PowerShell 문법이 올바르지 않습니다. 기존 적용기는 보존했습니다."
+        }
+        $validatedSource = Get-Content -LiteralPath $tempPath -Raw -Encoding UTF8
+        foreach ($requiredFunction in @("Test-CodexExecutable", "Get-CodexCommand", "Invoke-Codex")) {
+            if ($validatedSource -notmatch ("function\s+" + [regex]::Escape($requiredFunction) + "\b")) {
+                throw "다운로드한 로컬 수정 적용기에 $requiredFunction 함수가 없습니다. 기존 적용기는 보존했습니다."
+            }
+        }
+
+        if (Test-Path -LiteralPath $applyPath -PathType Leaf) {
+            [IO.File]::Replace($tempPath, $applyPath, $null)
+        } else {
+            [IO.File]::Move($tempPath, $applyPath)
+        }
+    } finally {
+        if (Test-Path -LiteralPath $tempPath) {
+            Remove-Item -LiteralPath $tempPath -Force -ErrorAction SilentlyContinue
+        }
+    }
+    Write-Step "로컬 수정 적용기를 최신 버전으로 정비했습니다."
+}
+
 function Create-DesktopShortcut {
     if ($env:CHEONGNYEON_SKIP_DESKTOP_SHORTCUT -eq "1") { return }
     $desktop = [Environment]::GetFolderPath("Desktop")
     if (-not $desktop) { return }
     $shortcut = Join-Path $desktop "청년통신_플러그인_내수정적용.cmd"
     $applyScript = Join-Path $EditableRoot "scripts\apply-local-edits-windows.ps1"
-    $content = "@echo off`r`npowershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File `"$applyScript`"`r`npause`r`n"
+    $content = "@echo off`r`npowershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File `"$applyScript`" -CodexPath `"$script:CodexExecutable`"`r`npause`r`n"
     $encoding = New-Object System.Text.UTF8Encoding($true)
     [IO.File]::WriteAllText($shortcut, $content, $encoding)
 }
@@ -107,20 +233,51 @@ Disable-AutoUpdate
 $env:CHEONGNYEON_DISABLE_AUTO_UPDATE = "1"
 $env:CHEONGNYEON_NO_LAUNCH = "1"
 $env:CHEONGNYEON_SKIP_APP_INSTALL = "1"
+$previousDependenciesOnly = $env:CHEONGNYEON_DEPENDENCIES_ONLY
+$env:CHEONGNYEON_DEPENDENCIES_ONLY = "1"
 Write-Step "ChatGPT 앱은 변경하지 않고 플러그인만 설치합니다."
 $cacheBuster = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
 $baseInstallerUrl = "https://raw.githubusercontent.com/$RepositorySource/$Ref/install-windows.ps1?cachebust=$cacheBuster"
-$baseInstallerSource = Invoke-RestMethod -Uri $baseInstallerUrl
-& ([scriptblock]::Create([string]$baseInstallerSource))
+try {
+    $baseInstallerSource = Invoke-RestMethod -Uri $baseInstallerUrl
+    & ([scriptblock]::Create([string]$baseInstallerSource))
+} finally {
+    if ($null -eq $previousDependenciesOnly) {
+        Remove-Item Env:CHEONGNYEON_DEPENDENCIES_ONLY -ErrorAction SilentlyContinue
+    } else {
+        $env:CHEONGNYEON_DEPENDENCIES_ONLY = $previousDependenciesOnly
+    }
+}
 
 Download-EditableCopy
+Refresh-EditableSupportFiles
 $script:CodexExecutable = Get-CodexCommand
 if (-not $script:CodexExecutable) { throw "플러그인 기능이 있는 Codex 실행 파일을 찾지 못했습니다." }
+$env:CHEONGNYEON_CODEX_PATH = $script:CodexExecutable
 
-Invoke-Codex -Arguments @("plugin", "remove", $PluginSelector, "--json") -IgnoreFailure -Capture | Out-Null
-Invoke-Codex -Arguments @("plugin", "marketplace", "remove", $MarketplaceName, "--json") -IgnoreFailure -Capture | Out-Null
-Invoke-Codex -Arguments @("plugin", "marketplace", "add", $EditableRoot, "--json") -Capture | Out-Null
-Invoke-Codex -Arguments @("plugin", "add", $PluginSelector, "--json") -Capture | Out-Null
+$before = (Invoke-Codex -Arguments @("plugin", "list", "--json") -Capture) | ConvertFrom-Json
+$beforeInstalled = $before.installed | Where-Object { $_.pluginId -eq $PluginSelector } | Select-Object -First 1
+$previousLocalSource = if ($beforeInstalled) { [string]$beforeInstalled.marketplaceSource.source } else { "" }
+$hadLocalConnection = $beforeInstalled -and $beforeInstalled.marketplaceSource.sourceType -eq "local" -and (-not [string]::IsNullOrWhiteSpace($previousLocalSource))
+try {
+    Invoke-Codex -Arguments @("plugin", "remove", $PluginSelector, "--json") -IgnoreFailure -Capture | Out-Null
+    Invoke-Codex -Arguments @("plugin", "marketplace", "remove", $MarketplaceName, "--json") -IgnoreFailure -Capture | Out-Null
+    Invoke-Codex -Arguments @("plugin", "marketplace", "add", $EditableRoot, "--json") -Capture | Out-Null
+    Invoke-Codex -Arguments @("plugin", "add", $PluginSelector, "--json") -Capture | Out-Null
+} catch {
+    $installError = $_.Exception
+    if ($hadLocalConnection) {
+        Write-Warning "재연결에 실패해 기존 로컬 편집본 연결을 복구합니다."
+        try {
+            Invoke-Codex -Arguments @("plugin", "marketplace", "remove", $MarketplaceName, "--json") -IgnoreFailure -Capture | Out-Null
+            Invoke-Codex -Arguments @("plugin", "marketplace", "add", $previousLocalSource, "--json") -Capture | Out-Null
+            Invoke-Codex -Arguments @("plugin", "add", $PluginSelector, "--json") -Capture | Out-Null
+        } catch {
+            Write-Warning "기존 로컬 플러그인 연결을 자동으로 복구하지 못했습니다: $($_.Exception.Message)"
+        }
+    }
+    throw $installError
+}
 
 $plugins = (Invoke-Codex -Arguments @("plugin", "list", "--json") -Capture) | ConvertFrom-Json
 $installed = $plugins.installed | Where-Object { $_.pluginId -eq $PluginSelector } | Select-Object -First 1

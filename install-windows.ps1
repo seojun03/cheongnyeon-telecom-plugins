@@ -6,6 +6,7 @@ param(
     [switch]$SkipAppInstall = ($env:CHEONGNYEON_SKIP_APP_INSTALL -eq "1"),
     [switch]$SkipDependencyInstall = ($env:CHEONGNYEON_SKIP_DEPENDENCY_INSTALL -eq "1"),
     [switch]$DisableAutoUpdate = ($env:CHEONGNYEON_DISABLE_AUTO_UPDATE -eq "1"),
+    [switch]$DependenciesOnly = ($env:CHEONGNYEON_DEPENDENCIES_ONLY -eq "1"),
     [switch]$SkipAutoUpdateSetup = ($env:CHEONGNYEON_SKIP_AUTO_UPDATE_SETUP -eq "1"),
     [switch]$SkipSchedulerActivation = ($env:CHEONGNYEON_SKIP_SCHEDULER_ACTIVATION -eq "1"),
     [switch]$NoLaunch = ($env:CHEONGNYEON_NO_LAUNCH -eq "1")
@@ -26,7 +27,12 @@ function Write-Step([string]$Message) {
 function Refresh-ProcessPath {
     $machine = [Environment]::GetEnvironmentVariable("Path", "Machine")
     $user = [Environment]::GetEnvironmentVariable("Path", "User")
-    $env:Path = "$machine;$user"
+    # Keep process-only entries as well as newly installed machine/user entries.
+    # Replacing PATH outright can hide an existing Git, Python, Node, or Codex
+    # command that was added only for the current PowerShell session.
+    $pathEntries = (@($machine, $user, $env:Path) -join ";").Split(";", [System.StringSplitOptions]::RemoveEmptyEntries) |
+        Select-Object -Unique
+    $env:Path = $pathEntries -join ";"
 }
 
 function Get-ChatGPTPackage {
@@ -62,10 +68,12 @@ function Install-WingetPackage([string]$Id, [string]$Source = "winget") {
     $previousErrorActionPreference = $ErrorActionPreference
     try {
         $ErrorActionPreference = "SilentlyContinue"
+        $global:LASTEXITCODE = $null
         & winget install --id $Id --exact --source $Source --accept-package-agreements --accept-source-agreements --silent
         $exitCode = $LASTEXITCODE
     } finally {
         $ErrorActionPreference = $previousErrorActionPreference
+        $global:LASTEXITCODE = 0
     }
 
     # winget returns non-zero HRESULTs when the requested package is already
@@ -75,7 +83,7 @@ function Install-WingetPackage([string]$Id, [string]$Source = "winget") {
         -1978335153, # 0x8A15004F: upgrade version is not newer
         -1978335135  # 0x8A150061: package already installed
     )
-    if ($exitCode -ne 0 -and $alreadyCurrentExitCodes -notcontains $exitCode) {
+    if ($null -eq $exitCode -or ($exitCode -ne 0 -and $alreadyCurrentExitCodes -notcontains $exitCode)) {
         throw "$Id 설치에 실패했습니다. winget 종료 코드: $exitCode"
     }
     if ($alreadyCurrentExitCodes -contains $exitCode) {
@@ -86,15 +94,16 @@ function Install-WingetPackage([string]$Id, [string]$Source = "winget") {
 
 function Test-PythonAvailable {
     foreach ($name in @("py.exe", "python.exe")) {
-        $command = Get-Command $name -ErrorAction SilentlyContinue | Select-Object -First 1
-        if ($command) {
+        foreach ($command in @(Get-Command $name -All -ErrorAction SilentlyContinue)) {
+            if (-not $command.Source) { continue }
             $previousErrorActionPreference = $ErrorActionPreference
             try {
                 # Windows' Microsoft Store execution alias can write a NativeCommandError
                 # while Python is not installed. Treat that alias as unavailable instead of
                 # aborting the entire plugin installer.
-                $ErrorActionPreference = "SilentlyContinue"
-                & $command.Source --version 2>$null | Out-Null
+                $ErrorActionPreference = "Continue"
+                $global:LASTEXITCODE = $null
+                & $command.Source --version *> $null
                 if ($LASTEXITCODE -eq 0) {
                     return $true
                 }
@@ -102,51 +111,227 @@ function Test-PythonAvailable {
                 continue
             } finally {
                 $ErrorActionPreference = $previousErrorActionPreference
+                $global:LASTEXITCODE = 0
             }
         }
     }
     return $false
 }
 
-function Get-CodexCommand {
-    if ($CodexPath) {
-        if (-not (Test-Path -LiteralPath $CodexPath)) {
-            throw "지정한 CodexPath를 찾을 수 없습니다: $CodexPath"
-        }
-        return (Resolve-Path -LiteralPath $CodexPath).Path
+function Test-CodexExecutable([string]$Candidate) {
+    if ([string]::IsNullOrWhiteSpace($Candidate)) {
+        return $false
     }
 
-    foreach ($name in @("codex.exe", "codex.cmd", "codex")) {
-        $command = Get-Command $name -ErrorAction SilentlyContinue | Select-Object -First 1
-        if ($command) {
-            return $command.Source
+    $previousErrorActionPreference = $ErrorActionPreference
+    try {
+        if (-not (Test-Path -LiteralPath $Candidate -PathType Leaf)) {
+            return $false
+        }
+        $resolved = (Resolve-Path -LiteralPath $Candidate).Path
+        # Appx/WindowsApps can expose a Codex.exe that exists but cannot be
+        # launched outside the app package. A real candidate must execute the
+        # exact plugin command this installer needs.
+        $ErrorActionPreference = "Continue"
+        $global:LASTEXITCODE = $null
+        & $resolved plugin --help *> $null
+        return $LASTEXITCODE -eq 0
+    } catch {
+        return $false
+    } finally {
+        $ErrorActionPreference = $previousErrorActionPreference
+        $global:LASTEXITCODE = 0
+    }
+}
+
+function Get-NpmCommand {
+    foreach ($name in @("npm.cmd", "npm")) {
+        foreach ($command in @(Get-Command $name -All -ErrorAction SilentlyContinue)) {
+            if ($command.Source -and (Test-Path -LiteralPath $command.Source -PathType Leaf)) {
+                return $command.Source
+            }
         }
     }
-
-    $package = Get-ChatGPTPackage
-    if ($package -and $package.InstallLocation) {
-        $embedded = Get-ChildItem -LiteralPath $package.InstallLocation -Filter "codex.exe" -File -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1
-        if ($embedded) {
-            return $embedded.FullName
+    foreach ($candidate in @(
+        $(if ($env:ProgramFiles) { Join-Path $env:ProgramFiles "nodejs\npm.cmd" }),
+        $(if (${env:ProgramFiles(x86)}) { Join-Path ${env:ProgramFiles(x86)} "nodejs\npm.cmd" }),
+        $(if ($env:LOCALAPPDATA) { Join-Path $env:LOCALAPPDATA "Programs\nodejs\npm.cmd" })
+    )) {
+        if ($candidate -and (Test-Path -LiteralPath $candidate -PathType Leaf)) {
+            return (Resolve-Path -LiteralPath $candidate).Path
         }
     }
     return $null
 }
 
+function Get-CodexCommand {
+    $candidates = @()
+
+    # Read the environment dynamically. The editable wrapper invokes this
+    # installer in a child scope and then reuses the verified path it exports.
+    foreach ($candidate in @($CodexPath, $env:CHEONGNYEON_CODEX_PATH)) {
+        if (-not [string]::IsNullOrWhiteSpace($candidate)) {
+            $candidates += $candidate
+        }
+    }
+
+    # The official standalone installer uses this stable per-user path.
+    if ($env:LOCALAPPDATA) {
+        $candidates += (Join-Path $env:LOCALAPPDATA "Programs\OpenAI\Codex\bin\codex.exe")
+    }
+
+    # Prefer the npm wrapper over similarly named executable aliases, then
+    # inspect every PATH match rather than accepting only the first one.
+    foreach ($name in @("codex.cmd", "codex.exe", "codex")) {
+        foreach ($command in @(Get-Command $name -All -ErrorAction SilentlyContinue)) {
+            if ($command.Source) {
+                $candidates += $command.Source
+            }
+        }
+    }
+
+    if ($env:APPDATA) {
+        $candidates += (Join-Path $env:APPDATA "npm\codex.cmd")
+    }
+    if ($env:LOCALAPPDATA) {
+        $candidates += (Join-Path $env:LOCALAPPDATA "npm\codex.cmd")
+    }
+
+    $npm = Get-NpmCommand
+    if ($npm) {
+        $previousErrorActionPreference = $ErrorActionPreference
+        try {
+            $ErrorActionPreference = "SilentlyContinue"
+            $prefixOutput = @(& $npm prefix --global 2>$null)
+            if ($LASTEXITCODE -eq 0 -and $prefixOutput.Count -gt 0) {
+                $prefix = [string]$prefixOutput[-1]
+                if (-not [string]::IsNullOrWhiteSpace($prefix)) {
+                    $candidates += (Join-Path $prefix.Trim() "codex.cmd")
+                }
+            }
+        } catch {
+            # npm is only an optional discovery source here.
+        } finally {
+            $ErrorActionPreference = $previousErrorActionPreference
+            $global:LASTEXITCODE = 0
+        }
+    }
+
+    $seen = @{}
+    foreach ($candidate in $candidates) {
+        if ([string]::IsNullOrWhiteSpace([string]$candidate)) { continue }
+        $key = ([string]$candidate).ToLowerInvariant()
+        if ($seen.ContainsKey($key)) { continue }
+        $seen[$key] = $true
+        if (Test-CodexExecutable -Candidate ([string]$candidate)) {
+            return (Resolve-Path -LiteralPath ([string]$candidate)).Path
+        }
+    }
+    return $null
+}
+
+function Install-OfficialCodexCli {
+    Write-Step "OpenAI 공식 Codex CLI를 설치합니다."
+    $previousNonInteractive = $env:CODEX_NON_INTERACTIVE
+    $previousErrorActionPreference = $ErrorActionPreference
+    $tempInstaller = Join-Path ([IO.Path]::GetTempPath()) ("openai-codex-installer-" + [Guid]::NewGuid().ToString("N") + ".ps1")
+    try {
+        $env:CODEX_NON_INTERACTIVE = "1"
+        $source = Invoke-RestMethod -Uri "https://chatgpt.com/codex/install.ps1"
+        $encoding = New-Object System.Text.UTF8Encoding($false)
+        [IO.File]::WriteAllText($tempInstaller, [string]$source, $encoding)
+        $tokens = $null
+        $parseErrors = $null
+        [System.Management.Automation.Language.Parser]::ParseFile($tempInstaller, [ref]$tokens, [ref]$parseErrors) | Out-Null
+        if (@($parseErrors).Count -gt 0) {
+            throw "OpenAI 공식 Codex CLI 설치기의 PowerShell 문법을 확인하지 못했습니다."
+        }
+
+        $windowsPowerShell = Join-Path $env:SystemRoot "System32\WindowsPowerShell\v1.0\powershell.exe"
+        if (-not (Test-Path -LiteralPath $windowsPowerShell -PathType Leaf)) {
+            throw "Windows PowerShell 실행 파일을 찾지 못했습니다."
+        }
+        $ErrorActionPreference = "Continue"
+        $global:LASTEXITCODE = $null
+        $installOutput = @(& $windowsPowerShell -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File $tempInstaller 2>&1)
+        $installExitCode = $LASTEXITCODE
+        if ($null -eq $installExitCode -or $installExitCode -ne 0) {
+            $details = if ($installOutput) { "`n$($installOutput -join [Environment]::NewLine)" } else { "" }
+            throw "OpenAI 공식 Codex CLI 설치기가 종료 코드 $installExitCode로 중단됐습니다.$details"
+        }
+    } finally {
+        $ErrorActionPreference = $previousErrorActionPreference
+        $global:LASTEXITCODE = 0
+        if (Test-Path -LiteralPath $tempInstaller) {
+            Remove-Item -LiteralPath $tempInstaller -Force -ErrorAction SilentlyContinue
+        }
+        if ($null -eq $previousNonInteractive) {
+            Remove-Item Env:CODEX_NON_INTERACTIVE -ErrorAction SilentlyContinue
+        } else {
+            $env:CODEX_NON_INTERACTIVE = $previousNonInteractive
+        }
+    }
+    Refresh-ProcessPath
+}
+
+function Install-CodexWithNpm([string]$NpmCommand) {
+    $stderrPath = Join-Path ([IO.Path]::GetTempPath()) ("cheongnyeon-npm-stderr-" + [Guid]::NewGuid().ToString("N") + ".log")
+    $previousErrorActionPreference = $ErrorActionPreference
+    try {
+        try {
+            $ErrorActionPreference = "Continue"
+            $global:LASTEXITCODE = $null
+            $output = @(& $NpmCommand install --global "@openai/codex" 2>$stderrPath)
+            $exitCode = $LASTEXITCODE
+        } catch {
+            throw "npm.cmd를 실행하지 못했습니다: $($_.Exception.Message)"
+        }
+        $stderr = if (Test-Path -LiteralPath $stderrPath) { Get-Content -LiteralPath $stderrPath -Raw -ErrorAction SilentlyContinue } else { "" }
+        if ($null -eq $exitCode -or $exitCode -ne 0) {
+            $details = if ($stderr) { "`n$stderr" } elseif ($output) { "`n$($output -join [Environment]::NewLine)" } else { "" }
+            throw "npm Codex CLI 설치에 실패했습니다. 종료 코드: $exitCode$details"
+        }
+    } finally {
+        $ErrorActionPreference = $previousErrorActionPreference
+        Remove-Item -LiteralPath $stderrPath -Force -ErrorAction SilentlyContinue
+        $global:LASTEXITCODE = 0
+    }
+}
+
 function Invoke-Codex([string[]]$Arguments, [switch]$IgnoreFailure, [switch]$Capture) {
-    if ($Capture) {
-        $output = & $script:CodexExecutable @Arguments 2>&1
-    } else {
-        & $script:CodexExecutable @Arguments
-        $output = $null
-    }
-    $exitCode = $LASTEXITCODE
-    if ($exitCode -ne 0 -and -not $IgnoreFailure) {
-        $details = if ($output) { "`n$($output -join [Environment]::NewLine)" } else { "" }
-        throw "Codex 명령에 실패했습니다: codex $($Arguments -join ' ') (종료 코드 $exitCode)$details"
-    }
-    if ($Capture) {
-        return ($output -join [Environment]::NewLine)
+    $stderrPath = Join-Path ([IO.Path]::GetTempPath()) ("cheongnyeon-codex-stderr-" + [Guid]::NewGuid().ToString("N") + ".log")
+    $previousNativeErrorActionPreference = $ErrorActionPreference
+    try {
+        try {
+            # Windows PowerShell 5.1 wraps native stderr as NativeCommandError.
+            # Exit code, not a warning written to stderr, determines success.
+            $ErrorActionPreference = "Continue"
+            $global:LASTEXITCODE = $null
+            $output = @(& $script:CodexExecutable @Arguments 2>$stderrPath)
+            $exitCode = $LASTEXITCODE
+        } catch {
+            if ($IgnoreFailure) { return $null }
+            throw "Codex 실행 파일을 시작하지 못했습니다: $script:CodexExecutable. $($_.Exception.Message)"
+        }
+        $stderr = if (Test-Path -LiteralPath $stderrPath) { Get-Content -LiteralPath $stderrPath -Raw -ErrorAction SilentlyContinue } else { "" }
+        if ($null -eq $exitCode) {
+            if ($IgnoreFailure) { return $null }
+            throw "Codex 실행 파일을 시작하지 못했습니다: $script:CodexExecutable"
+        }
+        if ($exitCode -ne 0 -and -not $IgnoreFailure) {
+            $details = if ($stderr) { "`n$stderr" } elseif ($output) { "`n$($output -join [Environment]::NewLine)" } else { "" }
+            throw "Codex 명령에 실패했습니다: codex $($Arguments -join ' ') (종료 코드 $exitCode)$details"
+        }
+        if ($Capture) {
+            return ($output -join [Environment]::NewLine)
+        }
+        if ($output) {
+            $output | Write-Output
+        }
+    } finally {
+        $ErrorActionPreference = $previousNativeErrorActionPreference
+        Remove-Item -LiteralPath $stderrPath -Force -ErrorAction SilentlyContinue
+        $global:LASTEXITCODE = 0
     }
 }
 
@@ -230,6 +415,9 @@ if (-not $SkipDependencyInstall) {
     }
     if (-not (Test-PythonAvailable)) {
         Install-WingetPackage -Id "Python.Python.3.14"
+        if (-not (Test-PythonAvailable)) {
+            throw "Python 설치 후 실행 가능 상태를 확인하지 못했습니다. PowerShell을 닫고 다시 연 뒤 설치 명령을 다시 실행해주세요."
+        }
     }
 }
 
@@ -238,23 +426,45 @@ if (-not $script:CodexExecutable) {
     if ($SkipDependencyInstall) {
         throw "플러그인 기능이 있는 Codex 실행 파일을 찾지 못했습니다."
     }
-    if (-not (Get-Command npm.cmd -ErrorAction SilentlyContinue)) {
-        Install-WingetPackage -Id "OpenJS.NodeJS.LTS"
+    $officialInstallError = $null
+    try {
+        Install-OfficialCodexCli
+    } catch {
+        $officialInstallError = $_.Exception.Message
+        Write-Warning "OpenAI 공식 Codex CLI 설치를 완료하지 못해 npm 방식을 시도합니다. 원인: $officialInstallError"
     }
-    Write-Step "Codex CLI를 설치합니다."
-    & npm.cmd install --global "@openai/codex"
-    if ($LASTEXITCODE -ne 0) {
-        throw "Codex CLI 설치에 실패했습니다."
-    }
-    Refresh-ProcessPath
     $script:CodexExecutable = Get-CodexCommand
+
+    if (-not $script:CodexExecutable) {
+        $npm = Get-NpmCommand
+        if (-not $npm) {
+            Install-WingetPackage -Id "OpenJS.NodeJS.LTS"
+            $npm = Get-NpmCommand
+        }
+        if (-not $npm) {
+            throw "Node.js 설치 후에도 npm.cmd를 찾지 못했습니다."
+        }
+        Write-Step "보조 방식으로 Codex CLI를 설치합니다."
+        try {
+            Install-CodexWithNpm -NpmCommand $npm
+        } catch {
+            throw "Codex CLI 설치에 실패했습니다. 공식 설치기 원인: $officialInstallError`nnpm 원인: $($_.Exception.Message)"
+        }
+        Refresh-ProcessPath
+        $script:CodexExecutable = Get-CodexCommand
+    }
 }
 
 if (-not $script:CodexExecutable) {
-    throw "Codex 실행 파일을 찾지 못했습니다."
+    throw "플러그인 명령을 실행할 수 있는 Codex CLI를 설치하지 못했습니다."
 }
 
+$env:CHEONGNYEON_CODEX_PATH = $script:CodexExecutable
 Invoke-Codex -Arguments @("plugin", "--help") -Capture | Out-Null
+if ($DependenciesOnly) {
+    Write-Step "의존성과 Codex CLI 준비를 완료했습니다. 기존 플러그인 연결은 변경하지 않습니다."
+    return
+}
 Write-Step "기존 청년통신 플러그인 연결을 정리합니다."
 Invoke-Codex -Arguments @("plugin", "remove", "$PluginName@$LegacyMarketplaceName", "--json") -IgnoreFailure -Capture | Out-Null
 Invoke-Codex -Arguments @("plugin", "marketplace", "remove", $LegacyMarketplaceName, "--json") -IgnoreFailure -Capture | Out-Null

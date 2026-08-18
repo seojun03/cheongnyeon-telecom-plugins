@@ -28,7 +28,7 @@ PowerShell 명령을 입력하지 않아도 됩니다. 아래 ZIP을 내려받�
 5. 검은 창에 `INSTALLATION COMPLETE`가 표시되면 아무 키나 눌러 닫습니다.
 6. ChatGPT 앱을 다시 열고 **새 작업**에서 청년통신 플러그인을 사용합니다.
 
-이 방식은 ChatGPT 앱, `winget`, Git, Python을 설치하거나 업그레이드하지 않습니다. ZIP 안의 플러그인을 `%USERPROFILE%\CheongnyeonTelecomPlugin`에 복사한 뒤 로컬 편집본으로 연결하므로 중앙 자동 업데이트도 받지 않습니다.
+이 방식은 ChatGPT 앱과 Git을 변경하지 않습니다. 플러그인 명령을 실행할 Codex CLI가 없으면 OpenAI 공식 Windows standalone 설치기로 추가하고, 글 작성에 필요한 Python이 없으면 `winget`으로 설치합니다. ZIP 안의 플러그인은 `%USERPROFILE%\CheongnyeonTelecomPlugin`에 복사하고 로컬 편집본으로 연결하므로 중앙 자동 업데이트를 받지 않습니다.
 
 ### Windows 편집용 PowerShell 설치 (대체 방법)
 
@@ -51,7 +51,7 @@ irm https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/main/
 - Windows: `%USERPROFILE%\CheongnyeonTelecomPlugin\plugins\cheongnyeon-telecom-blog\skills\cheongnyeon-telecom-blog\SKILL.md`
 - macOS: `~/CheongnyeonTelecomPlugin/plugins/cheongnyeon-telecom-blog/skills/cheongnyeon-telecom-blog/SKILL.md`
 
-`SKILL.md`와 같은 폴더의 `references`, `templates`, `scripts`도 수정할 수 있습니다. 수정 후 바탕화면의 아래 파일을 한 번 실행하고 ChatGPT에서 새 작업을 여세요.
+`SKILL.md`와 글 작성 규칙이 담긴 `references`, `templates`, 콘텐츠용 `scripts`도 수정할 수 있습니다. 단, 설치 재시도 시 오류 수정을 받기 위해 유지보수 파일 `scripts/apply-local-edits-windows.ps1`만 최신 정상본으로 교체됩니다. 글 작성 방식은 이 파일이 아니라 `SKILL.md`와 `references`에서 바꾸면 됩니다. 수정 후 바탕화면의 아래 파일을 한 번 실행하고 ChatGPT에서 새 작업을 여세요.
 
 - Windows ZIP 설치: `Cheongnyeon_Plugin_Apply_My_Edits.cmd`
 - Windows PowerShell 설치: `청년통신_플러그인_내수정적용.cmd`
@@ -67,7 +67,7 @@ Windows에서 **PowerShell**을 열고 아래 한 줄을 그대로 붙여넣으�
 irm https://raw.githubusercontent.com/seojun03/cheongnyeon-telecom-plugins/main/install-windows.ps1 | iex
 ```
 
-설치기는 ChatGPT Windows 앱, Git, Python을 확인하고 없으면 `winget`으로 설치한 뒤 플러그인을 설치합니다. 설치가 끝나면 ChatGPT 앱을 열고 `청년통신 블로그 글을 자동모드로 작성해줘`라고 입력하면 됩니다.
+설치기는 ChatGPT Windows 앱, Git, Python을 확인하고 필요한 경우 `winget`으로 설치합니다. 플러그인용 Codex CLI가 없으면 OpenAI 공식 Windows standalone 설치기를 우선 사용하고, 실패할 때만 npm 방식으로 재시도합니다. ChatGPT 앱의 보호된 내부 `Codex.exe`는 설치 명령에 사용하지 않습니다. 설치가 끝나면 ChatGPT 앱을 열고 `청년통신 블로그 글을 자동모드로 작성해줘`라고 입력하면 됩니다.
 
 ## macOS 한 줄 설치
 
