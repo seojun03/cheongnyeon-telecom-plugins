@@ -71,6 +71,8 @@ def validate_tree() -> None:
         ROOT / "install-windows.ps1",
         ROOT / "install-editable-macos.sh",
         ROOT / "install-editable-windows.ps1",
+        ROOT / "INSTALL-WINDOWS.cmd",
+        ROOT / "install-from-download-windows.ps1",
         ROOT / "scripts" / "update-macos.sh",
         ROOT / "scripts" / "update-windows.ps1",
         ROOT / "scripts" / "apply-local-edits-macos.sh",
@@ -126,6 +128,13 @@ def validate_installers() -> None:
     require("launchctl bootout" in mac_editable, "macOS 편집용 설치기의 자동 업데이트 해제 누락")
     require("Unregister-ScheduledTask" in windows_editable, "Windows 편집용 설치기의 자동 업데이트 해제 누락")
     require("CHEONGNYEON_SKIP_APP_INSTALL" in windows_editable, "Windows 편집용 설치기의 ChatGPT 앱 변경 차단 누락")
+
+    download_installer = (ROOT / "install-from-download-windows.ps1").read_text(encoding="utf-8")
+    require("Test-PluginTree" in download_installer, "Windows ZIP 설치기의 로컬 파일 검증 누락")
+    require("sourceType" in download_installer and "local" in download_installer, "Windows ZIP 설치기의 로컬 연결 검증 누락")
+    require("Get-AppxPackage" in download_installer, "Windows ZIP 설치기의 ChatGPT 앱 감지 누락")
+    require("Install-WingetPackage" not in download_installer and "winget.exe" not in download_installer, "Windows ZIP 설치기가 winget을 실행할 수 있습니다")
+    require("Invoke-WebRequest" not in download_installer and "Invoke-RestMethod" not in download_installer, "Windows ZIP 설치기는 네트워크를 사용하면 안 됩니다")
 
     for path in (
         ROOT / "install-windows.ps1",

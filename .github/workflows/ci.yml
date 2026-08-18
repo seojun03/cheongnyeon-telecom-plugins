@@ -170,6 +170,28 @@ jobs:
       - name: Install Codex CLI
         shell: pwsh
         run: npm install --global @openai/codex
+      - name: Install from an extracted GitHub ZIP
+        shell: powershell
+        env:
+          CODEX_HOME: ${{ runner.temp }}\zip-codex-home
+          CHEONGNYEON_EDITABLE_ROOT: ${{ runner.temp }}\zip-editable-plugin
+          CHEONGNYEON_SKIP_DESKTOP_SHORTCUT: "1"
+        run: |
+          $archive = Join-Path $env:RUNNER_TEMP "cheongnyeon-source.zip"
+          $expanded = Join-Path $env:RUNNER_TEMP "cheongnyeon-source"
+          git archive --format=zip --prefix=cheongnyeon-telecom-plugins-main/ --output=$archive HEAD
+          if ($LASTEXITCODE -ne 0) { throw "Failed to create source ZIP" }
+          Expand-Archive -LiteralPath $archive -DestinationPath $expanded -Force
+          $source = Join-Path $expanded "cheongnyeon-telecom-plugins-main"
+          $env:CHEONGNYEON_CODEX_PATH = (Get-Command codex.cmd).Source
+          & (Join-Path $source "install-from-download-windows.ps1")
+          if ($LASTEXITCODE -ne 0) { throw "Downloaded ZIP installer failed" }
+          $plugins = codex plugin list --json | ConvertFrom-Json
+          $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
+          if (-not $installed.enabled -or $installed.marketplaceSource.sourceType -ne "local") { throw "ZIP plugin is not connected locally" }
+          if ($installed.version -notlike "*+codex.local.install.*") { throw "ZIP plugin version is not cache-busted: $($installed.version)" }
+          $skill = Join-Path $env:CHEONGNYEON_EDITABLE_ROOT "plugins\cheongnyeon-telecom-blog\skills\cheongnyeon-telecom-blog\SKILL.md"
+          if (-not (Test-Path -LiteralPath $skill)) { throw "Editable ZIP skill was not copied" }
       - name: Run Windows installer against this commit
         shell: pwsh
         env:
