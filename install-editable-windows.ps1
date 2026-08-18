@@ -187,6 +187,7 @@ function Refresh-EditableSupportFiles {
         New-Item -ItemType Directory -Path $parent -Force | Out-Null
     }
     $tempPath = Join-Path $parent (".apply-local-edits-windows." + [Guid]::NewGuid().ToString("N") + ".tmp.ps1")
+    $backupPath = Join-Path $parent (".apply-local-edits-windows." + [Guid]::NewGuid().ToString("N") + ".backup.ps1")
     $encoding = New-Object System.Text.UTF8Encoding($false)
     try {
         $source = Invoke-RestMethod -Uri $applyUrl
@@ -209,13 +210,20 @@ function Refresh-EditableSupportFiles {
         }
 
         if (Test-Path -LiteralPath $applyPath -PathType Leaf) {
-            [IO.File]::Replace($tempPath, $applyPath, $null)
+            [IO.File]::Replace($tempPath, $applyPath, $backupPath)
         } else {
             [IO.File]::Move($tempPath, $applyPath)
         }
     } finally {
         if (Test-Path -LiteralPath $tempPath) {
             Remove-Item -LiteralPath $tempPath -Force -ErrorAction SilentlyContinue
+        }
+        if (Test-Path -LiteralPath $backupPath) {
+            if (-not (Test-Path -LiteralPath $applyPath -PathType Leaf)) {
+                Move-Item -LiteralPath $backupPath -Destination $applyPath -Force
+            } else {
+                Remove-Item -LiteralPath $backupPath -Force -ErrorAction SilentlyContinue
+            }
         }
     }
     Write-Step "로컬 수정 적용기를 최신 버전으로 정비했습니다."

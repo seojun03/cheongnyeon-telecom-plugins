@@ -284,16 +284,24 @@ function Refresh-EditableSupportFiles {
     $destinationResolved = if (Test-Path -LiteralPath $destination -PathType Leaf) { (Resolve-Path -LiteralPath $destination).Path } else { "" }
     if ($sourceResolved -ne $destinationResolved) {
         $tempPath = Join-Path $destinationParent (".apply-local-edits-windows." + [Guid]::NewGuid().ToString("N") + ".tmp.ps1")
+        $backupPath = Join-Path $destinationParent (".apply-local-edits-windows." + [Guid]::NewGuid().ToString("N") + ".backup.ps1")
         try {
             Copy-Item -LiteralPath $source -Destination $tempPath -Force
             if (Test-Path -LiteralPath $destination -PathType Leaf) {
-                [IO.File]::Replace($tempPath, $destination, $null)
+                [IO.File]::Replace($tempPath, $destination, $backupPath)
             } else {
                 [IO.File]::Move($tempPath, $destination)
             }
         } finally {
             if (Test-Path -LiteralPath $tempPath) {
                 Remove-Item -LiteralPath $tempPath -Force -ErrorAction SilentlyContinue
+            }
+            if (Test-Path -LiteralPath $backupPath) {
+                if (-not (Test-Path -LiteralPath $destination -PathType Leaf)) {
+                    Move-Item -LiteralPath $backupPath -Destination $destination -Force
+                } else {
+                    Remove-Item -LiteralPath $backupPath -Force -ErrorAction SilentlyContinue
+                }
             }
         }
     }
