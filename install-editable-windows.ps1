@@ -191,10 +191,10 @@ function Refresh-EditableSupportFiles {
     # Windows PowerShell 5.1 opens script files using the active ANSI code page
     # unless UTF-8 has a BOM. Write the installed helper with a BOM so it can
     # be executed directly after validation, including on Korean Windows.
-    $encoding = New-Object System.Text.UTF8Encoding($true)
+    $helperUtf8Bom = New-Object System.Text.UTF8Encoding($true)
     try {
         $source = Invoke-RestMethod -Uri $applyUrl
-        [IO.File]::WriteAllText($tempPath, [string]$source, $encoding)
+        [IO.File]::WriteAllText($tempPath, [string]$source, $helperUtf8Bom)
 
         # Windows PowerShell 5.1 treats UTF-8 files without a BOM as the local
         # ANSI code page when ParseFile is used. Read explicit UTF-8 first and

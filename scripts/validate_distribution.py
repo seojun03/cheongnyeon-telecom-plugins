@@ -134,14 +134,16 @@ def validate_installers() -> None:
     require("CHEONGNYEON_DEPENDENCIES_ONLY" in windows_editable, "Windows 편집용 설치기의 기존 로컬 연결 보호 누락")
     require("DependenciesOnly" in windows_installer, "Windows 일반 설치기의 의존성 전용 모드 누락")
     require("ParseInput" in windows_editable and "File]::Replace" in windows_editable, "Windows 편집용 보조 스크립트 안전 교체 누락")
-    require("UTF8Encoding($true)" in windows_editable, "Windows 편집용 보조 스크립트 UTF-8 BOM 처리 누락")
+    require("$helperUtf8Bom = New-Object System.Text.UTF8Encoding($true)" in windows_editable, "Windows 편집용 보조 스크립트 UTF-8 BOM 인코더 누락")
+    require("WriteAllText($tempPath, [string]$source, $helperUtf8Bom)" in windows_editable, "Windows 편집용 보조 스크립트 UTF-8 BOM 저장 누락")
 
     download_installer = (ROOT / "install-from-download-windows.ps1").read_text(encoding="utf-8")
     require("Test-PluginTree" in download_installer, "Windows ZIP 설치기의 로컬 파일 검증 누락")
     require("sourceType" in download_installer and "local" in download_installer, "Windows ZIP 설치기의 로컬 연결 검증 누락")
     require("Test-PythonAvailable" in download_installer and "Python.Python.3.14" in download_installer, "Windows ZIP 설치기의 Python 의존성 보완 누락")
     require("ParseInput" in download_installer and "File]::Replace" in download_installer, "Windows ZIP 보조 스크립트 안전 교체 누락")
-    require("UTF8Encoding($true)" in download_installer, "Windows ZIP 보조 스크립트 UTF-8 BOM 처리 누락")
+    require("$utf8Bom = New-Object System.Text.UTF8Encoding($true)" in download_installer, "Windows ZIP 보조 스크립트 UTF-8 BOM 인코더 누락")
+    require("WriteAllText($tempPath, $validatedSource, $utf8Bom)" in download_installer, "Windows ZIP 보조 스크립트 UTF-8 BOM 저장 누락")
     require("https://chatgpt.com/codex/install.ps1" in download_installer, "Windows ZIP 설치기의 공식 Codex CLI 보완 설치 누락")
 
     windows_codex_scripts = (

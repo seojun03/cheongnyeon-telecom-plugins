@@ -303,6 +303,13 @@ jobs:
           if ($installed.version -notlike "*+codex.local.install.*") { throw "ZIP plugin version is not cache-busted: $($installed.version)" }
           $skill = Join-Path $env:CHEONGNYEON_EDITABLE_ROOT "plugins\cheongnyeon-telecom-blog\skills\cheongnyeon-telecom-blog\SKILL.md"
           if (-not (Test-Path -LiteralPath $skill)) { throw "Editable ZIP skill was not copied" }
+          $helper = Join-Path $env:CHEONGNYEON_EDITABLE_ROOT "scripts\apply-local-edits-windows.ps1"
+          $helperBytes = [IO.File]::ReadAllBytes($helper)
+          if ($helperBytes.Length -lt 3 -or $helperBytes[0] -ne 0xEF -or $helperBytes[1] -ne 0xBB -or $helperBytes[2] -ne 0xBF) { throw "ZIP edit helper is missing its UTF-8 BOM" }
+          & $helper -CodexPath $zipCodex
+          $plugins = (& $zipCodex plugin list --json) | ConvertFrom-Json
+          $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
+          if (-not $installed.enabled -or $installed.marketplaceSource.sourceType -ne "local" -or $installed.version -notlike "*+codex.local.*") { throw "ZIP edit helper did not apply the local plugin" }
       - name: Verify scheduler and old-to-new auto update
         shell: powershell
         env:
