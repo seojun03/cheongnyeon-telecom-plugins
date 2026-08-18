@@ -167,6 +167,10 @@ function Install-DownloadedPlugin {
     Disable-AutoUpdate
     Copy-EditableTree
 
+    if ($env:CODEX_HOME -and -not (Test-Path -LiteralPath $env:CODEX_HOME)) {
+        New-Item -ItemType Directory -Path $env:CODEX_HOME -Force | Out-Null
+    }
+
     $script:CodexExecutable = Get-CodexCommand
     if (-not $script:CodexExecutable) {
         throw "The ChatGPT desktop app with Codex was not found. Install or update it from https://chatgpt.com/download/ and run this file again."
