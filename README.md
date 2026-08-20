@@ -24,7 +24,7 @@ PowerShell 명령을 입력하지 않아도 됩니다. 아래 ZIP을 내려받�
 1. [공식 ChatGPT Windows 앱](https://chatgpt.com/download/)을 설치하거나 최신 버전으로 업데이트합니다.
 2. ChatGPT 앱을 완전히 종료합니다.
 3. 위 링크에서 받은 `cheongnyeon-telecom-plugins-main.zip`을 마우스 오른쪽 버튼으로 눌러 **모두 압축 풀기**를 선택합니다.
-4. 압축을 푼 폴더 안의 `INSTALL-WINDOWS.cmd`를 더블클릭합니다. 관리자 권한은 필요하지 않습니다.
+4. 압축을 푼 폴더 안의 `INSTALL-WINDOWS.cmd`를 더블클릭합니다. 관리자 권한은 필요하지 않습니다. 실수로 ZIP 안에서 바로 실행해도 설치기가 전체 파일을 다시 내려받아 계속 진행합니다.
 5. 검은 창에 `INSTALLATION COMPLETE`가 표시되면 아무 키나 눌러 닫습니다.
 6. ChatGPT 앱을 다시 열고 **새 작업**에서 청년통신 플러그인을 사용합니다.
 

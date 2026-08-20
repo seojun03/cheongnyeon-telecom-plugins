@@ -138,6 +138,11 @@ def validate_installers() -> None:
     require("WriteAllText($tempPath, [string]$source, $helperUtf8Bom)" in windows_editable, "Windows 편집용 보조 스크립트 UTF-8 BOM 저장 누락")
 
     download_installer = (ROOT / "install-from-download-windows.ps1").read_text(encoding="utf-8")
+    download_launcher = (ROOT / "INSTALL-WINDOWS.cmd").read_text(encoding="utf-8")
+    require("if exist \"%LOCAL_INSTALLER%\"" in download_launcher, "Windows ZIP 실행기의 로컬 보조 파일 감지 누락")
+    require("CHEONGNYEON_BOOTSTRAP_ARCHIVE" in download_launcher, "Windows ZIP 실행기의 단독 실행 복구 경로 누락")
+    require("cheongnyeon-telecom-plugins/archive/refs/heads/main.zip" in download_launcher, "Windows ZIP 실행기의 전체 ZIP 재다운로드 URL 누락")
+    require("Expand-Archive" in download_launcher, "Windows ZIP 실행기의 전체 ZIP 압축 해제 누락")
     require("Test-PluginTree" in download_installer, "Windows ZIP 설치기의 로컬 파일 검증 누락")
     require("sourceType" in download_installer and "local" in download_installer, "Windows ZIP 설치기의 로컬 연결 검증 누락")
     require("Test-PythonAvailable" in download_installer and "Python.Python.3.14" in download_installer, "Windows ZIP 설치기의 Python 의존성 보완 누락")

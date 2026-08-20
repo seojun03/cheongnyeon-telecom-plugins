@@ -310,6 +310,31 @@ jobs:
           $plugins = (& $zipCodex plugin list --json) | ConvertFrom-Json
           $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
           if (-not $installed.enabled -or $installed.marketplaceSource.sourceType -ne "local" -or $installed.version -notlike "*+codex.local.*") { throw "ZIP edit helper did not apply the local plugin" }
+      - name: Install when CMD is launched without extracted sibling files
+        shell: powershell
+        env:
+          CODEX_HOME: ${{ runner.temp }}\cmd-bootstrap-codex-home
+          CHEONGNYEON_EDITABLE_ROOT: ${{ runner.temp }}\cmd-bootstrap-editable-plugin
+          CHEONGNYEON_SKIP_DESKTOP_SHORTCUT: "1"
+          CHEONGNYEON_SKIP_PAUSE: "1"
+        run: |
+          $archive = Join-Path $env:RUNNER_TEMP "cmd-bootstrap-source.zip"
+          git archive --format=zip --prefix=cheongnyeon-telecom-plugins-main/ --output=$archive HEAD
+          if ($LASTEXITCODE -ne 0) { throw "Failed to create CMD bootstrap source ZIP" }
+
+          $isolated = Join-Path $env:RUNNER_TEMP "cmd-bootstrap-isolated"
+          New-Item -ItemType Directory -Path $isolated -Force | Out-Null
+          Copy-Item -LiteralPath "INSTALL-WINDOWS.cmd" -Destination $isolated
+
+          $env:CHEONGNYEON_BOOTSTRAP_ARCHIVE = $archive
+          $env:CHEONGNYEON_CODEX_PATH = $env:CODEX_BIN
+          & cmd.exe /d /c (Join-Path $isolated "INSTALL-WINDOWS.cmd")
+          if ($LASTEXITCODE -ne 0) { throw "Isolated INSTALL-WINDOWS.cmd failed with exit code $LASTEXITCODE" }
+
+          $plugins = (& $env:CODEX_BIN plugin list --json) | ConvertFrom-Json
+          $installed = $plugins.installed | Where-Object { $_.pluginId -eq "cheongnyeon-telecom-blog@cheongnyeon-telecom" } | Select-Object -First 1
+          if (-not $installed.enabled -or $installed.marketplaceSource.sourceType -ne "local") { throw "CMD bootstrap plugin is not connected locally" }
+          if ($installed.version -notlike "*+codex.local.install.*") { throw "CMD bootstrap plugin version is not cache-busted: $($installed.version)" }
       - name: Verify scheduler and old-to-new auto update
         shell: powershell
         env:
